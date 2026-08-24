@@ -1,0 +1,12 @@
+# invariant-lint allow-list (ratchet sidecar)
+# One sanctioned finding-key per line. '#' starts a comment.
+# A FAIL whose key is listed here is reported as ALLOWED and does NOT fail the
+# run. Remove a line to re-arm that check. Re-seed today's reality deliberately
+# with:  python invariant_lint.py <ROOT> --reseed
+#
+# Each entry should carry a one-line WHY in a preceding '#' comment so the next
+# reader knows it is a sanctioned exception, not forgotten drift.
+#
+# This file ships EMPTY (header only). Seed your own workspace's exceptions
+# deliberately: someone else's grandfathered violations are meaningless in
+# your tree.

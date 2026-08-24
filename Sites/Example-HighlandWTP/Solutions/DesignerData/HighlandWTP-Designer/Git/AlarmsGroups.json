@@ -1,0 +1,50 @@
+{
+  "ObjectIdentification": {
+    "TableType": "AlarmsGroups",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4433084-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "AuditTrail",
+      "AckRequired": "No",
+      "Sound": "None",
+      "Show": "None",
+      "LogEvents": "Active",
+      "Colors": "ActiveFg=#FFFF0000;ActiveBg=#FFFFFFFF;NormFg=#FF008000;NormBg=#FFFFFFFF;AckFg=#FF0000FF;AckBg=#FFFFFFFF",
+      "Category": "MCP; ",
+      "Description": "Audit trail log"
+    },
+    {
+      "Name": "Critical",
+      "AckRequired": "Yes",
+      "Sound": "Beep",
+      "Show": "List",
+      "LogEvents": "ActiveAck",
+      "Colors": "ActiveFg=#FFFF0000;ActiveBg=#FFFFFFFF;NormFg=#FF008000;NormBg=#FFFFFFFF;AckFg=#FF0000FF;AckBg=#FFFFFFFF",
+      "Category": "MCP; ",
+      "Description": "Disinfection failure, SWTR violations, and equipment-protection extremes: immediate operator response."
+    },
+    {
+      "Name": "Warning",
+      "AckRequired": "No",
+      "Sound": "None",
+      "Show": "List",
+      "LogEvents": "Active",
+      "Colors": "ActiveFg=#FFFF0000;ActiveBg=#FFFFFFFF;NormFg=#FF008000;NormBg=#FFFFFFFF;AckFg=#FF0000FF;AckBg=#FFFFFFFF",
+      "Category": "MCP; ",
+      "Description": "Operational deviations needing attention (backwash due, tank refills, raw-water excursions)."
+    },
+    {
+      "Name": "Compliance",
+      "Category": "MCP; ",
+      "Description": "TCEQ / EPA Surface Water Treatment Rule regulatory action levels, feeds the compliance KPIs and shift report."
+    }
+  ]
+}

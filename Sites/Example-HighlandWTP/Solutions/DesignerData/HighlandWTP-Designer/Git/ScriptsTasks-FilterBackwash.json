@@ -1,0 +1,25 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.7115486-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "FilterBackwash",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Period": 2000,
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Enforces one-filter-at-a-time backwash: triggers at 8.0 PSI headloss, clears below 2.0 PSI, maintains in-service state and backwash counts.",
+      "Contents": "int active = @Tag.Highland/Filtration/BackwashActiveFilter;\r\nif (active == 1 && @Tag.Highland/Area500_Filtration/Filter1.HeadLoss < 2.0) { @Tag.Highland/Area500_Filtration/Filter1.Backwashing = 0; @Tag.Highland/Area500_Filtration/Filter1.BackwashCount = @Tag.Highland/Area500_Filtration/Filter1.BackwashCount + 1; active = 0; }\r\nif (active == 2 && @Tag.Highland/Area500_Filtration/Filter2.HeadLoss < 2.0) { @Tag.Highland/Area500_Filtration/Filter2.Backwashing = 0; @Tag.Highland/Area500_Filtration/Filter2.BackwashCount = @Tag.Highland/Area500_Filtration/Filter2.BackwashCount + 1; active = 0; }\r\nif (active == 3 && @Tag.Highland/Area500_Filtration/Filter3.HeadLoss < 2.0) { @Tag.Highland/Area500_Filtration/Filter3.Backwashing = 0; @Tag.Highland/Area500_Filtration/Filter3.BackwashCount = @Tag.Highland/Area500_Filtration/Filter3.BackwashCount + 1; active = 0; }\r\nif (active == 4 && @Tag.Highland/Area500_Filtration/Filter4.HeadLoss < 2.0) { @Tag.Highland/Area500_Filtration/Filter4.Backwashing = 0; @Tag.Highland/Area500_Filtration/Filter4.BackwashCount = @Tag.Highland/Area500_Filtration/Filter4.BackwashCount + 1; active = 0; }\r\nif (active == 0) {\r\n  if (@Tag.Highland/Area500_Filtration/Filter1.HeadLoss > 8.0) { active = 1; @Tag.Highland/Area500_Filtration/Filter1.Backwashing = 1; }\r\n  else if (@Tag.Highland/Area500_Filtration/Filter2.HeadLoss > 8.0) { active = 2; @Tag.Highland/Area500_Filtration/Filter2.Backwashing = 1; }\r\n  else if (@Tag.Highland/Area500_Filtration/Filter3.HeadLoss > 8.0) { active = 3; @Tag.Highland/Area500_Filtration/Filter3.Backwashing = 1; }\r\n  else if (@Tag.Highland/Area500_Filtration/Filter4.HeadLoss > 8.0) { active = 4; @Tag.Highland/Area500_Filtration/Filter4.Backwashing = 1; }\r\n}\r\n@Tag.Highland/Filtration/BackwashActiveFilter = active;\r\n@Tag.Highland/Area500_Filtration/Filter1.InService = @Tag.Highland/Area500_Filtration/Filter1.Backwashing == 1 ? 0 : 1;\r\n@Tag.Highland/Area500_Filtration/Filter2.InService = @Tag.Highland/Area500_Filtration/Filter2.Backwashing == 1 ? 0 : 1;\r\n@Tag.Highland/Area500_Filtration/Filter3.InService = @Tag.Highland/Area500_Filtration/Filter3.Backwashing == 1 ? 0 : 1;\r\n@Tag.Highland/Area500_Filtration/Filter4.InService = @Tag.Highland/Area500_Filtration/Filter4.Backwashing == 1 ? 0 : 1;"
+    }
+  ]
+}

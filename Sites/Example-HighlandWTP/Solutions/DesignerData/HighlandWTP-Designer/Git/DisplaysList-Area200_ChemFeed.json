@@ -1,0 +1,456 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.3146755-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Area200_ChemFeed",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Page",
+      "Navigate": true,
+      "Size": "1366 x 728",
+      "OnResize": "StretchUniform",
+      "Category": "MCP; ",
+      "Description": "Area 200: Chemical Feed P&ID (P201/P202/P203 metering pumps, LT201/202/203 tanks)",
+      "Width": 1366,
+      "Height": 728,
+      "Background": "theme:PageBackground",
+      "Elements": [
+        {
+          "Type": "Rectangle",
+          "Uid": "0",
+          "Left": 0,
+          "Top": 0,
+          "Fill": "#FF13315C",
+          "Stroke": "#FF13315C",
+          "StrokeThickness": 0,
+          "Width": 1366,
+          "Height": 50
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "1",
+          "Left": 20,
+          "Top": 11,
+          "LinkedValue": "AREA 200: CHEMICAL FEED",
+          "FontSize": 20,
+          "Foreground": "#FFFFFFFF",
+          "TextWrapping": "Wrap",
+          "Width": 760,
+          "Height": 28
+        },
+        {
+          "Type": "Button",
+          "Uid": "2",
+          "Left": 1150,
+          "Top": 10,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "MainPage"
+              }
+            }
+          ],
+          "LabelLink": "⌂ Home",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 90,
+          "Height": 30,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "3",
+          "Left": 1248,
+          "Top": 10,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "PlantDashboard"
+              }
+            }
+          ],
+          "LabelLink": "Dashboard",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 108,
+          "Height": 30,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "4",
+          "Left": 50,
+          "Top": 80,
+          "LinkedValue": "Coagulant (Alum): LT-201 / P-201",
+          "FontSize": 15,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 360,
+          "Height": 24
+        },
+        {
+          "Type": "LinearGauge",
+          "Uid": "5",
+          "Left": 70,
+          "Top": 120,
+          "LinkedValue": "@Tag.Highland/Area200_ChemFeed/LT201",
+          "PointerColor": "#FF0000FF",
+          "SymbolPointerStroke": "#FF0000FF",
+          "BarPointerStroke": "#FF0000FF",
+          "Orientation": "Vertical",
+          "ScaleOrientation": "Vertical",
+          "ScaleBarSize": 15,
+          "ScaleDirection": "Backward",
+          "LabelSize": 15,
+          "LabelOffset": 7.5,
+          "LabelFormat": "0.##",
+          "TickPosition": "Below",
+          "Range1EndLink": 20,
+          "Offset1": 0,
+          "Range2StartLink": 20,
+          "Range2EndLink": 40,
+          "Range3StartLink": 40,
+          "Range3EndLink": 60,
+          "Range4StartLink": 60,
+          "Range4EndLink": 80,
+          "Range5StartLink": 80,
+          "Range5EndLink": 100,
+          "RangePosition": "Below",
+          "Width": 110,
+          "Height": 300
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "6",
+          "Left": 50,
+          "Top": 430,
+          "LinkedValue": "Tank Level: {@Tag.Highland/Area200_ChemFeed/LT201} %",
+          "FontSize": 13,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 300,
+          "Height": 22
+        },
+        {
+          "Type": "Symbol",
+          "Uid": "7",
+          "Left": 230,
+          "Top": 190,
+          "Labels": {
+            "State": "@Tag.Highland/Area200_ChemFeed/P201.Running"
+          },
+          "LinkedSize": true,
+          "IsElectrical": false,
+          "SymbolName": "Wizard/PUMP/SIM_RIG_BTF_TOP",
+          "Version": 9,
+          "Width": 48.0,
+          "Height": 50
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "28",
+          "Left": 210,
+          "Top": 280,
+          "LinkedValue": "Dose: {@Tag.Highland/Area200_ChemFeed/P201.DoseRate} mL/min",
+          "FontSize": 13,
+          "Foreground": "#FF444444",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 22
+        },
+        {
+          "Type": "Ellipse",
+          "Uid": "29",
+          "Left": 330,
+          "Top": 195,
+          "Dynamics": [
+            {
+              "Type": "FillColorDynamic",
+              "LinkedValue": "@Tag.Highland/Area200_ChemFeed/P201.Fault",
+              "BadQualityResourceId": -1,
+              "UndefinedQualityResourceId": -1,
+              "ChangeColorItems": [
+                {
+                  "Type": "ChangeColorItem",
+                  "ChangeLimit": 0,
+                  "LimitColor": "#FF808080"
+                },
+                {
+                  "Type": "ChangeColorItem",
+                  "ChangeLimit": 1,
+                  "LimitColor": "#FFE00000"
+                }
+              ]
+            }
+          ],
+          "Fill": "#FF808080",
+          "Width": 18,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "30",
+          "Left": 470,
+          "Top": 80,
+          "LinkedValue": "Pre-Chlorine (Hypochlorite): LT-202 / P-202",
+          "FontSize": 15,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 360,
+          "Height": 24
+        },
+        {
+          "Type": "LinearGauge",
+          "Uid": "31",
+          "Left": 490,
+          "Top": 120,
+          "LinkedValue": "@Tag.Highland/Area200_ChemFeed/LT202",
+          "PointerColor": "#FF0000FF",
+          "SymbolPointerStroke": "#FF0000FF",
+          "BarPointerStroke": "#FF0000FF",
+          "Orientation": "Vertical",
+          "ScaleOrientation": "Vertical",
+          "ScaleBarSize": 15,
+          "ScaleDirection": "Backward",
+          "LabelSize": 15,
+          "LabelOffset": 7.5,
+          "LabelFormat": "0.##",
+          "TickPosition": "Below",
+          "Range1EndLink": 20,
+          "Offset1": 0,
+          "Range2StartLink": 20,
+          "Range2EndLink": 40,
+          "Range3StartLink": 40,
+          "Range3EndLink": 60,
+          "Range4StartLink": 60,
+          "Range4EndLink": 80,
+          "Range5StartLink": 80,
+          "Range5EndLink": 100,
+          "RangePosition": "Below",
+          "Width": 110,
+          "Height": 300
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "32",
+          "Left": 470,
+          "Top": 430,
+          "LinkedValue": "Tank Level: {@Tag.Highland/Area200_ChemFeed/LT202} %",
+          "FontSize": 13,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 300,
+          "Height": 22
+        },
+        {
+          "Type": "Symbol",
+          "Uid": "33",
+          "Left": 650,
+          "Top": 190,
+          "Labels": {
+            "State": "@Tag.Highland/Area200_ChemFeed/P202.Running"
+          },
+          "LinkedSize": true,
+          "IsElectrical": false,
+          "SymbolName": "Wizard/PUMP/SIM_RIG_BTF_TOP",
+          "Version": 9,
+          "Width": 48.0,
+          "Height": 50
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "54",
+          "Left": 630,
+          "Top": 280,
+          "LinkedValue": "Dose: {@Tag.Highland/Area200_ChemFeed/P202.DoseRate} mL/min",
+          "FontSize": 13,
+          "Foreground": "#FF444444",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 22
+        },
+        {
+          "Type": "Ellipse",
+          "Uid": "55",
+          "Left": 750,
+          "Top": 195,
+          "Dynamics": [
+            {
+              "Type": "FillColorDynamic",
+              "LinkedValue": "@Tag.Highland/Area200_ChemFeed/P202.Fault",
+              "BadQualityResourceId": -1,
+              "UndefinedQualityResourceId": -1,
+              "ChangeColorItems": [
+                {
+                  "Type": "ChangeColorItem",
+                  "ChangeLimit": 0,
+                  "LimitColor": "#FF808080"
+                },
+                {
+                  "Type": "ChangeColorItem",
+                  "ChangeLimit": 1,
+                  "LimitColor": "#FFE00000"
+                }
+              ]
+            }
+          ],
+          "Fill": "#FF808080",
+          "Width": 18,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "56",
+          "Left": 890,
+          "Top": 80,
+          "LinkedValue": "Fluoride: LT-203 / P-203",
+          "FontSize": 15,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 360,
+          "Height": 24
+        },
+        {
+          "Type": "LinearGauge",
+          "Uid": "57",
+          "Left": 910,
+          "Top": 120,
+          "LinkedValue": "@Tag.Highland/Area200_ChemFeed/LT203",
+          "PointerColor": "#FF0000FF",
+          "SymbolPointerStroke": "#FF0000FF",
+          "BarPointerStroke": "#FF0000FF",
+          "Orientation": "Vertical",
+          "ScaleOrientation": "Vertical",
+          "ScaleBarSize": 15,
+          "ScaleDirection": "Backward",
+          "LabelSize": 15,
+          "LabelOffset": 7.5,
+          "LabelFormat": "0.##",
+          "TickPosition": "Below",
+          "Range1EndLink": 20,
+          "Offset1": 0,
+          "Range2StartLink": 20,
+          "Range2EndLink": 40,
+          "Range3StartLink": 40,
+          "Range3EndLink": 60,
+          "Range4StartLink": 60,
+          "Range4EndLink": 80,
+          "Range5StartLink": 80,
+          "Range5EndLink": 100,
+          "RangePosition": "Below",
+          "Width": 110,
+          "Height": 300
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "58",
+          "Left": 890,
+          "Top": 430,
+          "LinkedValue": "Tank Level: {@Tag.Highland/Area200_ChemFeed/LT203} %",
+          "FontSize": 13,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 300,
+          "Height": 22
+        },
+        {
+          "Type": "Symbol",
+          "Uid": "59",
+          "Left": 1070,
+          "Top": 190,
+          "Labels": {
+            "State": "@Tag.Highland/Area200_ChemFeed/P203.Running"
+          },
+          "LinkedSize": true,
+          "IsElectrical": false,
+          "SymbolName": "Wizard/PUMP/SIM_RIG_BTF_TOP",
+          "Version": 9,
+          "Width": 48.0,
+          "Height": 50
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "80",
+          "Left": 1050,
+          "Top": 280,
+          "LinkedValue": "Dose: {@Tag.Highland/Area200_ChemFeed/P203.DoseRate} mL/min",
+          "FontSize": 13,
+          "Foreground": "#FF444444",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 22
+        },
+        {
+          "Type": "Ellipse",
+          "Uid": "81",
+          "Left": 1170,
+          "Top": 195,
+          "Dynamics": [
+            {
+              "Type": "FillColorDynamic",
+              "LinkedValue": "@Tag.Highland/Area200_ChemFeed/P203.Fault",
+              "BadQualityResourceId": -1,
+              "UndefinedQualityResourceId": -1,
+              "ChangeColorItems": [
+                {
+                  "Type": "ChangeColorItem",
+                  "ChangeLimit": 0,
+                  "LimitColor": "#FF808080"
+                },
+                {
+                  "Type": "ChangeColorItem",
+                  "ChangeLimit": 1,
+                  "LimitColor": "#FFE00000"
+                }
+              ]
+            }
+          ],
+          "Fill": "#FF808080",
+          "Width": 18,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "82",
+          "Left": 50,
+          "Top": 560,
+          "LinkedValue": "Metering pumps inject coagulant, pre-chlorine, and fluoride into the raw water header upstream of filtration.",
+          "FontSize": 13,
+          "Foreground": "#FF666666",
+          "TextWrapping": "Wrap",
+          "Width": 900,
+          "Height": 24
+        }
+      ],
+      "NamespaceDeclarations": "T.Portable.Controls;",
+      "IsOpenInterval": 100,
+      "Contents": "CSharp\r\npublic void DisplayOpening() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayIsOpen() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayClosing() {\r\n\t// Add your code here\r\n}\r\n//This method is only called on Dialog displays\r\npublic bool DialogOnOK() {\r\n\t// Add your code here\r\n\treturn true;\r\n}"
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.0231655-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "MainPage",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Page",
+      "Navigate": true,
+      "Size": "1366 x 720",
+      "OnResize": "StretchUniform",
+      "Category": "MCP; ",
+      "Description": "Project home page",
+      "Width": 1366,
+      "Height": 720,
+      "Background": "theme:PageBackground",
+      "Elements": [
+        {
+          "Type": "Rectangle",
+          "Uid": "0",
+          "Left": 0,
+          "Top": 0,
+          "Fill": "#FF13315C",
+          "Stroke": "#FF13315C",
+          "StrokeThickness": 0,
+          "Width": 1366,
+          "Height": 120
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "1",
+          "Left": 40,
+          "Top": 26,
+          "LinkedValue": "HIGHLAND MUNICIPAL WATER TREATMENT PLANT",
+          "FontSize": 30,
+          "Foreground": "#FFFFFFFF",
+          "TextWrapping": "Wrap",
+          "Width": 1100,
+          "Height": 44
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "2",
+          "Left": 42,
+          "Top": 76,
+          "LinkedValue": "FrameworX SCADA  ·  Operations Overview  ·  Surface-Water Plant (Areas 100-600)",
+          "FontSize": 15,
+          "Foreground": "#FFB8C7DE",
+          "TextWrapping": "Wrap",
+          "Width": 1100,
+          "Height": 26
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "3",
+          "Left": 40,
+          "Top": 138,
+          "LinkedValue": "Plant Status: Live KPIs",
+          "FontSize": 17,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 400,
+          "Height": 24
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "4",
+          "Left": 40,
+          "Top": 170,
+          "Fill": "#FFF4F7FB",
+          "Stroke": "#FFB0C4DE",
+          "Width": 250,
+          "Height": 120
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "5",
+          "Left": 56,
+          "Top": 184,
+          "LinkedValue": "TREATED VOLUME (m³)",
+          "Foreground": "#FF6B7B8C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "6",
+          "Left": 56,
+          "Top": 214,
+          "LinkedValue": "{@Tag.Highland/Plant/TreatedVolumeTotal}",
+          "FontSize": 28,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 48
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "7",
+          "Left": 306,
+          "Top": 170,
+          "Fill": "#FFF4F7FB",
+          "Stroke": "#FFB0C4DE",
+          "Width": 250,
+          "Height": 120
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "8",
+          "Left": 322,
+          "Top": 184,
+          "LinkedValue": "ENERGY TOTAL (kWh)",
+          "Foreground": "#FF6B7B8C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "9",
+          "Left": 322,
+          "Top": 214,
+          "LinkedValue": "{@Tag.Highland/Plant/EnergyTotal}",
+          "FontSize": 28,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 48
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "10",
+          "Left": 572,
+          "Top": 170,
+          "Fill": "#FFF4F7FB",
+          "Stroke": "#FFB0C4DE",
+          "Width": 250,
+          "Height": 120
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "11",
+          "Left": 588,
+          "Top": 184,
+          "LinkedValue": "SPECIFIC ENERGY (kWh/m³)",
+          "Foreground": "#FF6B7B8C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "12",
+          "Left": 588,
+          "Top": 214,
+          "LinkedValue": "{@Tag.Highland/KPI/SpecificEnergy}",
+          "FontSize": 28,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 48
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "13",
+          "Left": 838,
+          "Top": 170,
+          "Fill": "#FFF4F7FB",
+          "Stroke": "#FFB0C4DE",
+          "Width": 250,
+          "Height": 120
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "14",
+          "Left": 854,
+          "Top": 184,
+          "LinkedValue": "TURBIDITY COMPLIANCE (%)",
+          "Foreground": "#FF6B7B8C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "15",
+          "Left": 854,
+          "Top": 214,
+          "LinkedValue": "{@Tag.Highland/KPI/TurbidityCompliancePct}",
+          "FontSize": 28,
+          "Foreground": "#FF1F7A1F",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 48
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "16",
+          "Left": 1104,
+          "Top": 170,
+          "Fill": "#FFF4F7FB",
+          "Stroke": "#FFB0C4DE",
+          "Width": 250,
+          "Height": 120
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "17",
+          "Left": 1120,
+          "Top": 184,
+          "LinkedValue": "CHLORINE COMPLIANCE (%)",
+          "Foreground": "#FF6B7B8C",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 18
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "18",
+          "Left": 1120,
+          "Top": 214,
+          "LinkedValue": "{@Tag.Highland/KPI/ChlorineCompliancePct}",
+          "FontSize": 28,
+          "Foreground": "#FF1F7A1F",
+          "TextWrapping": "Wrap",
+          "Width": 220,
+          "Height": 48
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "19",
+          "Left": 40,
+          "Top": 318,
+          "LinkedValue": "Navigation",
+          "FontSize": 17,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 400,
+          "Height": 24
+        },
+        {
+          "Type": "Button",
+          "Uid": "20",
+          "Left": 40,
+          "Top": 350,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "PlantDashboard"
+              }
+            }
+          ],
+          "LabelLink": "Operations Dashboard",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "FontSize": 16,
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 250,
+          "Height": 96,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "21",
+          "Left": 306,
+          "Top": 350,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "Area100_RawWater"
+              }
+            }
+          ],
+          "LabelLink": "Area 100 · Raw Water",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "FontSize": 16,
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 250,
+          "Height": 96,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "22",
+          "Left": 572,
+          "Top": 350,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "Area200_ChemFeed"
+              }
+            }
+          ],
+          "LabelLink": "Area 200 · Chemical Feed",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "FontSize": 16,
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 250,
+          "Height": 96,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "23",
+          "Left": 838,
+          "Top": 350,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "Area500_Filtration"
+              }
+            }
+          ],
+          "LabelLink": "Area 500 · Filtration",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "FontSize": 16,
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 250,
+          "Height": 96,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "24",
+          "Left": 1104,
+          "Top": 350,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "Area600_Disinfection"
+              }
+            }
+          ],
+          "LabelLink": "Area 600 · Disinfection",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "FontSize": 16,
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 250,
+          "Height": 96,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "25",
+          "Left": 40,
+          "Top": 478,
+          "Fill": "#FFF9FAFC",
+          "Stroke": "#FFD6DEE8",
+          "Width": 1314,
+          "Height": 200
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "26",
+          "Left": 60,
+          "Top": 496,
+          "LinkedValue": "About this solution",
+          "FontSize": 15,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 700,
+          "Height": 24
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "27",
+          "Left": 60,
+          "Top": 530,
+          "LinkedValue": "Reference SCADA build for a municipal surface-water treatment plant: raw-water intake, chemical feed, dual-media filtration, and chlorine disinfection. ControlLogix-faithful UNS, rationalized alarms, historian, and KPI scripts, driven live by a ValueSimulator so the device → script → KPI chain runs end-to-end. Use the Operations Dashboard for headline quality and trends; the area pages for process detail.",
+          "FontSize": 14,
+          "Foreground": "#FF555555",
+          "TextWrapping": "Wrap",
+          "Width": 1270,
+          "Height": 130
+        }
+      ],
+      "NamespaceDeclarations": "T.Portable.Controls;",
+      "IsOpenInterval": 100,
+      "Contents": "CSharp\r\npublic void DisplayOpening() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayIsOpen() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayClosing() {\r\n\t// Add your code here\r\n}\r\n//This method is only called on Dialog displays\r\npublic bool DialogOnOK() {\r\n\t// Add your code here\r\n\treturn true;\r\n}"
+    }
+  ]
+}

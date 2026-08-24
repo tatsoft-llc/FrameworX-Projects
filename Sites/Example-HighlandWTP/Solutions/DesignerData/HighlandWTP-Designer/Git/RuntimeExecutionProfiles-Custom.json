@@ -1,0 +1,30 @@
+{
+  "ObjectIdentification": {
+    "TableType": "RuntimeExecutionProfiles",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.1917152-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "ProfileName": "Custom",
+      "EnableProfile": false,
+      "AlarmsReadOnly": false,
+      "DevicesReadOnly": false,
+      "DatasetsReadOnly": false,
+      "HistorianReadOnly": false,
+      "ReportsReadOnly": false,
+      "AttachDebugger": false,
+      "RichClientsViewOnly": false,
+      "SmartClientsViewOnly": false,
+      "WebClientsViewOnly": false,
+      "Category": "MCP; ",
+      "Description": "Custom Environment"
+    }
+  ]
+}

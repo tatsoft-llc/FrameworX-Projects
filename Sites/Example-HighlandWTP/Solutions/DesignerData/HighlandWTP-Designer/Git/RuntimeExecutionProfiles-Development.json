@@ -1,0 +1,77 @@
+{
+  "ObjectIdentification": {
+    "TableType": "RuntimeExecutionProfiles",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.1604443-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "ProfileName": "Development",
+      "EnableProfile": true,
+      "AlarmsReadOnly": false,
+      "DevicesReadOnly": false,
+      "DatasetsReadOnly": false,
+      "HistorianReadOnly": false,
+      "ReportsReadOnly": false,
+      "AttachDebugger": false,
+      "RichClientsViewOnly": false,
+      "SmartClientsViewOnly": false,
+      "WebClientsViewOnly": false,
+      "Category": "MCP; ",
+      "Description": "Development Environment",
+      "Members": [
+        {
+          "ReplaceObject": "Dataset.DB.TagHistorian",
+          "TableType": 30,
+          "Replace": true,
+          "Provider": "System.Data.SQLite",
+          "Database": "SQLite",
+          "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbHistorian",
+          "ReplaceConnection": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbHistorian"
+        },
+        {
+          "ReplaceObject": "Dataset.DB.AlarmHistorian",
+          "TableType": 30,
+          "Replace": true,
+          "Provider": "System.Data.SQLite",
+          "Database": "SQLite",
+          "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbAlarm",
+          "ReplaceConnection": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbAlarm"
+        },
+        {
+          "ReplaceObject": "Dataset.DB.Retentive",
+          "TableType": 30,
+          "Replace": true,
+          "Provider": "System.Data.SQLite",
+          "Database": "SQLite",
+          "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbRetentive",
+          "ReplaceConnection": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbRetentive"
+        },
+        {
+          "ReplaceObject": "Dataset.DB.RuntimeUsers",
+          "TableType": 30,
+          "Replace": true,
+          "Provider": "System.Data.SQLite",
+          "Database": "SQLite",
+          "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbRuntimeUsers",
+          "ReplaceConnection": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbRuntimeUsers"
+        },
+        {
+          "ReplaceObject": "Dataset.DB.Business",
+          "TableType": 30,
+          "Replace": true,
+          "Provider": "System.Data.SQLite",
+          "Database": "SQLite",
+          "ConnectionString": "Data Source=_ExecutionPathAndName_.dbBusiness",
+          "ReplaceConnection": "Data Source=_ExecutionPathAndName_.dbBusiness"
+        }
+      ]
+    }
+  ]
+}

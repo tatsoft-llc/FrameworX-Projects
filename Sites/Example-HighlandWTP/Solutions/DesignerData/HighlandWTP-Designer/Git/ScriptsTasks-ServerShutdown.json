@@ -1,0 +1,24 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6509782-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ServerShutdown",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Trigger": "Server.ShutDown",
+      "Category": "MCP; ",
+      "Description": "BuiltIn script. Runs on the server computer on application shutdown",
+      "Contents": "// Add your code here\r\n\r\n"
+    }
+  ]
+}

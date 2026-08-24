@@ -1,0 +1,20 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsUserTypes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.2723492-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Internal_Dynamic",
+      "Category": "MCP; ",
+      "Description": "Built-in tag for the TagProvider Implementation"
+    }
+  ]
+}

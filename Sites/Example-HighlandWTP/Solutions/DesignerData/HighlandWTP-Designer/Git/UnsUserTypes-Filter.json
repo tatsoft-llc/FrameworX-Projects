@@ -1,0 +1,67 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsUserTypes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.3791099-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Filter",
+      "Category": "MCP; ",
+      "Description": "Dual-media gravity filter (from L5K UDT_Filter). Service/backwash status, headloss, effluent turbidity, valve position, backwash counters.",
+      "Members": [
+        {
+          "Name": "InService",
+          "Type": "Digital",
+          "Description": "Filter in service"
+        },
+        {
+          "Name": "Backwashing",
+          "Type": "Digital",
+          "Description": "Backwash in progress"
+        },
+        {
+          "Name": "HeadLoss",
+          "Type": "Double",
+          "Min": 0,
+          "Max": 10,
+          "Units": "PSI",
+          "Description": "Differential pressure"
+        },
+        {
+          "Name": "EffluentTurbidity",
+          "Type": "Double",
+          "Min": 0,
+          "Max": 5,
+          "Units": "NTU",
+          "Description": "Effluent turbidity"
+        },
+        {
+          "Name": "ValvePosition",
+          "Type": "Double",
+          "Min": 0,
+          "Max": 100,
+          "Units": "%",
+          "Description": "Effluent valve position"
+        },
+        {
+          "Name": "TimeSinceBackwash",
+          "Type": "Double",
+          "Units": "h",
+          "Description": "Hours since last backwash"
+        },
+        {
+          "Name": "BackwashCount",
+          "Type": "Integer",
+          "Description": "Cumulative backwash count"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsTags",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4042333-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Internal_Dynamic",
+      "Type": "Internal_Dynamic",
+      "Category": "MCP; ",
+      "Description": "Built-in for the TagProvider Implementation"
+    },
+    {
+      "Name": "Templates",
+      "Type": "Templates",
+      "Category": "MCP; ",
+      "Description": "Built-in tag for Templates Implementation"
+    },
+    {
+      "Name": "Placeholder",
+      "Type": "Placeholder",
+      "Domain": "Client",
+      "Category": "MCP; ",
+      "Description": "Built-in tag designed to use within symbol definitions"
+    },
+    {
+      "Name": "Highland/Area100_RawWater/P101",
+      "Type": "Pump",
+      "Category": "MCP; ",
+      "Description": "Raw Water Pump 1, 100 HP VFD centrifugal, 2500 GPM (P-101)"
+    },
+    {
+      "Name": "Highland/Area100_RawWater/P102",
+      "Type": "Pump",
+      "Category": "MCP; ",
+      "Description": "Raw Water Pump 2, 100 HP VFD centrifugal, standby (P-102)"
+    },
+    {
+      "Name": "Highland/Area100_RawWater/FT101",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 5000,
+      "Units": "GPM",
+      "Category": "MCP; ",
+      "Description": "Raw water flow, magnetic flow meter, raw water header (FT-101)"
+    },
+    {
+      "Name": "Highland/Area100_RawWater/AIT101",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 100,
+      "Units": "NTU",
+      "Category": "MCP; ",
+      "Description": "Raw water turbidity, Hach 1720E (AIT-101)"
+    },
+    {
+      "Name": "Highland/Area100_RawWater/AIT102",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 14,
+      "Units": "pH",
+      "Category": "MCP; ",
+      "Description": "Raw water pH, Hach pHD sc (AIT-102)"
+    },
+    {
+      "Name": "Highland/Area100_RawWater/LT101",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 100,
+      "Units": "%",
+      "Category": "MCP; ",
+      "Description": "Intake wet well level (LT-101)"
+    },
+    {
+      "Name": "Highland/Area200_ChemFeed/P201",
+      "Type": "ChemPump",
+      "Category": "MCP; ",
+      "Description": "Coagulant Pump, aluminum sulfate (alum) metering pump (P-201)"
+    },
+    {
+      "Name": "Highland/Area200_ChemFeed/P202",
+      "Type": "ChemPump",
+      "Category": "MCP; ",
+      "Description": "Pre-Chlorine Pump, sodium hypochlorite metering pump (P-202)"
+    },
+    {
+      "Name": "Highland/Area200_ChemFeed/P203",
+      "Type": "ChemPump",
+      "Category": "MCP; ",
+      "Description": "Fluoride Pump, hydrofluosilicic acid metering pump (P-203)"
+    },
+    {
+      "Name": "Highland/Area200_ChemFeed/LT201",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 100,
+      "Units": "%",
+      "Category": "MCP; ",
+      "Description": "Coagulant tank level, 2,500 gallon poly tank (LT-201)"
+    },
+    {
+      "Name": "Highland/Area200_ChemFeed/LT202",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 100,
+      "Units": "%",
+      "Category": "MCP; ",
+      "Description": "Hypochlorite tank level, 5,000 gallon poly tank (LT-202)"
+    },
+    {
+      "Name": "Highland/Area200_ChemFeed/LT203",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 100,
+      "Units": "%",
+      "Category": "MCP; ",
+      "Description": "Fluoride tank level, 1,500 gallon poly tank (LT-203)"
+    },
+    {
+      "Name": "Highland/Area500_Filtration/Filter1",
+      "Type": "Filter",
+      "Category": "MCP; ",
+      "Description": "Gravity Filter 1, dual-media anthracite/sand"
+    },
+    {
+      "Name": "Highland/Area500_Filtration/Filter2",
+      "Type": "Filter",
+      "Category": "MCP; ",
+      "Description": "Gravity Filter 2, dual-media anthracite/sand"
+    },
+    {
+      "Name": "Highland/Area500_Filtration/Filter3",
+      "Type": "Filter",
+      "Category": "MCP; ",
+      "Description": "Gravity Filter 3, dual-media anthracite/sand"
+    },
+    {
+      "Name": "Highland/Area500_Filtration/Filter4",
+      "Type": "Filter",
+      "Category": "MCP; ",
+      "Description": "Gravity Filter 4, dual-media anthracite/sand"
+    },
+    {
+      "Name": "Highland/Area600_Disinfection/AIT601",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 10,
+      "Units": "mg/L",
+      "Category": "MCP; ",
+      "Description": "Free chlorine residual, post-chlorination, Hach CL17sc (AIT-601)"
+    },
+    {
+      "Name": "Highland/Area600_Disinfection/AIT602",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 14,
+      "Units": "pH",
+      "Category": "MCP; ",
+      "Description": "Finished water pH, Hach pHD sc (AIT-602)"
+    },
+    {
+      "Name": "Highland/Area600_Disinfection/AIT603",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 5,
+      "Units": "NTU",
+      "Category": "MCP; ",
+      "Description": "Finished water turbidity, Hach TU5400sc (AIT-603)"
+    },
+    {
+      "Name": "Highland/Area600_Disinfection/LT601",
+      "Type": "Double",
+      "Min": 0,
+      "Max": 100,
+      "Units": "%",
+      "Category": "MCP; ",
+      "Description": "Clearwell level, 0.5 MG clearwell, ultrasonic (LT-601)"
+    },
+    {
+      "Name": "Highland/Plant/ShiftId",
+      "Type": "Integer",
+      "StartValue": 1,
+      "Category": "MCP; ",
+      "Description": "Current shift number (1=00-08, 2=08-16, 3=16-24). Managed by ShiftKpiRollup."
+    },
+    {
+      "Name": "Highland/Plant/TreatedVolumeTotal",
+      "Type": "Double",
+      "Units": "m3",
+      "Format": "N1",
+      "Category": "MCP; ",
+      "Description": "Cumulative treated-water volume, time-integral of plant throughput. Driven by FlowTotalizer."
+    },
+    {
+      "Name": "Highland/Plant/TreatedVolumeShift",
+      "Type": "Double",
+      "Units": "m3",
+      "Format": "N1",
+      "Category": "MCP; ",
+      "Description": "Treated volume this shift (m3). Reset at shift change by ShiftKpiRollup."
+    },
+    {
+      "Name": "Highland/Plant/EnergyTotal",
+      "Type": "Double",
+      "Units": "kWh",
+      "Format": "N1",
+      "Category": "MCP; ",
+      "Description": "Cumulative pump electrical energy, time-integral of motor power. Driven by EnergyMeter."
+    },
+    {
+      "Name": "Highland/Plant/CoagulantConsumed",
+      "Type": "Double",
+      "Units": "gal",
+      "Format": "N1",
+      "Category": "MCP; ",
+      "Description": "Cumulative coagulant (alum) dosed, time-integral of P201 dose rate. Driven by ChemicalConsumption."
+    },
+    {
+      "Name": "Highland/KPI/SpecificEnergy",
+      "Type": "Double",
+      "Units": "kWh/m3",
+      "Format": "N3",
+      "Category": "MCP; ",
+      "Description": "Specific energy = EnergyTotal / TreatedVolumeTotal. Efficiency KPI."
+    },
+    {
+      "Name": "Highland/KPI/TurbidityCompliancePct",
+      "Type": "Double",
+      "StartValue": 100,
+      "Units": "%",
+      "Format": "N1",
+      "Category": "MCP; ",
+      "Description": "Percent of current shift with finished turbidity <= 0.3 NTU."
+    },
+    {
+      "Name": "Highland/KPI/ChlorineCompliancePct",
+      "Type": "Double",
+      "StartValue": 100,
+      "Units": "%",
+      "Format": "N1",
+      "Category": "MCP; ",
+      "Description": "Percent of current shift with free chlorine residual in the 0.2-4.0 mg/L band."
+    },
+    {
+      "Name": "Highland/Filtration/BackwashActiveFilter",
+      "Type": "Integer",
+      "Category": "MCP; ",
+      "Description": "Filter currently backwashing (0=none, 1-4). Enforces one-at-a-time backwash. Managed by BackwashSequencer."
+    }
+  ]
+}

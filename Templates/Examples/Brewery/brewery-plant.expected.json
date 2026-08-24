@@ -1,0 +1,38 @@
+{
+  "solution": "Brewery Plant Example",
+  "note": "Golden expectations derived from brewery-plant.spec.md (this folder) Section 8; the run-tests checker (.claude/skills/run-tests/check.py) consumes this file. Per-project copies live at Sites/<Name>/Tests/expected.json. Asserted on STABLE invariants read through the product over MCP, not on raw totals: the .dbsln is encrypted, built-in tags are hidden from the MCP tag count, and an upgrade adds the MCP user account. So the structural gate checks present-by-name domain tags, exact monitor and screen counts (stable), and a minimum user count. The domain UserTypes are confirmed at runtime via the members of a BrewLine instance (Tank, Pump, Valve). See KnowledgeBase/References/dbsln-format-note.md.",
+  "structure": {
+    "uns": {
+      "domainTagsPresent": ["BrewLine", "Simulation", "refBrewLine", "refSimulation"]
+    },
+    "alarms": {
+      "itemCount": 32,
+      "groupCount": 3,
+      "areaCount": 2
+    },
+    "historian": {
+      "tagCount": 40,
+      "tableCount": 3
+    },
+    "displays": {
+      "count": 20
+    },
+    "security": {
+      "userCountMin": 3
+    }
+  },
+  "live": {
+    "tags": [
+      {
+        "id": "tank-level-line0",
+        "match": "BrewLine",
+        "memberHint": "Level",
+        "qualityGood": true,
+        "maxAgeSeconds": 30,
+        "range": [0, 100],
+        "mustMove": true,
+        "comment": "A Tank Level member under a BrewLine instance, moved by the simulation. The collect step resolves the exact leaf path via runtime_browse_object_model and reads it twice a few seconds apart. The presence of Tank/Pump/Valve members on the BrewLine instance also confirms the domain UserTypes at runtime."
+      }
+    ]
+  }
+}

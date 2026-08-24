@@ -1,0 +1,23 @@
+{
+  "solution": "Brewery Plant Example",
+  "runLabel": "golden",
+  "collectedVia": "FrameworX AI Designer + FrameworX AI Runtime MCP, ai-test-brewery-golden, Development profile (TServer 3201)",
+  "structure": {
+    "uns": { "domainTagsPresent": ["BrewLine", "Simulation", "refBrewLine", "refSimulation"] },
+    "alarms": { "itemCount": 32, "groupCount": 3, "areaCount": 2 },
+    "historian": { "tagCount": 40, "tableCount": 3 },
+    "displays": { "count": 20 },
+    "security": { "userCount": 4 }
+  },
+  "live": {
+    "tags": [
+      {
+        "id": "tank-level-line0",
+        "resolvedPath": "Tag.BrewLine[1].MashTun.Level",
+        "quality": "Good",
+        "read1": { "value": 98.0, "timestamp": "2026-05-30T21:36:39", "ageSeconds": 11 },
+        "read2": { "value": 33.0, "timestamp": "2026-05-30T21:36:53", "ageSeconds": 5 }
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysSymbols",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.4025581-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Wizard/PUMP/SIM_RIG_BTF_TOP",
+      "Type": 105,
+      "Version": 9,
+      "Size": "48 x 50",
+      "HasDynamics": true,
+      "Category": "MCP; ",
+      "Labels": [
+        {
+          "Key": "State",
+          "Value": "2",
+          "FieldType": "Expression"
+        }
+      ],
+      "Elements": [
+        {
+          "Type": "Rectangle",
+          "Uid": "7189",
+          "Left": 24.0,
+          "Top": 1,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 23,
+          "Height": 14
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "7190",
+          "Left": 9.0,
+          "Top": 30,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 26,
+          "Height": 19
+        },
+        {
+          "Type": "Ellipse",
+          "Uid": "7191",
+          "Left": 0,
+          "Top": 1,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 44,
+          "Height": 43
+        },
+        {
+          "Type": "Ellipse",
+          "Uid": "7192",
+          "Left": 5.0,
+          "Top": 6,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 34,
+          "Height": 33
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "7193",
+          "Left": 1.0,
+          "Top": 45,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 43,
+          "Height": 5
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "7194",
+          "Left": 3.0,
+          "Top": 42,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 4,
+          "Height": 4
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "7195",
+          "Left": 37.0,
+          "Top": 42,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 4,
+          "Height": 4
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "7196",
+          "Left": 45.0,
+          "Top": 0,
+          "Fill": "#FFDEDEDE",
+          "Stroke": "#FF000000",
+          "Width": 3,
+          "Height": 16
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "ObjectIdentification": {
+    "TableType": "SolutionSettings",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.0790102-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "AllowClientClasses": true,
+      "AllowClientTasks": false,
+      "AssetsRoot": "Root",
+      "CultureInfo": "en-US",
+      "LogFilesLocation": "TraceLogs",
+      "RunScriptInternal": true,
+      "RunDeviceInternal": false,
+      "TrackingOption": "PreviousSessions",
+      "Category": "MCP; ",
+      "Description": "Highland Municipal Water Treatment Plant: FrameworX AI Designer example built from the published PDF spec + L5K (FrameworX-Projects flagship)."
+    }
+  ]
+}

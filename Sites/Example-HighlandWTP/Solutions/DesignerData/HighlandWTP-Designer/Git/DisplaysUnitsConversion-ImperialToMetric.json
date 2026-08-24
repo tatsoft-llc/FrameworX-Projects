@@ -1,0 +1,246 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysUnitsConversion",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.4438084-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ImperialToMetric",
+      "Category": "MCP; ",
+      "Members": [
+        {
+          "BaseUnit": "mph",
+          "NewUnit": "km/h",
+          "Div": 0.62137,
+          "Add": 0,
+          "BaseName": "Mile per hour",
+          "NewName": "Kilometer per hour",
+          "MeasurementType": "Speed Measure"
+        },
+        {
+          "BaseUnit": "mi/s",
+          "NewUnit": "km/s",
+          "Div": 0.62137,
+          "Add": 0,
+          "BaseName": "Mile per second",
+          "NewName": "Kilometer per second",
+          "MeasurementType": "Speed Measure"
+        },
+        {
+          "BaseUnit": "ft/s",
+          "NewUnit": "m/s",
+          "Div": 3.28106,
+          "Add": 0,
+          "BaseName": "Foot per second",
+          "NewName": "Meter per second",
+          "MeasurementType": "Speed Measure"
+        },
+        {
+          "BaseUnit": "F",
+          "NewUnit": "C",
+          "Div": 1.8,
+          "Add": -17.7777777777778,
+          "BaseName": "Fahrenheit",
+          "NewName": "Celsius",
+          "MeasurementType": "Temperature"
+        },
+        {
+          "BaseUnit": "tn",
+          "NewUnit": "t",
+          "Div": 1.10254,
+          "Add": 0,
+          "BaseName": "(short)Tton",
+          "NewName": "Tonnes",
+          "MeasurementType": "Mass (Weight)"
+        },
+        {
+          "BaseUnit": "L/T",
+          "NewUnit": "t",
+          "Div": 0.98425,
+          "Add": 0,
+          "BaseName": "(long) Ton",
+          "NewName": "Tonnes",
+          "MeasurementType": "Mass (Weight)"
+        },
+        {
+          "BaseUnit": "lb",
+          "NewUnit": "kg",
+          "Div": 2.20463,
+          "Add": 0,
+          "BaseName": "Pound",
+          "NewName": "Kilogram",
+          "MeasurementType": "Mass (Weight)"
+        },
+        {
+          "BaseUnit": "oz",
+          "NewUnit": "g",
+          "Div": 0.03527,
+          "Add": 0,
+          "BaseName": "Ounce",
+          "NewName": "Grams",
+          "MeasurementType": "Mass (Weight)"
+        },
+        {
+          "BaseUnit": "gal",
+          "NewUnit": "l",
+          "Div": 0.2642,
+          "Add": 0,
+          "BaseName": "Gallon (US)",
+          "NewName": "Liters",
+          "MeasurementType": "Capacity Measure (Volume)"
+        },
+        {
+          "BaseUnit": "gal",
+          "NewUnit": "l",
+          "Div": 0.21997,
+          "Add": 0,
+          "BaseName": "Gallon (Imperial)",
+          "NewName": "Liters",
+          "MeasurementType": "Capacity Measure (Volume)"
+        },
+        {
+          "BaseUnit": "fl. Oz",
+          "NewUnit": "ml",
+          "Div": 0.03381,
+          "Add": 0,
+          "BaseName": "Fluid Ounce (US)",
+          "NewName": "Milliliters",
+          "MeasurementType": "Capacity Measure (Volume)"
+        },
+        {
+          "BaseUnit": "fl. Oz",
+          "NewUnit": "ml",
+          "Div": 0.0352,
+          "Add": 0,
+          "BaseName": "Fluid Ounce (Imperial)",
+          "NewName": "Milliliters",
+          "MeasurementType": "Capacity Measure (Volume)"
+        },
+        {
+          "BaseUnit": "yd³",
+          "NewUnit": "m³",
+          "Div": 1.30796,
+          "Add": 0,
+          "BaseName": "Cubic Yard",
+          "NewName": "Cubic Meters",
+          "MeasurementType": "Cubic Measure (Volume)"
+        },
+        {
+          "BaseUnit": "ft³",
+          "NewUnit": "m³",
+          "Div": 35.31472,
+          "Add": 0,
+          "BaseName": "Cubic Foot",
+          "NewName": "Cubic Meters",
+          "MeasurementType": "Cubic Measure (Volume)"
+        },
+        {
+          "BaseUnit": "in³",
+          "NewUnit": "cm³",
+          "Div": 0.06102,
+          "Add": 0,
+          "BaseName": "Cubic Inch",
+          "NewName": "Cubic Centimeters",
+          "MeasurementType": "Cubic Measure (Volume)"
+        },
+        {
+          "BaseUnit": "mi²",
+          "NewUnit": "ha",
+          "Div": 0.00386,
+          "Add": 0,
+          "BaseName": "Square Mile",
+          "NewName": "Hectare",
+          "MeasurementType": "Square Measure (Area)"
+        },
+        {
+          "BaseUnit": "ac",
+          "NewUnit": "ha",
+          "Div": 2.47103,
+          "Add": 0,
+          "BaseName": "Acre",
+          "NewName": "Hectare",
+          "MeasurementType": "Square Measure (Area)"
+        },
+        {
+          "BaseUnit": "yd²",
+          "NewUnit": "m²",
+          "Div": 1.19603,
+          "Add": 0,
+          "BaseName": "Square Yard",
+          "NewName": "Square Meters",
+          "MeasurementType": "Square Measure (Area)"
+        },
+        {
+          "BaseUnit": "ft²",
+          "NewUnit": "dm²",
+          "Div": 0.10764,
+          "Add": 0,
+          "BaseName": "Square Foot",
+          "NewName": "Square Decimeters",
+          "MeasurementType": "Square Measure (Area)"
+        },
+        {
+          "BaseUnit": "in²",
+          "NewUnit": "cm²",
+          "Div": 0.155,
+          "Add": 0,
+          "BaseName": "Square Inch",
+          "NewName": "Square Centimeters",
+          "MeasurementType": "Square Measure (Area)"
+        },
+        {
+          "BaseUnit": "mi",
+          "NewUnit": "km",
+          "Div": 0.53995,
+          "Add": 0,
+          "BaseName": "Mile (Nautical)",
+          "NewName": "Kilometer",
+          "MeasurementType": "Linear Measure (Length/Distance)"
+        },
+        {
+          "BaseUnit": "mi",
+          "NewUnit": "km",
+          "Div": 0.62137,
+          "Add": 0,
+          "BaseName": "Mile (Statute)",
+          "NewName": "Kilometer",
+          "MeasurementType": "Linear Measure (Length/Distance)"
+        },
+        {
+          "BaseUnit": "yd",
+          "NewUnit": "m",
+          "Div": 1.09401,
+          "Add": 0,
+          "BaseName": "Yard",
+          "NewName": "Meter",
+          "MeasurementType": "Linear Measure (Length/Distance)"
+        },
+        {
+          "BaseUnit": "ft",
+          "NewUnit": "m",
+          "Div": 3.281,
+          "Add": 0,
+          "BaseName": "Foot",
+          "NewName": "Meter",
+          "MeasurementType": "Linear Measure (Length/Distance)"
+        },
+        {
+          "BaseUnit": "in",
+          "NewUnit": "mm",
+          "Div": 0.03937,
+          "Add": 0,
+          "BaseName": "Inch",
+          "NewName": "Millimeter",
+          "MeasurementType": "Linear Measure (Length/Distance)"
+        }
+      ]
+    }
+  ]
+}

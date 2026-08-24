@@ -1,0 +1,142 @@
+{
+  "ObjectIdentification": {
+    "TableType": "SecurityPermissions",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.5226302-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Administrator",
+      "Edit": "Unrestricted; ",
+      "Run": "Unrestricted; ",
+      "Description": "Administrator group"
+    },
+    {
+      "Name": "Guest",
+      "Edit": "Unrestricted; ",
+      "Run": "Unrestricted; ",
+      "Description": "Guest group"
+    },
+    {
+      "Name": "Maintenance",
+      "Edit": "Unrestricted; ",
+      "Run": "Unrestricted; ",
+      "Description": "Maintenance group"
+    },
+    {
+      "Name": "Engineering",
+      "Edit": "Unrestricted; ",
+      "Run": "Unrestricted; ",
+      "Description": "Engineering group"
+    },
+    {
+      "Name": "Supervisor",
+      "Edit": "Unrestricted; ",
+      "Run": "Unrestricted; ",
+      "Description": "Supervisor group"
+    },
+    {
+      "Name": "Operator",
+      "Edit": "",
+      "Run": "CreateUsers; DataAccessAPI; ",
+      "Description": "Operator group"
+    },
+    {
+      "Name": "User",
+      "Edit": "Unrestricted; ",
+      "Run": "Unrestricted; ",
+      "Description": "User group"
+    },
+    {
+      "Name": "Group8",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group9",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group10",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group11",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group12",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group13",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group14",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group15",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group16",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group17",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group18",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group19",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group20",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group21",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group22",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group23",
+      "Edit": "",
+      "Run": ""
+    },
+    {
+      "Name": "Group24",
+      "Edit": "",
+      "Run": ""
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+(* ======================================================================== *)
+(* RSLogix 5000 Export File                                                 *)
+(* Highland_WTP_Main.L5K                                                    *)
+(* Date: 01/10/2026  Time: 14:22:35                                         *)
+(* CompactLogix 5380 Controller                                             *)
+(* Studio 5000 v35.00                                                       *)
+(* ======================================================================== *)
+
+CONTROLLER Highland_WTP_Main (ProcessorType := "1756-L83E",
+                              Major := 35,
+                              Minor := 0,
+                              CommPath := "AB_ETH-1/192.168.1.10/Backplane/0")
+
+(* ======================================================================== *)
+(* USER-DEFINED DATA TYPES                                                  *)
+(* ======================================================================== *)
+
+DATATYPE UDT_Pump (FamilyType := NoFamily)
+    Running         : BOOL    (Description := "Pump running feedback");
+    Fault           : BOOL    (Description := "Pump fault/alarm");
+    Ready           : BOOL    (Description := "Pump ready status");
+    AutoManual      : BOOL    (Description := "0=Manual 1=Auto");
+    SpeedCmd        : REAL    (Description := "Speed command 0-100%");
+    SpeedFeedback   : REAL    (Description := "Speed feedback 0-100%");
+    MotorCurrent    : REAL    (Description := "Motor current in Amps");
+    RunHours        : REAL    (Description := "Accumulated run hours");
+END_DATATYPE
+
+DATATYPE UDT_ChemPump (FamilyType := NoFamily)
+    Running         : BOOL    (Description := "Pump running feedback");
+    Fault           : BOOL    (Description := "Pump fault/alarm");
+    AutoManual      : BOOL    (Description := "0=Manual 1=Auto");
+    DoseRate        : REAL    (Description := "Current dose rate mL/min");
+    DoseSetpoint    : REAL    (Description := "Dose rate setpoint mL/min");
+    TankLevel       : REAL    (Description := "Chemical tank level %");
+    TotalChemUsed   : REAL    (Description := "Totalizer gallons used");
+    FlowPaced       : BOOL    (Description := "1=Flow-paced 0=Manual rate");
+END_DATATYPE
+
+DATATYPE UDT_Filter (FamilyType := NoFamily)
+    InService       : BOOL    (Description := "Filter in service");
+    Backwashing     : BOOL    (Description := "Backwash in progress");
+    HeadLoss        : REAL    (Description := "Differential pressure PSI");
+    EffluentTurbidity : REAL  (Description := "Effluent turbidity NTU");
+    ValvePosition   : REAL    (Description := "Effluent valve 0-100%");
+    TimeSinceBackwash : REAL  (Description := "Hours since last backwash");
+    BackwashCount   : DINT    (Description := "Cumulative backwash count");
+END_DATATYPE
+
+(* ======================================================================== *)
+(* CONTROLLER TAGS                                                          *)
+(* ======================================================================== *)
+
+TAG
+
+(* --- Area 100: Raw Water Intake --- *)
+P101            : UDT_Pump      (Description := "Raw Water Pump 1 - 100HP VFD");
+P102            : UDT_Pump      (Description := "Raw Water Pump 2 - 100HP VFD Standby");
+FT101           : REAL          (Description := "Raw water flow GPM"
+                                 ,Min := 0.0 ,Max := 5000.0);
+AIT101          : REAL          (Description := "Raw water turbidity NTU"
+                                 ,Min := 0.0 ,Max := 100.0);
+AIT102          : REAL          (Description := "Raw water pH"
+                                 ,Min := 0.0 ,Max := 14.0);
+LT101           : REAL          (Description := "Intake wet well level %"
+                                 ,Min := 0.0 ,Max := 100.0);
+
+(* --- Area 200: Chemical Feed --- *)
+P201            : UDT_ChemPump  (Description := "Coagulant Pump - Alum");
+P202            : UDT_ChemPump  (Description := "Pre-Chlorine Pump - NaOCl");
+P203            : UDT_ChemPump  (Description := "Fluoride Pump - H2SiF6");
+LT201           : REAL          (Description := "Coagulant tank level %"
+                                 ,Min := 0.0 ,Max := 100.0);
+LT202           : REAL          (Description := "Hypochlorite tank level %"
+                                 ,Min := 0.0 ,Max := 100.0);
+LT203           : REAL          (Description := "Fluoride tank level %"
+                                 ,Min := 0.0 ,Max := 100.0);
+
+(* --- Area 500: Filtration --- *)
+Filter          : UDT_Filter[4] (Description := "Gravity Filters 1-4");
+
+(* --- Area 600: Disinfection & Clearwell --- *)
+AIT601          : REAL          (Description := "Free chlorine residual mg/L"
+                                 ,Min := 0.0 ,Max := 10.0);
+AIT602          : REAL          (Description := "Finished water pH"
+                                 ,Min := 0.0 ,Max := 14.0);
+AIT603          : REAL          (Description := "Finished water turbidity NTU"
+                                 ,Min := 0.0 ,Max := 5.0);
+LT601           : REAL          (Description := "Clearwell level %"
+                                 ,Min := 0.0 ,Max := 100.0);
+
+END_TAG
+
+(* ======================================================================== *)
+(* PROGRAMS                                                                 *)
+(* ======================================================================== *)
+
+PROGRAM MainProgram (Type := "Ladder",
+                     Description := "Highland WTP Main Control Program")
+    (* Program tags and routines omitted from export *)
+    (* Contact Lone Star Process Engineering for full program listing *)
+END_PROGRAM
+
+PROGRAM ChemicalFeed (Type := "FBD",
+                      Description := "Chemical dosing PID control and scheduling")
+    (* Program tags and routines omitted from export *)
+END_PROGRAM
+
+PROGRAM FilterControl (Type := "Ladder",
+                       Description := "Filter sequencing, backwash automation, and interlocks")
+    (* Program tags and routines omitted from export *)
+END_PROGRAM
+
+END_CONTROLLER

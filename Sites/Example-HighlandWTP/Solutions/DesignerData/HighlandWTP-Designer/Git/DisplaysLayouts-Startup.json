@@ -1,0 +1,90 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysLayouts",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.7730767-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Startup",
+      "Engine": "WPF",
+      "Width": 1366,
+      "Height": 768,
+      "GridRows": 0,
+      "GridColumns": 0,
+      "Background": "<SolidColorBrush xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">#FFC0C0C0</SolidColorBrush>",
+      "Category": "MCP; ",
+      "Members": [
+        {
+          "Region": "Header",
+          "Docking": "Top",
+          "Page": "Display.Header",
+          "Mobile": "Display.HeaderPad",
+          "MobileLandscape": "Display.HeaderPad",
+          "HorizontalAlign": "Stretch",
+          "VerticalAlign": 3,
+          "Splitter": false,
+          "Row": 0,
+          "RowSpan": 1,
+          "Column": 0,
+          "ColumnSpan": 3,
+          "Description": "Header region display"
+        },
+        {
+          "Region": "Footer",
+          "Docking": "Bottom",
+          "HorizontalAlign": "Stretch",
+          "VerticalAlign": 3,
+          "Splitter": false,
+          "Row": 2,
+          "RowSpan": 1,
+          "Column": 0,
+          "ColumnSpan": 3,
+          "Description": "Footer region display"
+        },
+        {
+          "Region": "Menu",
+          "Docking": "Left",
+          "HorizontalAlign": "Stretch",
+          "VerticalAlign": 1,
+          "Splitter": false,
+          "Row": 1,
+          "RowSpan": 1,
+          "Column": 0,
+          "ColumnSpan": 1,
+          "Description": "Menu region display"
+        },
+        {
+          "Region": "Submenu",
+          "Docking": "Right",
+          "HorizontalAlign": "Stretch",
+          "VerticalAlign": 1,
+          "Splitter": false,
+          "Row": 1,
+          "RowSpan": 1,
+          "Column": 2,
+          "ColumnSpan": 1,
+          "Description": "Submenu region display"
+        },
+        {
+          "Region": "Content",
+          "Page": "Display.MainPage",
+          "HorizontalAlign": "Stretch",
+          "VerticalAlign": 3,
+          "Splitter": false,
+          "Row": 1,
+          "RowSpan": 1,
+          "Column": 1,
+          "ColumnSpan": 1,
+          "Description": "Content region display"
+        }
+      ]
+    }
+  ]
+}

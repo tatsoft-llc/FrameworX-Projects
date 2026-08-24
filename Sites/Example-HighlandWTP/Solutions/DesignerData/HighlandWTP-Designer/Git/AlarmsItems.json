@@ -1,0 +1,321 @@
+{
+  "ObjectIdentification": {
+    "TableType": "AlarmsItems",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4540905-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "Condition": "LoLo",
+      "Limit": 0.1,
+      "Group": "Critical",
+      "Priority": 9,
+      "Category": "MCP; ",
+      "Message": "Free chlorine residual CRITICAL < 0.1 mg/L: disinfection failure ({Tag.Highland/Area600_Disinfection/AIT601} mg/L)"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT603",
+      "Condition": "HiHi",
+      "Limit": 1,
+      "Group": "Critical",
+      "Priority": 9,
+      "Category": "MCP; ",
+      "Message": "Finished water turbidity EXCEEDS 1.0 NTU: SWTR violation ({Tag.Highland/Area600_Disinfection/AIT603} NTU)"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "Condition": "LoLo",
+      "Limit": 15,
+      "Group": "Critical",
+      "Priority": 8,
+      "Category": "MCP; ",
+      "Message": "Clearwell level LOW-LOW < 15%"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "Condition": "HiHi",
+      "Limit": 98,
+      "Group": "Critical",
+      "Priority": 8,
+      "Category": "MCP; ",
+      "Message": "Clearwell level HIGH-HIGH > 98%: overflow risk"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT201",
+      "Condition": "LoLo",
+      "Limit": 10,
+      "Group": "Critical",
+      "Priority": 8,
+      "Category": "MCP; ",
+      "Message": "Coagulant tank LOW-LOW < 10%: dosing loss imminent"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT202",
+      "Condition": "LoLo",
+      "Limit": 10,
+      "Group": "Critical",
+      "Priority": 8,
+      "Category": "MCP; ",
+      "Message": "Hypochlorite tank LOW-LOW < 10%: disinfection at risk"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT203",
+      "Condition": "LoLo",
+      "Limit": 10,
+      "Group": "Critical",
+      "Priority": 7,
+      "Category": "MCP; ",
+      "Message": "Fluoride tank LOW-LOW < 10%"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT603",
+      "Condition": "Hi",
+      "Limit": 0.3,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Finished water turbidity above 0.3 NTU action level ({Tag.Highland/Area600_Disinfection/AIT603} NTU)"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "Condition": "Lo",
+      "Limit": 0.2,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Free chlorine residual below 0.2 mg/L action level ({Tag.Highland/Area600_Disinfection/AIT601} mg/L)"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "Condition": "Hi",
+      "Limit": 3.5,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Free chlorine residual high > 3.5 mg/L"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "Condition": "HiHi",
+      "Limit": 4,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Free chlorine residual > 4.0 mg/L: MRDL exceedance"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "Condition": "Lo",
+      "Limit": 6.5,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Finished water pH low < 6.5"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "Condition": "LoLo",
+      "Limit": 6,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Finished water pH < 6.0: out of compliance"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "Condition": "Hi",
+      "Limit": 8.5,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Finished water pH high > 8.5"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "Condition": "HiHi",
+      "Limit": 9,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Finished water pH > 9.0: out of compliance"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.EffluentTurbidity",
+      "Condition": "Hi",
+      "Limit": 0.15,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Filter 1 effluent turbidity above 0.15 NTU"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.EffluentTurbidity",
+      "Condition": "HiHi",
+      "Limit": 0.5,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Filter 1 effluent turbidity > 0.5 NTU: individual filter limit"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.EffluentTurbidity",
+      "Condition": "Hi",
+      "Limit": 0.15,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Filter 2 effluent turbidity above 0.15 NTU"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.EffluentTurbidity",
+      "Condition": "HiHi",
+      "Limit": 0.5,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Filter 2 effluent turbidity > 0.5 NTU: individual filter limit"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.EffluentTurbidity",
+      "Condition": "Hi",
+      "Limit": 0.15,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Filter 3 effluent turbidity above 0.15 NTU"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.EffluentTurbidity",
+      "Condition": "HiHi",
+      "Limit": 0.5,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Filter 3 effluent turbidity > 0.5 NTU: individual filter limit"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.EffluentTurbidity",
+      "Condition": "Hi",
+      "Limit": 0.15,
+      "Group": "Compliance",
+      "Priority": 5,
+      "Category": "MCP; ",
+      "Message": "Filter 4 effluent turbidity above 0.15 NTU"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.EffluentTurbidity",
+      "Condition": "HiHi",
+      "Limit": 0.5,
+      "Group": "Compliance",
+      "Priority": 6,
+      "Category": "MCP; ",
+      "Message": "Filter 4 effluent turbidity > 0.5 NTU: individual filter limit"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "Condition": "Lo",
+      "Limit": 25,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Clearwell level low < 25%"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "Condition": "Hi",
+      "Limit": 95,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Clearwell level high > 95%"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT201",
+      "Condition": "Lo",
+      "Limit": 15,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Coagulant tank low < 15%: plan refill"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT202",
+      "Condition": "Lo",
+      "Limit": 15,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Hypochlorite tank low < 15%: plan refill"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT203",
+      "Condition": "Lo",
+      "Limit": 15,
+      "Group": "Warning",
+      "Priority": 3,
+      "Category": "MCP; ",
+      "Message": "Fluoride tank low < 15%: plan refill"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.HeadLoss",
+      "Condition": "Hi",
+      "Limit": 8,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Filter 1 headloss > 8.0 PSI: backwash due"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.HeadLoss",
+      "Condition": "Hi",
+      "Limit": 8,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Filter 2 headloss > 8.0 PSI: backwash due"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.HeadLoss",
+      "Condition": "Hi",
+      "Limit": 8,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Filter 3 headloss > 8.0 PSI: backwash due"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.HeadLoss",
+      "Condition": "Hi",
+      "Limit": 8,
+      "Group": "Warning",
+      "Priority": 4,
+      "Category": "MCP; ",
+      "Message": "Filter 4 headloss > 8.0 PSI: backwash due"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT101",
+      "Condition": "Hi",
+      "Limit": 15,
+      "Group": "Warning",
+      "Priority": 3,
+      "Category": "MCP; ",
+      "Message": "Raw water turbidity high > 15 NTU ({Tag.Highland/Area100_RawWater/AIT101} NTU)"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT102",
+      "Condition": "Lo",
+      "Limit": 6,
+      "Group": "Warning",
+      "Priority": 3,
+      "Category": "MCP; ",
+      "Message": "Raw water pH low < 6.0"
+    }
+  ]
+}

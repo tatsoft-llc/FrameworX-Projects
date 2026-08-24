@@ -1,0 +1,31 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DevicesChannels",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4150054-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "PLC_Main",
+      "Protocol": "ControlLogix",
+      "ProtocolOptions": "1756-L8X;3;0;0",
+      "Interface": "TCPIP",
+      "Category": "MCP; ",
+      "Description": "AB ControlLogix 1756-L83E in the main plant MCC. Mapped 1:1 from Highland_WTP_Main.L5K. DISABLED for the demo: enable to go live against the real controller at 192.168.1.10."
+    },
+    {
+      "Name": "SimChannel",
+      "Protocol": "ValueSimulator",
+      "Interface": "Custom",
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Value Simulator: drives live demo data so the dashboard animates without a physical PLC."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsUserTypes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.3233127-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Placeholder",
+      "Category": "MCP; ",
+      "Description": "Built-in tags designed to use within symbol definitions",
+      "Members": [
+        {
+          "Name": "DigitalTag",
+          "Type": "Digital",
+          "Description": "Built-in DigitalTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "IntegerTag",
+          "Type": "Integer",
+          "Description": "Built-in IntegerTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "DoubleTag",
+          "Type": "Double",
+          "Format": "N02",
+          "Description": "Built-in DoubleTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "TextTag",
+          "Type": "Text",
+          "Description": "Built-in TextTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "DateTimeTag",
+          "Type": "DateTime",
+          "Description": "Built-in DateTimeTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "TimeSpanTag",
+          "Type": "TimeSpan",
+          "Description": "Built-in TimeSpanTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "ImageTag",
+          "Type": "Image",
+          "Description": "Built-in ImageTag to use as a placeholder in symbols"
+        },
+        {
+          "Name": "TableTag",
+          "Type": "DataTable",
+          "Description": "Built-in TableTag to use as a placeholder in symbols"
+        }
+      ]
+    }
+  ]
+}

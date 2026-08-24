@@ -1,0 +1,70 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsUserTypes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.3436355-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Pump",
+      "Category": "MCP; ",
+      "Description": "Variable-speed pump (from L5K UDT_Pump). Run/fault/ready status plus VFD speed cmd/feedback, motor current, run hours.",
+      "Members": [
+        {
+          "Name": "Running",
+          "Type": "Digital",
+          "Description": "Pump running feedback"
+        },
+        {
+          "Name": "Fault",
+          "Type": "Digital",
+          "Description": "Pump fault/alarm"
+        },
+        {
+          "Name": "Ready",
+          "Type": "Digital",
+          "Description": "Pump ready status"
+        },
+        {
+          "Name": "AutoManual",
+          "Type": "Digital",
+          "Description": "0=Manual 1=Auto"
+        },
+        {
+          "Name": "SpeedCmd",
+          "Type": "Double",
+          "Min": 0,
+          "Max": 100,
+          "Units": "%",
+          "Description": "Speed command"
+        },
+        {
+          "Name": "SpeedFeedback",
+          "Type": "Double",
+          "Min": 0,
+          "Max": 100,
+          "Units": "%",
+          "Description": "Speed feedback"
+        },
+        {
+          "Name": "MotorCurrent",
+          "Type": "Double",
+          "Units": "A",
+          "Description": "Motor current"
+        },
+        {
+          "Name": "RunHours",
+          "Type": "Double",
+          "Units": "h",
+          "Description": "Accumulated run hours"
+        }
+      ]
+    }
+  ]
+}

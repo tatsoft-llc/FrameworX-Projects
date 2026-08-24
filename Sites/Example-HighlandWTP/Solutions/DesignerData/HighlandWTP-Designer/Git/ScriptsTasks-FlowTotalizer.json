@@ -1,0 +1,25 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6883751-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "FlowTotalizer",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Period": 1000,
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Integrates plant throughput (FT-101, GPM) into cumulative and per-shift treated volume (m3).",
+      "Contents": "double m3 = @Tag.Highland/Area100_RawWater/FT101 * 0.0000630902;\r\n@Tag.Highland/Plant/TreatedVolumeTotal = @Tag.Highland/Plant/TreatedVolumeTotal + m3;\r\n@Tag.Highland/Plant/TreatedVolumeShift = @Tag.Highland/Plant/TreatedVolumeShift + m3;"
+    }
+  ]
+}

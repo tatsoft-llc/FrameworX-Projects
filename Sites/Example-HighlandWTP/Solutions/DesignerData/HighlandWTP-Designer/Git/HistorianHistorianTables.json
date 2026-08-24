@@ -1,0 +1,39 @@
+{
+  "ObjectIdentification": {
+    "TableType": "HistorianHistorianTables",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4698107-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Table1",
+      "StorageLocation": "TagHistorian",
+      "AutoCreate": true,
+      "SaveOnChange": true,
+      "TimeDeadband": 1000,
+      "LifeTime": 31,
+      "SaveQuality": false,
+      "ValueType": "Single",
+      "Normalized": false,
+      "Category": "MCP; ",
+      "Description": "Default historian table, one minute time span"
+    },
+    {
+      "Name": "PlantHistory",
+      "StorageLocation": "TagHistorian",
+      "SaveOnChange": true,
+      "TimeDeadband": 60000,
+      "LifeTime": 365,
+      "SaveQuality": true,
+      "ValueType": "Double",
+      "Category": "MCP; ",
+      "Description": "All analog process variables, SaveOnChange with 1-minute time-deadband and per-tag value deadband; 1-year retention for TCEQ/EPA SWTR compliance."
+    }
+  ]
+}

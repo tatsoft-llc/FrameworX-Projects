@@ -1,0 +1,47 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsAssetTree",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.3853542-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Highland",
+      "Parent": ""
+    },
+    {
+      "Name": "Area100_RawWater",
+      "Parent": "Highland/"
+    },
+    {
+      "Name": "Area200_ChemFeed",
+      "Parent": "Highland/"
+    },
+    {
+      "Name": "Area500_Filtration",
+      "Parent": "Highland/"
+    },
+    {
+      "Name": "Area600_Disinfection",
+      "Parent": "Highland/"
+    },
+    {
+      "Name": "Plant",
+      "Parent": "Highland/"
+    },
+    {
+      "Name": "KPI",
+      "Parent": "Highland/"
+    },
+    {
+      "Name": "Filtration",
+      "Parent": "Highland/"
+    }
+  ]
+}

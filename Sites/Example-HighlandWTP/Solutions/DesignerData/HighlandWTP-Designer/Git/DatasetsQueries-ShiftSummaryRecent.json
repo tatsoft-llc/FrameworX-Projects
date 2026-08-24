@@ -1,0 +1,23 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DatasetsQueries",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6335441-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ShiftSummaryRecent",
+      "DB": "Business",
+      "SqlStatement": "SELECT shift_date, shift, treated_volume_m3, energy_kwh, specific_energy, turbidity_compliance_pct, chlorine_compliance_pct FROM shift_summary ORDER BY id DESC LIMIT 30",
+      "DateTimeMode": "Local",
+      "Category": "MCP; ",
+      "Description": "Per-shift KPI rollups written by ShiftKpiRollup, feeds the shift compliance report."
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.1383972-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "HeaderPad",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Page",
+      "Navigate": true,
+      "Size": "1000 x 48",
+      "OnResize": "NoAction",
+      "Category": "MCP; ",
+      "Width": 1000,
+      "Height": 48,
+      "Background": "theme:PopupBackground",
+      "Elements": [
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "0",
+          "Left": 151.3644,
+          "Top": 9.5767,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunExpressions",
+                "Expression1": "if ( string.Compare(@Client.Theme ,\"Dark\") = 0, \"Light\", \"Dark\")",
+                "Result1": "@Client.Theme"
+              }
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 32.66,
+          "Height": 30.5,
+          "IconName": "Process Settings"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "1",
+          "Left": 54.38,
+          "Top": 8.86,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "@Display.Home"
+              }
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 32.66,
+          "Height": 30.5,
+          "IconName": "Home"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "2",
+          "Left": 11.93,
+          "Top": 10.98,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "@Display.Layouts"
+              }
+            },
+            {
+              "Type": "VisibilityDynamic",
+              "VisibleLink": "@Client.Session.IsWebBrowser = 0"
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 32.66,
+          "Height": 30.5,
+          "IconName": "Displays"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "3",
+          "Left": 101.2044,
+          "Top": 6.64,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "@Display.LogOn"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "ToolTipLink": "{@Client.CurrentUser.Name}",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            },
+            {
+              "Type": "VisibilityDynamic"
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 32.66,
+          "Height": 30.5,
+          "IconName": "User Security Permissions"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "4",
+          "Left": 247.59,
+          "Top": 12.41,
+          "LinkedValue": "{@Info.Solution.SolutionName}",
+          "Localize": true,
+          "FontFamily": "Arial",
+          "FontSize": 18,
+          "Foreground": "theme:TitleBrush",
+          "TextWrapping": "Wrap",
+          "Width": 292.43,
+          "Height": 20.7
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "5",
+          "Left": 198.45,
+          "Top": 7.51,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunExpressions",
+                "Expression1": "@Client.OpenWebDisplays()"
+              }
+            },
+            {
+              "Type": "VisibilityDynamic",
+              "VisibleLink": "@Client.Session.IsWebBrowser = 0"
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 32.66,
+          "Height": 30.5,
+          "IconName": "Internet"
+        }
+      ],
+      "IsOpenInterval": 100,
+      "Contents": "VBdotNet\r\nPublic Sub DisplayOpening()\r\n\t' Add your code here\r\n\r\nEnd Sub\r\n\r\nPublic Sub DisplayIsOpen()\r\n\t' Add your code here \r\n\r\nEnd Sub\r\n\r\nPublic Sub DisplayClosing()\r\n\t' Add your code here\r\n\r\nEnd Sub\r\n\r\n'This method is only called on Dialog displays\r\nPublic Function DialogOnOK() As Boolean\r\n\t' Add your code here\r\n\r\n\tReturn True\r\nEnd Function\r\n\r\n#If HTML5_BROWSER\r\n\r\n' This callback is called only when running in Web Client\r\nPublic Async Function BlazorControlLoaded(ByVal control As TBlazorControl) As Task\r\n\t' Add your code here\r\n\t\r\nEnd Function\r\n\r\n#End If"
+    }
+  ]
+}

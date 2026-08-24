@@ -1,0 +1,29 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DevicesNodes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4281352-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Controller",
+      "Channel": "PLC_Main",
+      "PrimaryStation": "192.168.1.10;44818;0",
+      "Category": "MCP; ",
+      "Description": "Highland_WTP_Main controller, slot 0, 1756-A13 (13-slot) chassis, EtherNet/IP port 44818."
+    },
+    {
+      "Name": "SimNode",
+      "Channel": "SimChannel",
+      "PrimaryStation": "simulator",
+      "Category": "MCP; ",
+      "Description": "Simulator station (placeholder: ValueSimulator needs no real address)."
+    }
+  ]
+}

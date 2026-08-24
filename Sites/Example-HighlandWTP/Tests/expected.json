@@ -1,0 +1,77 @@
+{
+  "solution": "Highland Municipal Water Treatment Plant (Example-HighlandWTP)",
+  "note": "Golden expectations derived from Specifications/Solution-Spec.md Section 8; the run-tests checker (.claude/skills/run-tests/check.py) consumes this file. Asserted on STABLE invariants read through the product over MCP (the .dbsln is encrypted; built-in objects are excluded where they pollute raw totals). Derivation per .claude/skills/run-tests/tests-README.md: present-by-name for domain objects, exact counts only where re-take-stable, Min where the product adds rows, tolerant invariants for live values. Two Section 8 checks exceed the checker vocabulary and are verified manually in the run report (Tests/results/): (1) KPI/SpecificEnergy equals Plant/EnergyTotal / Plant/TreatedVolumeTotal within tolerance (cross-tag identity), and (2) forcing AIT603 above 1.0 NTU raises the Critical finished-water-turbidity alarm (active alarm-fire test).",
+  "structure": {
+    "userTypes": {
+      "domain": ["Pump", "ChemPump", "Filter"],
+      "domainCount": 3
+    },
+    "uns": {
+      "areaTagCount": 20,
+      "udtInstanceCount": 9,
+      "domainTagsPresent": [
+        "Highland/Plant/ShiftId",
+        "Highland/Plant/TreatedVolumeTotal",
+        "Highland/Plant/TreatedVolumeShift",
+        "Highland/Plant/EnergyTotal",
+        "Highland/Plant/CoagulantConsumed",
+        "Highland/KPI/SpecificEnergy",
+        "Highland/KPI/TurbidityCompliancePct",
+        "Highland/KPI/ChlorineCompliancePct"
+      ]
+    },
+    "assetTree": {
+      "present": ["Highland"]
+    },
+    "alarms": {
+      "itemCount": 34,
+      "groups": {
+        "present": ["Critical", "Compliance", "Warning"]
+      }
+    },
+    "historian": {
+      "tagCount": 25,
+      "tablesWithTagsCount": 1,
+      "tables": {
+        "present": ["PlantHistory"]
+      },
+      "retentionDaysMin": 365
+    },
+    "displays": {
+      "present": [
+        "PlantDashboard",
+        "Area100_RawWater",
+        "Area200_ChemFeed",
+        "Area500_Filtration",
+        "Area600_Disinfection",
+        "MainPage"
+      ],
+      "dashboardCount": 1,
+      "startupContent": {
+        "present": ["MainPage"]
+      }
+    },
+    "security": {
+      "userCountMin": 4
+    }
+  },
+  "live": {
+    "tags": [
+      {
+        "id": "kpi-specific-energy",
+        "match": "SpecificEnergy",
+        "qualityGood": true,
+        "maxAgeSeconds": 30,
+        "mustMove": true,
+        "comment": "Section 8: KPI/SpecificEnergy holds a good-quality value, timestamp recent. mustMove per Solution-Spec Section 4 (derived KPIs must hold live, moving values): both totalizer inputs integrate continuously, so the ratio drifts between two reads. The Section 8 ratio identity (= EnergyTotal / TreatedVolumeTotal within tolerance) is beyond the checker vocabulary and is verified manually in the run report."
+      },
+      {
+        "id": "kpi-turbidity-compliance",
+        "match": "TurbidityCompliancePct",
+        "qualityGood": true,
+        "range": [100, 100],
+        "comment": "Section 8: reads 100% while the simulation holds AIT603 inside its band. Constant by design while in-band, so no mustMove and no maxAgeSeconds (an equal write does not refresh the timestamp)."
+      }
+    ]
+  }
+}

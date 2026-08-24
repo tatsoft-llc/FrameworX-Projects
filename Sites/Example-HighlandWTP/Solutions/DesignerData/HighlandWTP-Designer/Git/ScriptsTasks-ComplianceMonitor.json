@@ -1,0 +1,25 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.7023850-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ComplianceMonitor",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Period": 1000,
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Samples finished-water turbidity and chlorine each second and updates the shift compliance-percentage KPIs.",
+      "Contents": "Script.KpiHelpers.SampleTurbidity(@Tag.Highland/Area600_Disinfection/AIT603);\r\nScript.KpiHelpers.SampleChlorine(@Tag.Highland/Area600_Disinfection/AIT601);\r\n@Tag.Highland/KPI/TurbidityCompliancePct = Script.KpiHelpers.TurbPct();\r\n@Tag.Highland/KPI/ChlorineCompliancePct = Script.KpiHelpers.ChlPct();"
+    }
+  ]
+}

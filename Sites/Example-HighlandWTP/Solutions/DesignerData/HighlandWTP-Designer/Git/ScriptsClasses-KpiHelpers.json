@@ -1,0 +1,24 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsClasses",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.7396443-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "KpiHelpers",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "ClassContent": "Namespace",
+      "Category": "MCP; ",
+      "Description": "Shift compliance counters and percentage helpers for the KPI tasks.",
+      "Contents": "namespace Script {\r\n  public class KpiHelpers {\r\n    public static long TurbTotal = 0, TurbOk = 0, ChlTotal = 0, ChlOk = 0;\r\n    public static int LastShift = 0;\r\n    public static void SampleTurbidity(double ntu) { TurbTotal++; if (ntu <= 0.3) TurbOk++; }\r\n    public static void SampleChlorine(double mgl) { ChlTotal++; if (mgl >= 0.2 && mgl <= 4.0) ChlOk++; }\r\n    public static double TurbPct() { return TurbTotal > 0 ? 100.0 * TurbOk / TurbTotal : 100.0; }\r\n    public static double ChlPct() { return ChlTotal > 0 ? 100.0 * ChlOk / ChlTotal : 100.0; }\r\n    public static void ResetShift() { TurbTotal = 0; TurbOk = 0; ChlTotal = 0; ChlOk = 0; }\r\n  }\r\n}"
+    }
+  ]
+}

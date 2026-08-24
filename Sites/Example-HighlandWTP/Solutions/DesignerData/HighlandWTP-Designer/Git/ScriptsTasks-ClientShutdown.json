@@ -1,0 +1,23 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6671844-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ClientShutdown",
+      "Code": "VBdotNet",
+      "Domain": "Client",
+      "Trigger": "Client.ShutDown",
+      "Category": "MCP; ",
+      "Description": "BuiltIn script. Runs on each client computer when the Visualizer exits."
+    }
+  ]
+}

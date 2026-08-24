@@ -1,0 +1,23 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DatasetsQueries",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6244086-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ComplianceLogRecent",
+      "DB": "Business",
+      "SqlStatement": "SELECT event_time, parameter, value, limit_value, status, shift FROM compliance_log ORDER BY id DESC LIMIT 100",
+      "DateTimeMode": "Local",
+      "Category": "MCP; ",
+      "Description": "Recent compliance excursion events written by the ComplianceMonitor task."
+    }
+  ]
+}

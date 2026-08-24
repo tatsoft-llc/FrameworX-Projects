@@ -1,0 +1,25 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6953838-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ChemicalConsumption",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Period": 1000,
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Integrates coagulant (alum) metering-pump dose rate (P-201, mL/min) into cumulative gallons used.",
+      "Contents": "double gal = @Tag.Highland/Area200_ChemFeed/P201.DoseRate / 60.0 / 3785.41;\r\n@Tag.Highland/Plant/CoagulantConsumed = @Tag.Highland/Plant/CoagulantConsumed + gal;\r\n@Tag.Highland/Area200_ChemFeed/P201.Running = @Tag.Highland/Area200_ChemFeed/P201.DoseRate > 1.0 ? 1 : 0;"
+    }
+  ]
+}

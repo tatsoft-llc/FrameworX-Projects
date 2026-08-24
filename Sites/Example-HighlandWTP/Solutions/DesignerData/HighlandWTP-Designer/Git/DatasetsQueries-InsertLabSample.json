@@ -1,0 +1,23 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DatasetsQueries",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6148606-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "InsertLabSample",
+      "DB": "Business",
+      "SqlStatement": "INSERT INTO lab_samples (sample_time, location, turbidity_ntu, chlorine_mgl, ph, analyst) VALUES (datetime('now','localtime'), 'Finished Water', {Tag.Highland/Area600_Disinfection/AIT603}, {Tag.Highland/Area600_Disinfection/AIT601}, {Tag.Highland/Area600_Disinfection/AIT602}, 'AutoSampler')",
+      "DateTimeMode": "Local",
+      "Category": "MCP; ",
+      "Description": "Insert a finished-water grab sample capturing the current analyzer readings. Triggered by an operator button."
+    }
+  ]
+}

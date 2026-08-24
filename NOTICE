@@ -1,0 +1,21 @@
+FrameworX Solution Workspace
+Copyright 2026 Tatsoft LLC
+Authored by Marc Taccolini.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this work except in compliance with the License.
+You may obtain a copy of the License in the LICENSE file or at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+This workspace is a Claude Code engineering harness for FrameworX, a
+SCADA / HMI / Historian platform by Tatsoft. The harness drives the
+installed FrameworX product over its MCP tools; it does not contain it.
+
+Attribution: this NOTICE file, and the per-file "metadata.author"
+credit in the skill files under .claude/skills/, must be retained in
+redistributions and derivative works, per Section 4 of the License.
+
+Each skill declares "license: Apache-2.0" in its own frontmatter, per
+the Agent Skills specification (https://agentskills.io), so a skill
+copied out of this repository carries its license with it.

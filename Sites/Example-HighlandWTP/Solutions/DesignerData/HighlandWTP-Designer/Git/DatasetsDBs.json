@@ -1,0 +1,55 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DatasetsDBs",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.5468322-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "TagHistorian",
+      "Provider": "System.Data.SQLite",
+      "Database": "SQLite",
+      "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbHistorian",
+      "Category": "MCP; ",
+      "Description": "Database for Tags Historian. To select another provider, rename this line, and name it as TagHistorian.."
+    },
+    {
+      "Name": "AlarmHistorian",
+      "Provider": "System.Data.SQLite",
+      "Database": "SQLite",
+      "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbAlarm",
+      "Category": "MCP; ",
+      "Description": "Database for Alarm Historian.  To select another provider, rename this line, and name it as AlarmHisto"
+    },
+    {
+      "Name": "RuntimeUsers",
+      "Provider": "System.Data.SQLite",
+      "Database": "SQLite",
+      "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbRuntimeUsers",
+      "Category": "MCP; ",
+      "Description": "Database for Runtime Users.  To select another provider, rename this line, and name it as RuntimeUsers"
+    },
+    {
+      "Name": "Retentive",
+      "Provider": "System.Data.SQLite",
+      "Database": "SQLite",
+      "ConnectionString": "Provider=System.Data.SQLite;Data Source=_ExecutionPathAndName_.dbRetentive",
+      "Category": "MCP; ",
+      "Description": "Database for Retentive. To select another provider, rename this line, and name it as Retentive"
+    },
+    {
+      "Name": "Business",
+      "Provider": "System.Data.SQLite",
+      "Database": "SQLite",
+      "ConnectionString": "Data Source=_ExecutionPathAndName_.dbBusiness",
+      "Category": "MCP; ",
+      "Description": "Highland business / LIMS database (SQLite): lab samples, compliance log, shift summaries."
+    }
+  ]
+}

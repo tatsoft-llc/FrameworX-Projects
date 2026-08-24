@@ -1,0 +1,165 @@
+{
+  "ObjectIdentification": {
+    "TableType": "HistorianHistorianTags",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4729201-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "TagName": "Highland/Area100_RawWater/FT101",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT101",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT102",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/LT101",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P101.MotorCurrent",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P101.SpeedFeedback",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P102.MotorCurrent",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT201",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT202",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT203",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P201.DoseRate",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P202.DoseRate",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P203.DoseRate",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT603",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.HeadLoss",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.EffluentTurbidity",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.HeadLoss",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.EffluentTurbidity",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.HeadLoss",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.EffluentTurbidity",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.HeadLoss",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.EffluentTurbidity",
+      "DeadBand": 1,
+      "DeviationDeadBandType": "Percentage",
+      "HistorianTable": "PlantHistory"
+    }
+  ]
+}

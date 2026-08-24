@@ -1,0 +1,38 @@
+{
+  "ObjectIdentification": {
+    "TableType": "SecurityUsers",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.5436446-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Guest",
+      "Permissions": "Guest; ",
+      "Policy": "Default",
+      "Blocked": false
+    },
+    {
+      "Name": "User",
+      "Permissions": "User; ",
+      "Policy": "Default",
+      "Blocked": false
+    },
+    {
+      "Name": "Administrator",
+      "Permissions": "Administrator; ",
+      "Policy": "Default",
+      "Blocked": false
+    },
+    {
+      "Name": "MCP",
+      "Permissions": "Guest; ",
+      "Policy": "Default"
+    }
+  ]
+}

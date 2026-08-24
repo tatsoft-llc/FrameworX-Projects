@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "FrameworX-Designer": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://127.0.0.1:10150/mcp"]
+    },
+    "FrameworX-Console": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://127.0.0.1:10151/mcp"]
+    },
+    "FrameworX-Runtime": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://127.0.0.1:10120/mcp"]
+    }
+  }
+}

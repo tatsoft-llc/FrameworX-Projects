@@ -1,0 +1,284 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.3645958-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Area600_Disinfection",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Page",
+      "Navigate": true,
+      "Size": "1366 x 728",
+      "OnResize": "StretchUniform",
+      "Category": "MCP; ",
+      "Description": "Area 600: Disinfection & Clearwell P&ID (AIT601 chlorine, AIT602 pH, AIT603 turbidity, LT601 clearwell)",
+      "Width": 1366,
+      "Height": 728,
+      "Background": "theme:PageBackground",
+      "Elements": [
+        {
+          "Type": "Rectangle",
+          "Uid": "0",
+          "Left": 0,
+          "Top": 0,
+          "Fill": "#FF13315C",
+          "Stroke": "#FF13315C",
+          "StrokeThickness": 0,
+          "Width": 1366,
+          "Height": 50
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "1",
+          "Left": 20,
+          "Top": 11,
+          "LinkedValue": "AREA 600: DISINFECTION & CLEARWELL",
+          "FontSize": 20,
+          "Foreground": "#FFFFFFFF",
+          "TextWrapping": "Wrap",
+          "Width": 760,
+          "Height": 28
+        },
+        {
+          "Type": "Button",
+          "Uid": "2",
+          "Left": 1150,
+          "Top": 10,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "MainPage"
+              }
+            }
+          ],
+          "LabelLink": "⌂ Home",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 90,
+          "Height": 30,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "3",
+          "Left": 1248,
+          "Top": 10,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "PlantDashboard"
+              }
+            }
+          ],
+          "LabelLink": "Dashboard",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 108,
+          "Height": 30,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "4",
+          "Left": 40,
+          "Top": 86,
+          "LinkedValue": "←  From Filtration (Area 500)",
+          "FontSize": 13,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 300,
+          "Height": 22
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "5",
+          "Left": 40,
+          "Top": 120,
+          "LinkedValue": "Clearwell (LT-601): 0.5 MG",
+          "FontSize": 15,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 340,
+          "Height": 24
+        },
+        {
+          "Type": "LinearGauge",
+          "Uid": "6",
+          "Left": 70,
+          "Top": 160,
+          "LinkedValue": "@Tag.Highland/Area600_Disinfection/LT601",
+          "PointerColor": "#FF0000FF",
+          "SymbolPointerStroke": "#FF0000FF",
+          "BarPointerStroke": "#FF0000FF",
+          "Orientation": "Vertical",
+          "ScaleOrientation": "Vertical",
+          "ScaleBarSize": 15,
+          "ScaleDirection": "Backward",
+          "LabelSize": 15,
+          "LabelOffset": 7.5,
+          "LabelFormat": "0.##",
+          "TickPosition": "Below",
+          "Range1EndLink": 20,
+          "Offset1": 0,
+          "Range2StartLink": 20,
+          "Range2EndLink": 40,
+          "Range3StartLink": 40,
+          "Range3EndLink": 60,
+          "Range4StartLink": 60,
+          "Range4EndLink": 80,
+          "Range5StartLink": 80,
+          "Range5EndLink": 100,
+          "RangePosition": "Below",
+          "Width": 120,
+          "Height": 300
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "7",
+          "Left": 40,
+          "Top": 470,
+          "LinkedValue": "Clearwell Level: {@Tag.Highland/Area600_Disinfection/LT601} %",
+          "FontSize": 13,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 300,
+          "Height": 22
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "8",
+          "Left": 420,
+          "Top": 120,
+          "LinkedValue": "Free Chlorine Residual (AIT-601)",
+          "FontSize": 15,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 420,
+          "Height": 24
+        },
+        {
+          "Type": "RadialGauge",
+          "Uid": "9",
+          "Left": 430,
+          "Top": 160,
+          "LinkedValue": "@Tag.Highland/Area600_Disinfection/AIT601",
+          "MaxValueLink": 5,
+          "ShowCenterValue": true,
+          "CenterValueFormat": 0,
+          "Width": 280,
+          "Height": 280
+        },
+        {
+          "Type": "Rectangle",
+          "Uid": "10",
+          "Left": 770,
+          "Top": 110,
+          "Fill": "#FFF4F7FB",
+          "Stroke": "#FFB0C4DE",
+          "Width": 560,
+          "Height": 340
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "11",
+          "Left": 790,
+          "Top": 122,
+          "LinkedValue": "Finished Water Quality",
+          "FontSize": 16,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 400,
+          "Height": 26
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "12",
+          "Left": 790,
+          "Top": 172,
+          "LinkedValue": "AIT-601  Free Chlorine:  {@Tag.Highland/Area600_Disinfection/AIT601} mg/L",
+          "FontSize": 16,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 520,
+          "Height": 26
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "13",
+          "Left": 790,
+          "Top": 216,
+          "LinkedValue": "AIT-602  Finished pH:  {@Tag.Highland/Area600_Disinfection/AIT602}",
+          "FontSize": 16,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 520,
+          "Height": 26
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "14",
+          "Left": 790,
+          "Top": 260,
+          "LinkedValue": "AIT-603  Finished Turbidity:  {@Tag.Highland/Area600_Disinfection/AIT603} NTU",
+          "FontSize": 16,
+          "Foreground": "#FF222222",
+          "TextWrapping": "Wrap",
+          "Width": 520,
+          "Height": 26
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "15",
+          "Left": 790,
+          "Top": 318,
+          "LinkedValue": "Compliance: finished turbidity ≤ 0.3 NTU · free chlorine 0.2-4.0 mg/L",
+          "FontSize": 13,
+          "Foreground": "#FF666666",
+          "TextWrapping": "Wrap",
+          "Width": 520,
+          "Height": 40
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "16",
+          "Left": 790,
+          "Top": 400,
+          "LinkedValue": "To Distribution  →",
+          "FontSize": 14,
+          "Foreground": "#FF13315C",
+          "TextWrapping": "Wrap",
+          "Width": 400,
+          "Height": 24
+        }
+      ],
+      "NamespaceDeclarations": "T.Portable.Controls;",
+      "IsOpenInterval": 100,
+      "Contents": "CSharp\r\npublic void DisplayOpening() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayIsOpen() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayClosing() {\r\n\t// Add your code here\r\n}\r\n//This method is only called on Dialog displays\r\npublic bool DialogOnOK() {\r\n\t// Add your code here\r\n\treturn true;\r\n}"
+    }
+  ]
+}

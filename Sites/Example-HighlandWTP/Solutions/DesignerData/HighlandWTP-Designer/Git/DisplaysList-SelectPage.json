@@ -1,0 +1,108 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.0482333-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "SelectPage",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Dialog",
+      "Navigate": false,
+      "Size": "750 x 450",
+      "OnResize": "StretchFill",
+      "Category": "MCP; ",
+      "Description": "Selected and navigate to new page",
+      "Title": "Select Page",
+      "TitleEnabled": true,
+      "CloseButtonEnabled": true,
+      "DialogButtons": "None",
+      "Border": "Thin",
+      "Width": 750,
+      "Height": 450,
+      "Background": "theme:PageBackground",
+      "Elements": [
+        {
+          "Type": "PageSelector",
+          "Uid": "0",
+          "Left": 8,
+          "Top": 9,
+          "LinkedValue": "@Client.SelectedPage",
+          "Background": "theme:PanelBackground",
+          "Width": 729,
+          "Height": 372
+        },
+        {
+          "Type": "Button",
+          "Uid": "1",
+          "Left": 465,
+          "Top": 396.54,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "SelectedEvent": 1,
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunExpressions",
+                "Expression1": "@Client.OpenDisplay( @Client.SelectedPage )"
+              },
+              "MouseLeftButtonUp": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "CloseDisplay",
+                "ObjectLink": "@Display.SelectPage"
+              }
+            }
+          ],
+          "LabelLink": "Open Display",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 100,
+          "Height": 32,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "2",
+          "Left": 608,
+          "Top": 396.54,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "CloseDisplay",
+                "ObjectLink": "@Display.SelectPage"
+              }
+            }
+          ],
+          "LabelLink": "Cancel",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Padding": "2,0,2,0",
+          "Width": 100,
+          "Height": 32,
+          "Foreground": "theme:TextForeground"
+        }
+      ],
+      "IsOpenInterval": 100,
+      "Contents": "VBdotNet\r\nPublic Sub DisplayOpening()\r\n\r\nEnd Sub\r\n\r\nPublic Sub DisplayIsOpen()\r\n\t' Add your code here\r\nEnd Sub\r\n\r\nPublic Sub DisplayClosing()\r\n\t' Add your code here\r\nEnd Sub\r\n\r\n'This method is only called on Dialog displays\r\nPublic Function DialogOnOK() As Boolean\r\n\t' Add your code here\r\n\t\r\n\tReturn True\r\nEnd Function\r\n\r\n\r\n\r\n"
+    }
+  ]
+}

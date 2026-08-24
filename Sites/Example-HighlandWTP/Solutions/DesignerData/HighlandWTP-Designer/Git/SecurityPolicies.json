@@ -1,0 +1,39 @@
+{
+  "ObjectIdentification": {
+    "TableType": "SecurityPolicies",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.5276299-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Default"
+    },
+    {
+      "Name": "Enhanced"
+    },
+    {
+      "Name": "Critical"
+    },
+    {
+      "Name": "Settings4"
+    },
+    {
+      "Name": "Settings5"
+    },
+    {
+      "Name": "Settings6"
+    },
+    {
+      "Name": "Settings7"
+    },
+    {
+      "Name": "Settings8"
+    }
+  ]
+}

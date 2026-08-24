@@ -1,0 +1,68 @@
+# Per-operator scratch: never the deliverable
+AISessions/*
+!AISessions/README.md
+
+# Local-only Claude Code settings (per-machine permission approvals, etc.): never published.
+# The globs catch every variant/nesting, so an auto-approved command can't leak through this file.
+.claude/settings.local.json
+.claude/*.local.json
+**/settings.local.json
+
+# Claude Code runtime artifacts (live session locks): machine state, never published.
+.claude/*.lock
+
+# OS / editor / backup noise
+Thumbs.db
+.DS_Store
+._*
+.___*
+*.bak
+*.tmp
+*~
+
+# Per-customer project content (Sites/) IS tracked: the actual project work is what gets versioned.
+# This PUBLIC template ships one example site (Sites/Example-HighlandWTP). Once you start committing
+# YOUR real customer sites into your clone/fork, keep that repository PRIVATE / access-controlled.
+
+# FrameworX per-solution LOCAL / TRANSIENT state: version the solution + its diffable Git/ export,
+# NOT machine/session working state (this is the "position saving / profile" data):
+# Designer<->MCP session logs
+**/DesignerData/**/MCP/
+# compiled-script build output (regenerated on every build)
+**/DesignerData/**/NetCompiler/
+# Designer-regenerated tag cross-reference caches
+**/DesignerData/**/TagsUsage/
+# window & panel positions (per-user UI state)
+**/DesignerData/**/Settings/Designer-UIState.settings.json
+# Xceed DataGrid column/UI caches (per-user)
+**/DesignerData/**/Settings/*.table.xml
+# last-selected execution profile (per-user)
+**/DesignerData/**/Settings/Designer-InitialProfile.settings.json
+# debugger breakpoints / watch variables (per-user)
+**/DesignerData/**/Settings/Debugger-*.bin
+# Designer's own deleted-file backups
+**/DesignerData/**/Git/backup/
+# timestamped solution backups & deleted-file markers
+*.backup
+*.deleted
+
+# FrameworX runtime-generated databases (alarms/historian/retentive/users/business):
+# regenerated at run time, never version them
+*.dbAlarm
+*.dbHistorian
+*.dbRetentive
+*.dbRuntimeUsers
+*.dbBusiness
+
+# SQLite sidecars (live Designer session state, never commit)
+*.dbsln-shm
+*.dbsln-wal
+
+# Per-project test-run output: regenerated on every run of the run-tests gate.
+# (Templates/Examples/Brewery/results/ stays tracked: it is committed reference evidence.)
+Sites/*/Tests/results/
+
+# Python noise (run-tests checker, invariant linter)
+__pycache__/
+*.pyc
+.venv/

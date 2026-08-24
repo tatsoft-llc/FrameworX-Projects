@@ -1,0 +1,439 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.2377294-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "PlantDashboard",
+      "Engine": "Portable",
+      "PanelType": "Dashboard",
+      "DisplayMode": "Page",
+      "Navigate": true,
+      "Size": "1366 x 728",
+      "OnResize": "Responsive",
+      "Category": "MCP; ",
+      "Description": "Highland WTP operations dashboard: headline quality gauges + trend, alarms, lab samples",
+      "DashboardDisplay": {
+        "Columns": [
+          "*",
+          "*",
+          "*"
+        ],
+        "Rows": [
+          "*",
+          "*"
+        ]
+      },
+      "Cells": [
+        {
+          "Row": 0,
+          "Col": 0,
+          "Cell": {
+            "HeaderLink": "Finished Turbidity (NTU)",
+            "HeaderFontSize": 12,
+            "HeaderFontStyle": "Normal",
+            "BorderThickness": "1,1,1,1",
+            "BorderBrush": "theme:ItemBorder",
+            "Background": "theme:ItemBackground",
+            "CellMargin": "4,4,4,4"
+          },
+          "Content": {
+            "Type": "RadialGauge",
+            "Uid": "3",
+            "LinkedValue": "@Tag.Highland/Area600_Disinfection/AIT603",
+            "MaxValueLink": 1,
+            "ShowCenterValue": true,
+            "CenterValueFormat": 0
+          }
+        },
+        {
+          "Row": 0,
+          "Col": 1,
+          "Cell": {
+            "HeaderLink": "Free Chlorine Residual (mg/L)",
+            "HeaderFontSize": 12,
+            "HeaderFontStyle": "Normal",
+            "BorderThickness": "1,1,1,1",
+            "BorderBrush": "theme:ItemBorder",
+            "Background": "theme:ItemBackground",
+            "CellMargin": "4,4,4,4"
+          },
+          "Content": {
+            "Type": "RadialGauge",
+            "Uid": "6",
+            "LinkedValue": "@Tag.Highland/Area600_Disinfection/AIT601",
+            "MaxValueLink": 5,
+            "ShowCenterValue": true,
+            "CenterValueFormat": 0
+          }
+        },
+        {
+          "Row": 0,
+          "Col": 2,
+          "Cell": {
+            "HeaderLink": "Raw Water Flow (GPM)",
+            "HeaderFontSize": 12,
+            "HeaderFontStyle": "Normal",
+            "BorderThickness": "1,1,1,1",
+            "BorderBrush": "theme:ItemBorder",
+            "Background": "theme:ItemBackground",
+            "CellMargin": "4,4,4,4"
+          },
+          "Content": {
+            "Type": "RadialGauge",
+            "Uid": "9",
+            "LinkedValue": "@Tag.Highland/Area100_RawWater/FT101",
+            "MaxValueLink": 6000,
+            "ShowCenterValue": true,
+            "CenterValueFormat": 0
+          }
+        },
+        {
+          "Row": 1,
+          "Col": 0,
+          "Cell": {
+            "HeaderLink": "Water Quality Trend (30 min)",
+            "HeaderFontSize": 12,
+            "HeaderFontStyle": "Normal",
+            "BorderThickness": "1,1,1,1",
+            "BorderBrush": "theme:ItemBorder",
+            "Background": "theme:ItemBackground",
+            "CellMargin": "4,4,4,4"
+          },
+          "Content": {
+            "Type": "TrendChart",
+            "Uid": "13",
+            "Version": 1,
+            "LegendPlacement": "BottomPanel",
+            "XGridLines": 4,
+            "YGridLines": 5,
+            "VerticalCursor": true,
+            "NavigationControls": true,
+            "Duration": "30m",
+            "YLabels": 3,
+            "LinkedValue": "@Tag.Highland/Area100_RawWater/AIT101",
+            "Background": "theme:ControlBackground",
+            "Foreground": "theme:TextForeground",
+            "BorderBrush": "theme:DefaultBorder",
+            "Pens": [
+              {
+                "Type": "TrendPen",
+                "Stroke": "#FFB0853A",
+                "LinkedValue": "@Tag.Highland/Area100_RawWater/AIT101",
+                "MinValue": 0,
+                "MaxValue": 100,
+                "Auto": true,
+                "PenLabel": "Raw Turbidity"
+              },
+              {
+                "Type": "TrendPen",
+                "Stroke": "#FF1F77B4",
+                "LinkedValue": "@Tag.Highland/Area600_Disinfection/AIT603",
+                "MinValue": 0,
+                "MaxValue": 100,
+                "Auto": true,
+                "PenLabel": "Finished Turbidity"
+              },
+              {
+                "Type": "TrendPen",
+                "Stroke": "#FF2CA02C",
+                "LinkedValue": "@Tag.Highland/Area600_Disinfection/AIT601",
+                "MinValue": 0,
+                "MaxValue": 100,
+                "Auto": true,
+                "PenLabel": "Free Chlorine"
+              }
+            ]
+          }
+        },
+        {
+          "Row": 1,
+          "Col": 1,
+          "Cell": {
+            "HeaderLink": "Active Alarms",
+            "HeaderFontSize": 12,
+            "HeaderFontStyle": "Normal",
+            "BorderThickness": "1,1,1,1",
+            "BorderBrush": "theme:ItemBorder",
+            "Background": "theme:ItemBackground",
+            "CellMargin": "4,4,4,4"
+          },
+          "Content": {
+            "Type": "AlarmViewer",
+            "Uid": "16",
+            "CustomTheme": false,
+            "NavigationBehavior": "None",
+            "GridBorderThickness": "0,0,0,0",
+            "Background": "theme:ControlBackground",
+            "Foreground": "theme:TextForeground",
+            "BorderBrush": "theme:DefaultBorder",
+            "Columns": [
+              {
+                "Type": "GridColumn",
+                "Width": 64,
+                "Title": "Ack",
+                "FieldName": "AckStatus"
+              },
+              {
+                "Type": "GridColumn",
+                "Width": 120,
+                "Title": "Active Time",
+                "Sort": "Descending",
+                "FieldName": "ActiveTime_Ticks"
+              },
+              {
+                "Type": "GridColumn",
+                "Width": 120,
+                "Title": "TagName",
+                "FieldName": "TagName"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 120,
+                "Title": "Group",
+                "FieldName": "Group"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Value",
+                "FieldName": "Value"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "ID",
+                "FieldName": "ID"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "ItemName",
+                "FieldName": "ItemName"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "State",
+                "FieldName": "State"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "AckRequired",
+                "FieldName": "AckRequired"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Condition",
+                "FieldName": "Condition"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Solution",
+                "FieldName": "SolutionName"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Area",
+                "FieldName": "Area"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Priority",
+                "FieldName": "Priority"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Norm Time",
+                "FieldName": "NormTime_Ticks"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Ack Time",
+                "FieldName": "AckTime_Ticks"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "UserName",
+                "FieldName": "UserName"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "ShowInColumnChooser": false,
+                "Width": 64,
+                "Title": "Comments",
+                "FieldName": "Comments"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "ShowInColumnChooser": false,
+                "Width": 64,
+                "Title": "ColorFG",
+                "FieldName": "ColorFG"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "ShowInColumnChooser": false,
+                "Width": 64,
+                "Title": "ColorBG",
+                "FieldName": "ColorBG"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "NotSync",
+                "FieldName": "NotSync"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Level",
+                "FieldName": "Level"
+              },
+              {
+                "Type": "GridColumn",
+                "Width": "*",
+                "Title": "Message",
+                "FieldName": "Message"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Duration",
+                "FieldName": "Duration"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Category",
+                "FieldName": "Category"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "DateCreated",
+                "Sort": "Descending",
+                "FieldName": "DateCreated_Ticks"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "AuxValue",
+                "FieldName": "AuxValue"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "Limit",
+                "FieldName": "AlarmLimit"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "PreviousValue",
+                "FieldName": "PreviousValue"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "ShowInColumnChooser": false,
+                "Width": 64,
+                "Title": "UserFullName",
+                "FieldName": "UserFullName"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "AuxValue2",
+                "FieldName": "AuxValue2"
+              },
+              {
+                "Type": "GridColumn",
+                "Visible": false,
+                "Width": 64,
+                "Title": "AuxValue3",
+                "FieldName": "AuxValue3"
+              }
+            ],
+            "Hotkey": {
+              "Type": "HotkeyInfo",
+              "Key": "F9"
+            }
+          }
+        },
+        {
+          "Row": 1,
+          "Col": 2,
+          "Cell": {
+            "HeaderLink": "Recent Lab Samples",
+            "HeaderFontSize": 12,
+            "HeaderFontStyle": "Normal",
+            "BorderThickness": "1,1,1,1",
+            "BorderBrush": "theme:ItemBorder",
+            "Background": "theme:ItemBackground",
+            "CellMargin": "4,4,4,4"
+          },
+          "Content": {
+            "Type": "DataGrid",
+            "Uid": "19",
+            "LinkedValue": "@Dataset.Query.LabSamplesRecent",
+            "NavigationBehavior": "None",
+            "GridBorderThickness": "0,0,0,0",
+            "Columns": [
+              {
+                "Type": "GridColumn",
+                "Width": "*",
+                "Title": "Column1",
+                "FieldName": "Column1"
+              }
+            ]
+          }
+        }
+      ],
+      "NamespaceDeclarations": "T.Portable.Controls;",
+      "IsOpenInterval": 100,
+      "Contents": "CSharp\r\npublic void DisplayOpening() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayIsOpen() {\r\n\t// Add your code here\r\n}\r\npublic void DisplayClosing() {\r\n\t// Add your code here\r\n}\r\n//This method is only called on Dialog displays\r\npublic bool DialogOnOK() {\r\n\t// Add your code here\r\n\treturn true;\r\n}"
+    }
+  ]
+}

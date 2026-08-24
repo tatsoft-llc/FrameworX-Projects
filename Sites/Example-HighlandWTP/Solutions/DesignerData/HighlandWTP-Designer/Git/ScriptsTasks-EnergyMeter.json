@@ -1,0 +1,25 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.6771941-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "EnergyMeter",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Period": 1000,
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Integrates raw-water pump electrical power into EnergyTotal, derives run-state and specific energy.",
+      "Contents": "double kwPerAmp = 480.0 * 1.732 * 0.85 / 1000.0;\r\ndouble kw = (@Tag.Highland/Area100_RawWater/P101.MotorCurrent + @Tag.Highland/Area100_RawWater/P102.MotorCurrent) * kwPerAmp;\r\ndouble dtHours = 1.0 / 3600.0;\r\n@Tag.Highland/Plant/EnergyTotal = @Tag.Highland/Plant/EnergyTotal + kw * dtHours;\r\n@Tag.Highland/Area100_RawWater/P101.Running = @Tag.Highland/Area100_RawWater/P101.MotorCurrent > 5.0 ? 1 : 0;\r\n@Tag.Highland/Area100_RawWater/P102.Running = @Tag.Highland/Area100_RawWater/P102.MotorCurrent > 5.0 ? 1 : 0;\r\ndouble vol = @Tag.Highland/Plant/TreatedVolumeTotal;\r\nif (vol > 0.001) @Tag.Highland/KPI/SpecificEnergy = @Tag.Highland/Plant/EnergyTotal / vol;"
+    }
+  ]
+}

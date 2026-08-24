@@ -1,0 +1,18 @@
+# Normalize text line endings across contributor platforms
+* text=auto
+
+# Windows-executed scripts keep CRLF
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# Binaries: never line-ending-converted, never diffed as text
+*.dbsln binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.dll binary
+
+# Controller exports are text but ship byte-faithful from the source tool
+*.L5K -text

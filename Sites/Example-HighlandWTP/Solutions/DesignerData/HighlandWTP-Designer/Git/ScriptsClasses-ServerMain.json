@@ -1,0 +1,23 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsClasses",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.7252438-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ServerMain",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "ClassContent": "Methods",
+      "Category": "MCP; ",
+      "Contents": "//Public Sub Main()\r\n// Add your code here\r\n//End Sub\r\n\r\n\r\n"
+    }
+  ]
+}

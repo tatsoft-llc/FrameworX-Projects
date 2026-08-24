@@ -1,0 +1,22 @@
+{
+  "ObjectIdentification": {
+    "TableType": "AlarmsGlobalSettings",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4662858-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "AlarmHistorian": "AlarmHistorian",
+      "StoreAndForward": "False",
+      "KeepLocalCopy": "False",
+      "InitialDisableTime": 0,
+      "Category": "MCP; "
+    }
+  ]
+}

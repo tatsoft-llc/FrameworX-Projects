@@ -1,0 +1,68 @@
+{
+  "ObjectIdentification": {
+    "TableType": "UnsUserTypes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.3610231-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ChemPump",
+      "Category": "MCP; ",
+      "Description": "Chemical metering pump (from L5K UDT_ChemPump). Dose rate/setpoint, tank level, totalizer, flow-pacing mode.",
+      "Members": [
+        {
+          "Name": "Running",
+          "Type": "Digital",
+          "Description": "Pump running feedback"
+        },
+        {
+          "Name": "Fault",
+          "Type": "Digital",
+          "Description": "Pump fault/alarm"
+        },
+        {
+          "Name": "AutoManual",
+          "Type": "Digital",
+          "Description": "0=Manual 1=Auto"
+        },
+        {
+          "Name": "DoseRate",
+          "Type": "Double",
+          "Units": "mL/min",
+          "Description": "Current dose rate"
+        },
+        {
+          "Name": "DoseSetpoint",
+          "Type": "Double",
+          "Units": "mL/min",
+          "Description": "Dose rate setpoint"
+        },
+        {
+          "Name": "TankLevel",
+          "Type": "Double",
+          "Min": 0,
+          "Max": 100,
+          "Units": "%",
+          "Description": "Chemical tank level"
+        },
+        {
+          "Name": "TotalChemUsed",
+          "Type": "Double",
+          "Units": "gal",
+          "Description": "Totalizer gallons used"
+        },
+        {
+          "Name": "FlowPaced",
+          "Type": "Digital",
+          "Description": "1=Flow-paced 0=Manual rate"
+        }
+      ]
+    }
+  ]
+}

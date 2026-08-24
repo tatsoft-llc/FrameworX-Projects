@@ -1,0 +1,25 @@
+{
+  "ObjectIdentification": {
+    "TableType": "ScriptsTasks",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.7175029-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "ShiftKpiRollup",
+      "Code": "CSharp",
+      "Domain": "Server",
+      "Period": 10000,
+      "InitialState": "Enabled",
+      "Category": "MCP; ",
+      "Description": "Derives the current shift (1=00-08, 2=08-16, 3=16-24) and resets per-shift volume + compliance counters at each shift boundary.",
+      "Contents": "int hour = System.DateTime.Now.Hour;\r\nint shift = hour < 8 ? 1 : (hour < 16 ? 2 : 3);\r\nif (shift != @Tag.Highland/Plant/ShiftId) {\r\n  @Tag.Highland/Plant/ShiftId = shift;\r\n  @Tag.Highland/Plant/TreatedVolumeShift = 0;\r\n  Script.KpiHelpers.ResetShift();\r\n}"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DatasetsQueries",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.5738458-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "LabSamplesRecent",
+      "DB": "Business",
+      "SqlStatement": "SELECT sample_time, location, turbidity_ntu, chlorine_mgl, ph, analyst FROM lab_samples ORDER BY id DESC LIMIT 50",
+      "DateTimeMode": "Local",
+      "Category": "MCP; ",
+      "Description": "Most recent grab-sample lab results for the operations dashboard grid."
+    }
+  ]
+}

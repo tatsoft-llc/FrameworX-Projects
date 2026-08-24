@@ -1,0 +1,221 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.0781370-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "LogOn",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Dialog",
+      "Navigate": false,
+      "Size": "300 x 350",
+      "OnResize": "NoAction",
+      "Category": "MCP; ",
+      "Description": "Security LogOn and LogOff",
+      "Title": "LogOn",
+      "TitleEnabled": true,
+      "CloseButtonEnabled": true,
+      "DialogButtons": "None",
+      "Border": "Thin",
+      "Width": 300,
+      "Height": 350,
+      "Background": "theme:PopupBackground",
+      "Elements": [
+        {
+          "Type": "TextBox",
+          "Uid": "0",
+          "Left": 15.1,
+          "Top": 142.3469,
+          "LinkedValue": "@Client.InputUserName",
+          "TextPreviewMode": "Whitespace",
+          "LabelPosition": "None",
+          "LabelBrush": "#FF000000",
+          "Localize": true,
+          "BorderBrush": "#FFAAACB3",
+          "Background": "theme:ControlBackground",
+          "VerticalContentAlignment": "Center",
+          "Tag": "TextBox_UserName",
+          "Width": 269,
+          "Height": 23,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "TextHeader",
+          "Left": 15.908,
+          "Top": 123.5369,
+          "LinkedValue": "UserName",
+          "Localize": true,
+          "FontFamily": "Franklin Gothic",
+          "Foreground": "theme:TextSubtleForeground",
+          "TextWrapping": "Wrap",
+          "Width": 61.6,
+          "Height": 19.96,
+          "VerticalAlignment": "Center"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "TextHeader",
+          "Left": 15.3363,
+          "Top": 183.0686,
+          "LinkedValue": "Password",
+          "Localize": true,
+          "FontFamily": "Franklin Gothic",
+          "Foreground": "theme:TextSubtleForeground",
+          "TextWrapping": "Wrap",
+          "Width": 61.6,
+          "Height": 19.96,
+          "VerticalAlignment": "Center"
+        },
+        {
+          "Type": "PasswordBox",
+          "Uid": "1",
+          "Left": 14.6,
+          "Top": 201.7022,
+          "LinkedValue": "@Client.InputPassword",
+          "Localize": true,
+          "LabelPosition": "None",
+          "LabelBrush": "#FF000000",
+          "ShowClearButton": false,
+          "BorderBrush": "#FFAAACB3",
+          "Background": "theme:ControlBackground",
+          "Tag": "PasswordBox1",
+          "Width": 269,
+          "Height": 23,
+          "Text": "•"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "TextHeader",
+          "Left": 21,
+          "Top": 85.4596,
+          "LinkedValue": "Enter your user name and password.",
+          "Localize": true,
+          "FontFamily": "Global Sans Serif",
+          "FontSize": 14,
+          "Foreground": "theme:TextSubtleForeground",
+          "TextAlignment": "Center",
+          "TextWrapping": "Wrap",
+          "Width": 250.2,
+          "Height": 24.8
+        },
+        {
+          "Type": "Button",
+          "Uid": "2",
+          "Left": 100.7484,
+          "Top": 291.6325,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunScript",
+                "ActionScript": "ExecuteLogOff"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1.01
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            }
+          ],
+          "LabelLink": "LogOff",
+          "Localize": true,
+          "BorderBrush": "#FF808080",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:ButtonBackground",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 102.3516,
+          "Height": 33.4611,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Button",
+          "Uid": "3",
+          "Left": 15.6,
+          "Top": 243.632,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunScript",
+                "ActionScript": "MouseLeftButtonOk"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1.01
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            }
+          ],
+          "LabelLink": "Ok",
+          "Localize": true,
+          "BorderBrush": "theme:AccentBrush",
+          "BorderThickness": "1,1,1,1",
+          "Background": "theme:AccentBrush",
+          "Foreground": "theme:ThemeWhiteBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 269,
+          "Height": 33.4611
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "4",
+          "Left": 111.6238,
+          "Top": 23.24,
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:AccentBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 68.9524,
+          "Height": 59.4539,
+          "IconName": "Security Lock"
+        }
+      ],
+      "IsOpenInterval": 100,
+      "Contents": "CSharp\r\npublic void DisplayOpening()\r\n{\r\n\t// Add your code here    \r\n}\r\n\r\npublic void DisplayIsOpen()   \r\n{  \r\n\t// Add your code here \r\n}\r\n\r\npublic void DisplayClosing()\r\n{\r\n\t// Add your code here \r\n} \r\n\r\npublic async Task<bool> DialogOnOK()\r\n{ \r\n\teSecurityErrors log;\r\n\tlog = (eSecurityErrors) await @Client.LogOnAsync(@Client.InputUserName, @Client.InputPassword);\r\n\t\r\n\tif (log == eSecurityErrors.OK)\r\n\t{\r\n\t\t@Display.LogOn.Close();\r\n\t\treturn true;\r\n\t}\r\n\tstring msg = @Client.Locale(\"Could not logon\") + \" (\" + @Client.Locale(log.ToString()) + \")\";\r\n\tMessageBox.Show(msg);\r\n\treturn false;\r\n}\r\n\r\npublic async void MouseLeftButtonOk(object sender, System.Windows.Input.InputEventArgs e)\r\n{\r\n\tawait DialogOnOK();\r\n}\r\n\r\npublic async Task ExecuteLogOff(object sender, System.Windows.Input.InputEventArgs e)\r\n{ \r\n\tawait @Client.LogOnGuestAsync();\r\n\t@Display.LogOn.Close();\r\n}\r\n"
+    }
+  ]
+}

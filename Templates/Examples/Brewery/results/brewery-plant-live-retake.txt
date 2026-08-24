@@ -1,0 +1,17 @@
+Checker [full gate (structure + live)]: Brewery Plant Example
+----------------------------------------------------------------
+  PASS  structure.uns.domainTagsPresent all present
+  PASS  structure.alarms.itemCount   expected 32, got 32
+  PASS  structure.alarms.groupCount  expected 3, got 3
+  PASS  structure.alarms.areaCount   expected 2, got 2
+  PASS  structure.historian.tagCount expected 40, got 40
+  PASS  structure.historian.tableCount expected 3, got 3
+  PASS  structure.displays.count     expected 20, got 20
+  PASS  structure.security.userCountMin got 4 (min 3)
+  PASS  live.tank-level-line0.present resolved='Tag.BrewLine[1].MashTun.Level' value2=0.0
+  PASS  live.tank-level-line0.quality quality='Good'
+  PASS  live.tank-level-line0.fresh  ageSeconds=5 (max 30)
+  PASS  live.tank-level-line0.range  value=0.0 in [0, 100]
+  PASS  live.tank-level-line0.moved  read1=33.0 read2=0.0
+----------------------------------------------------------------
+13/13 assertions passed.

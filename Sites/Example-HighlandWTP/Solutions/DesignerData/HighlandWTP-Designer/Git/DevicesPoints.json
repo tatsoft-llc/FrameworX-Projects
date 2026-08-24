@@ -1,0 +1,389 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DevicesPoints",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4417079-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "TagName": "Highland/Area100_RawWater/P101",
+      "Node": "Controller",
+      "Address": "DATATYPE:P101:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_Pump P101"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P102",
+      "Node": "Controller",
+      "Address": "DATATYPE:P102:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_Pump P102"
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/FT101",
+      "Node": "Controller",
+      "Address": "REAL:FT101:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT101",
+      "Node": "Controller",
+      "Address": "REAL:AIT101:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT102",
+      "Node": "Controller",
+      "Address": "REAL:AIT102:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/LT101",
+      "Node": "Controller",
+      "Address": "REAL:LT101:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P201",
+      "Node": "Controller",
+      "Address": "DATATYPE:P201:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_ChemPump P201"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P202",
+      "Node": "Controller",
+      "Address": "DATATYPE:P202:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_ChemPump P202"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P203",
+      "Node": "Controller",
+      "Address": "DATATYPE:P203:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_ChemPump P203"
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT201",
+      "Node": "Controller",
+      "Address": "REAL:LT201:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT202",
+      "Node": "Controller",
+      "Address": "REAL:LT202:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT203",
+      "Node": "Controller",
+      "Address": "REAL:LT203:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1",
+      "Node": "Controller",
+      "Address": "DATATYPE:Filter[0]:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_Filter array index 0"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2",
+      "Node": "Controller",
+      "Address": "DATATYPE:Filter[1]:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_Filter array index 1"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3",
+      "Node": "Controller",
+      "Address": "DATATYPE:Filter[2]:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_Filter array index 2"
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4",
+      "Node": "Controller",
+      "Address": "DATATYPE:Filter[3]:true",
+      "AccessType": "Read",
+      "Category": "MCP; ",
+      "Notes": "L5K UDT_Filter array index 3"
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "Node": "Controller",
+      "Address": "REAL:AIT601:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "Node": "Controller",
+      "Address": "REAL:AIT602:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT603",
+      "Node": "Controller",
+      "Address": "REAL:AIT603:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "Node": "Controller",
+      "Address": "REAL:LT601:true",
+      "AccessType": "Read",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/FT101",
+      "Node": "SimNode",
+      "Address": "SINE;1900;2500;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT101",
+      "Node": "SimNode",
+      "Address": "SINE;4;11;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/AIT102",
+      "Node": "SimNode",
+      "Address": "SINE;7.2;7.9;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/LT101",
+      "Node": "SimNode",
+      "Address": "SINE;45;72;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P101.MotorCurrent",
+      "Node": "SimNode",
+      "Address": "SINE;62;90;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P101.SpeedFeedback",
+      "Node": "SimNode",
+      "Address": "SINE;70;92;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area100_RawWater/P102.MotorCurrent",
+      "Node": "SimNode",
+      "Address": "SINE;0;4;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT201",
+      "Node": "SimNode",
+      "Address": "SINE;28;82;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT202",
+      "Node": "SimNode",
+      "Address": "SINE;40;88;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/LT203",
+      "Node": "SimNode",
+      "Address": "SINE;35;78;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P201.DoseRate",
+      "Node": "SimNode",
+      "Address": "SINE;25;75;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P202.DoseRate",
+      "Node": "SimNode",
+      "Address": "SINE;15;55;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area200_ChemFeed/P203.DoseRate",
+      "Node": "SimNode",
+      "Address": "SINE;10;40;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.HeadLoss",
+      "Node": "SimNode",
+      "Address": "SINE;1.5;7;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter1.EffluentTurbidity",
+      "Node": "SimNode",
+      "Address": "SINE;0.05;0.16;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.HeadLoss",
+      "Node": "SimNode",
+      "Address": "SINE;1;6.5;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter2.EffluentTurbidity",
+      "Node": "SimNode",
+      "Address": "SINE;0.04;0.14;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.HeadLoss",
+      "Node": "SimNode",
+      "Address": "SINE;2;7.5;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter3.EffluentTurbidity",
+      "Node": "SimNode",
+      "Address": "SINE;0.05;0.18;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.HeadLoss",
+      "Node": "SimNode",
+      "Address": "SINE;1.2;6;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area500_Filtration/Filter4.EffluentTurbidity",
+      "Node": "SimNode",
+      "Address": "SINE;0.03;0.12;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT601",
+      "Node": "SimNode",
+      "Address": "SINE;0.9;2.4;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT602",
+      "Node": "SimNode",
+      "Address": "SINE;7;7.7;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/AIT603",
+      "Node": "SimNode",
+      "Address": "SINE;0.04;0.22;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    },
+    {
+      "TagName": "Highland/Area600_Disinfection/LT601",
+      "Node": "SimNode",
+      "Address": "SINE;55;90;1",
+      "DataType": "Native",
+      "AccessType": "Read",
+      "Scaling": "None",
+      "Category": "MCP; "
+    }
+  ]
+}

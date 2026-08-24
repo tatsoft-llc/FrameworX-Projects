@@ -1,0 +1,403 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DisplaysList",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:28.1154536-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Header",
+      "Engine": "Portable",
+      "PanelType": "Canvas",
+      "DisplayMode": "Page",
+      "Navigate": false,
+      "Size": "1366 x 48",
+      "OnResize": "Responsive",
+      "Category": "MCP; ",
+      "Description": "Common header for startup layout",
+      "LockedHeight": true,
+      "Width": 1366,
+      "Height": 48,
+      "Background": "theme:PanelBackground",
+      "Elements": [
+        {
+          "Type": "TextBlock",
+          "Uid": "TextHeader",
+          "Left": 547.2961,
+          "Top": 13.4946,
+          "LinkedValue": "{@Info.Solution.SolutionName}",
+          "Localize": true,
+          "FontWeight": "Bold",
+          "FontSize": 16,
+          "TextWrapping": "Wrap",
+          "Tag": 4,
+          "Width": 333.6111,
+          "Height": 21.28,
+          "IsWidthAlign": true,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "Path",
+          "Uid": "PathHeader",
+          "Left": 47.2187,
+          "Top": 16.6768,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "@Display.SelectPage"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "ToolTipLink": "Select Pages",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            }
+          ],
+          "Fill": "theme:TitleBrush",
+          "Stroke": "#00FFFFFF",
+          "Width": 21.4,
+          "Height": 16.2,
+          "Data": "M 17.4333801269531,9.76718425750732 C 16.6049499511719,9.76718425750732 15.9333801269531,10.4387578964233 15.9333801269531,11.2671842575073 15.9333801269531,12.0956125259399 16.6049499511719,12.7671842575073 17.4333801269531,12.7671842575073 18.2618103027344,12.7671842575073 18.9333801269531,12.0956125259399 18.9333801269531,11.2671842575073 18.9333801269531,10.4387578964233 18.2618103027344,9.76718425750732 17.4333801269531,9.76718425750732 z M 12.1999969482422,9.76718425750732 C 11.37158203125,9.76718425750732 10.6999969482422,10.4387578964233 10.6999969482422,11.2671842575073 10.6999969482422,12.0956125259399 11.37158203125,12.7671842575073 12.1999969482422,12.7671842575073 13.0284271240234,12.7671842575073 13.6999969482422,12.0956125259399 13.6999969482422,11.2671842575073 13.6999969482422,10.4387578964233 13.0284271240234,9.76718425750732 12.1999969482422,9.76718425750732 z M 6.96662902832031,9.76718425750732 C 6.13819885253906,9.76718425750732 5.46662902832031,10.4387578964233 5.46662902832031,11.2671842575073 5.46662902832031,12.0956125259399 6.13819885253906,12.7671842575073 6.96662902832031,12.7671842575073 7.79505920410156,12.7671842575073 8.46662902832031,12.0956125259399 8.46662902832031,11.2671842575073 8.46662902832031,10.4387578964233 7.79505920410156,9.76718425750732 6.96662902832031,9.76718425750732 z M 1,0 L 23.4000091552734,0 C 23.9522857666016,-9.5367431640625E-07,24.4000091552734,0.447714805603027,24.4000091552734,0.999999046325684 L 24.4000091552734,13.600001335144 C 24.4000091552734,14.1522836685181,23.9522857666016,14.5999994277954,23.4000091552734,14.5999994277954 L 1,14.5999994277954 C 0.447723388671875,14.5999994277954,0,14.1522836685181,0,13.600001335144 L 0,0.999999046325684 C 0,0.447714805603027,0.447723388671875,-9.5367431640625E-07,1,0 z"
+        },
+        {
+          "Type": "ComboBox",
+          "Uid": "0",
+          "Left": 108.1101,
+          "Top": 16.3646,
+          "LinkedValue": "@Client.Theme",
+          "ItemsSourceLink": "Light;Dark;Sky;Navy;Gold;Coffee;Pearl;Indigo;Steel;Graphite;HighContrastLight;HighContrastDark;",
+          "LabelBrush": "#FF000000",
+          "Localize": true,
+          "BorderBrush": "theme:DefaultBorder",
+          "FontSize": 10,
+          "VerticalContentAlignment": "Center",
+          "Width": 79.4524,
+          "Height": 19.1008,
+          "Foreground": "theme:TextForeground",
+          "Background": {
+            "Type": "LinearGradientBrush",
+            "StartPoint": "0,0",
+            "EndPoint": "1,0",
+            "GradientStops": [
+              {
+                "Type": "GradientStop",
+                "Color": "#FFF0F0F0",
+                "Offset": 0
+              },
+              {
+                "Type": "GradientStop",
+                "Color": "#FFE5E5E5",
+                "Offset": 1
+              }
+            ]
+          }
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "1",
+          "Left": 81.2363,
+          "Top": 14.4667,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunExpressions",
+                "Expression1": "if ( string.Compare(@Client.Theme ,\"Dark\") = 0, \"Light\", \"Dark\")",
+                "Result1": "@Client.Theme"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "ToolTipLink": "Theme",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            }
+          ],
+          "Background": "#FFFFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 25.0116,
+          "Height": 27.9768,
+          "IconName": "Themes"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "2",
+          "Left": 7,
+          "Top": 11,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "@Display.MainPage"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "ToolTipLink": "Home",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 25.0116,
+          "Height": 27.9768,
+          "IconName": "Home"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "3",
+          "Left": 386.4317,
+          "Top": 10.6667,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "OpenDisplay",
+                "ObjectLink": "@Display.LogOn"
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "ToolTipLink": "LogOn",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 25.0116,
+          "Height": 27.9768,
+          "IconName": "User Security Permissions"
+        },
+        {
+          "Type": "TextBlock",
+          "Uid": "TextHeader",
+          "Left": 419.5431,
+          "Top": 19.6195,
+          "LinkedValue": "{@Client.CurrentUser.Name.ToString().ToUpper()}",
+          "Localize": true,
+          "TextWrapping": "Wrap",
+          "Tag": 8,
+          "Width": 113.4,
+          "Height": 17.88,
+          "Foreground": "theme:TextForeground"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "4",
+          "Left": 203.7907,
+          "Top": 10.4667,
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 25.0116,
+          "Height": 27.9768,
+          "IconName": "Calendar"
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "5",
+          "Left": 343.5052,
+          "Top": 11.9111,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "SetValue",
+                "ObjectLink": "@Server.Shutdown",
+                "ObjectValueLink": 1
+              }
+            },
+            {
+              "Type": "ShineDynamic",
+              "ToolTipLink": "Application Shutdown",
+              "GlowBrush": "#FFFFFF00",
+              "GlowThemeColorId": -1,
+              "TextBrush": "#FF7B68EE",
+              "TextThemeColorId": -1,
+              "MouseOverVisual": {
+                "Type": "MouseOverVisual",
+                "Scale": 1
+              },
+              "MouseNotOverVisual": {
+                "Type": "MouseNotOverVisual",
+                "Opacity": 0.8,
+                "Scale": 1
+              },
+              "IsSelectedVisual": {
+                "Type": "IsSelectedVisual",
+                "Scale": 1
+              }
+            },
+            {
+              "Type": "SecurityDynamic",
+              "ConfirmRequired": true,
+              "ConfirmMessage": "Shutdown application?"
+            },
+            {
+              "Type": "VisibilityDynamic",
+              "VisibleLink": "@Client.Session.IsWebBrowser = 0"
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 25.0116,
+          "Height": 27.9768,
+          "IconName": "Power"
+        },
+        {
+          "Type": "Group",
+          "Uid": "6",
+          "Left": 228.4193,
+          "Top": 12.7514,
+          "Children": [
+            {
+              "Type": "TextBlock",
+              "Uid": "TextHeader",
+              "Left": 0.5508,
+              "Top": -2.3877,
+              "LinkedValue": "{@Client.Time}",
+              "Localize": true,
+              "FontSize": 10,
+              "TextWrapping": "Wrap",
+              "Tag": 11,
+              "Width": 74.8,
+              "Height": 17.88,
+              "Foreground": "theme:TextForeground"
+            },
+            {
+              "Type": "TextBlock",
+              "Uid": "TextHeader",
+              "Left": 0.5508,
+              "Top": 12.5843,
+              "LinkedValue": "{@Client.Date}",
+              "Localize": true,
+              "FontSize": 10,
+              "TextWrapping": "Wrap",
+              "Tag": 8,
+              "Width": 74.8,
+              "Height": 17.88,
+              "Foreground": "theme:TextForeground"
+            }
+          ],
+          "Width": 56.1289,
+          "Height": 25.9661
+        },
+        {
+          "Type": "IndustrialIcon",
+          "Uid": "7",
+          "Left": 301.1167,
+          "Top": 10.6773,
+          "Dynamics": [
+            {
+              "Type": "ActionDynamic",
+              "MouseLeftButtonDown": {
+                "Type": "DynamicActionInfo",
+                "ActionType": "RunExpressions",
+                "Expression1": "@Client.OpenWebDisplays()"
+              }
+            },
+            {
+              "Type": "VisibilityDynamic",
+              "VisibleLink": "@Client.Session.IsWebBrowser = 0"
+            }
+          ],
+          "Background": "#00FFFFFF",
+          "Foreground": "theme:TitleBrush",
+          "HorizontalContentAlignment": "Center",
+          "VerticalContentAlignment": "Center",
+          "Width": 32.6557,
+          "Height": 30.503,
+          "IconName": "Internet"
+        }
+      ],
+      "IsOpenInterval": 100,
+      "Contents": "VBdotNet\r\nPublic Sub DisplayOpening()\r\n\t' Add your code here\r\n\r\nEnd Sub\r\n\r\nPublic Sub DisplayIsOpen()\r\n\t' Add your code here \r\n\r\nEnd Sub\r\n\r\nPublic Sub DisplayClosing()\r\n\t' Add your code here\r\n\r\nEnd Sub\r\n\r\n'This method is only called on Dialog displays\r\nPublic Function DialogOnOK() As Boolean\r\n\t' Add your code here\r\n\r\n\tReturn True\r\nEnd Function\r\n\r\n#If HTML5_BROWSER\r\n\r\n' This callback is called only when running in Web Client\r\nPublic Async Function BlazorControlLoaded(ByVal control As TBlazorControl) As Task\r\n\t' Add your code here\r\n\t\r\nEnd Function\r\n\r\n#End If"
+    }
+  ]
+}

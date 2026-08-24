@@ -1,0 +1,106 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__FrameworX-Designer__create_solution|mcp__FrameworX-Console__create_workspace|mcp__FrameworX-Console__create_solution_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& '.claude/hooks/check-cpu-before-sandbox.ps1'",
+            "shell": "powershell",
+            "timeout": 10,
+            "statusMessage": "Checking CPU before creating a solution..."
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& '.claude/hooks/session-start-baseline.ps1'",
+            "shell": "powershell",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& '.claude/hooks/session-stop-reap.ps1'",
+            "shell": "powershell",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "mcp__FrameworX-Designer__open_solution",
+      "mcp__FrameworX-Designer__create_solution",
+      "mcp__FrameworX-Designer__list_solutions",
+      "mcp__FrameworX-Designer__get_solution_info",
+      "mcp__FrameworX-Designer__get_state",
+      "mcp__FrameworX-Designer__get_table_schema",
+      "mcp__FrameworX-Designer__get_objects",
+      "mcp__FrameworX-Designer__write_objects",
+      "mcp__FrameworX-Designer__bulk_write_objects",
+      "mcp__FrameworX-Designer__set_object_value",
+      "mcp__FrameworX-Designer__rename_objects",
+      "mcp__FrameworX-Designer__import_tags",
+      "mcp__FrameworX-Designer__list_elements",
+      "mcp__FrameworX-Designer__list_dynamics",
+      "mcp__FrameworX-Designer__list_protocols",
+      "mcp__FrameworX-Designer__list_wizard_options",
+      "mcp__FrameworX-Designer__pick_wizard_variant",
+      "mcp__FrameworX-Designer__browse_object_model",
+      "mcp__FrameworX-Designer__search_uns",
+      "mcp__FrameworX-Designer__search_docs",
+      "mcp__FrameworX-Designer__get_screenshot",
+      "mcp__FrameworX-Designer__get_display_tree",
+      "mcp__FrameworX-Designer__get_ui_tree",
+      "mcp__FrameworX-Designer__get_solution_export_files",
+      "mcp__FrameworX-Designer__display_clipboard_export",
+      "mcp__FrameworX-Designer__display_clipboard_import",
+      "mcp__FrameworX-Designer__designer_action",
+      "mcp__FrameworX-Console__list_workspaces",
+      "mcp__FrameworX-Console__open_workspace",
+      "mcp__FrameworX-Console__create_workspace",
+      "mcp__FrameworX-Console__get_workspace_info",
+      "mcp__FrameworX-Console__get_table_schema",
+      "mcp__FrameworX-Console__get_objects",
+      "mcp__FrameworX-Console__write_objects",
+      "mcp__FrameworX-Console__verify_workspace",
+      "mcp__FrameworX-Console__verify_solution_file",
+      "mcp__FrameworX-Console__create_solution_file",
+      "mcp__FrameworX-Console__update_solution_file",
+      "mcp__FrameworX-Console__run_workspace",
+      "mcp__FrameworX-Console__stop_workspace",
+      "mcp__FrameworX-Console__list_running_workspaces",
+      "mcp__FrameworX-Console__list_elements",
+      "mcp__FrameworX-Console__list_dynamics",
+      "mcp__FrameworX-Console__list_protocols",
+      "mcp__FrameworX-Console__list_wizard_options",
+      "mcp__FrameworX-Console__browse_object_model",
+      "mcp__FrameworX-Console__search_uns",
+      "mcp__FrameworX-Console__search_docs",
+      "mcp__FrameworX-Console__get_solution_export_files",
+      "mcp__FrameworX-Runtime__runtime_connect",
+      "mcp__FrameworX-Runtime__runtime_get_value",
+      "mcp__FrameworX-Runtime__runtime_search_uns",
+      "mcp__FrameworX-Runtime__runtime_browse_object_model",
+      "mcp__FrameworX-Runtime__runtime_describe_object",
+      "mcp__FrameworX-Runtime__runtime_describe_binding",
+      "mcp__FrameworX-Runtime__runtime_get_tag_history",
+      "mcp__FrameworX-Runtime__runtime_get_aggregated_history",
+      "mcp__FrameworX-Runtime__runtime_get_active_alarms",
+      "mcp__FrameworX-Runtime__runtime_query_alarm_history",
+      "mcp__FrameworX-Runtime__runtime_list_instances"
+    ]
+  }
+}

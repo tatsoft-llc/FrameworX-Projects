@@ -1,0 +1,76 @@
+{
+  "ObjectIdentification": {
+    "TableType": "DevicesAccessTypes",
+    "SolutionName": "HighlandWTP"
+  },
+  "ExportMetadata": {
+    "ExportDate": "2026-08-23T19:47:27.4305742-03:00",
+    "ExportUser": "Guest",
+    "ExportProduct": "FrameworX",
+    "ExportProductVersion": "fx-10.1.5.2093",
+    "ExportFormat": "1.1"
+  },
+  "Data": [
+    {
+      "Name": "Read",
+      "ReadOnStartup": false,
+      "ReadPolling": "Always",
+      "ReadPollingRate": 500,
+      "WriteEventEnabled": false,
+      "WriteEvent": "OnChange",
+      "AcceptUnsolicited": true,
+      "Category": "MCP; ",
+      "Description": "Read using the PolllingRate"
+    },
+    {
+      "Name": "Write",
+      "ReadOnStartup": false,
+      "ReadPolling": "Never",
+      "ReadPollingRate": 500,
+      "WriteEventEnabled": true,
+      "WriteEvent": "OnChange",
+      "AcceptUnsolicited": false,
+      "Category": "MCP; ",
+      "Description": "Write when the tag changes its value"
+    },
+    {
+      "Name": "ReadWrite",
+      "ReadOnStartup": false,
+      "ReadPolling": "Always",
+      "ReadPollingRate": 500,
+      "WriteEventEnabled": true,
+      "WriteEvent": "OnChange",
+      "AcceptUnsolicited": true,
+      "Category": "MCP; ",
+      "Description": "Read and Write the tag value"
+    },
+    {
+      "Name": "Setpoints",
+      "ReadOnStartup": true,
+      "ReadPollingRate": 500,
+      "WriteEventEnabled": true,
+      "WriteEvent": "OnChange",
+      "AcceptUnsolicited": false,
+      "Category": "MCP; ",
+      "Description": "Read on Startup, then WriteOnly"
+    },
+    {
+      "Name": "WriteUpEvent",
+      "ReadOnStartup": false,
+      "ReadPollingRate": 500,
+      "WriteEventEnabled": true,
+      "WriteEvent": "OnChangeUp",
+      "AcceptUnsolicited": false,
+      "Category": "MCP; ",
+      "Description": "Write when value changes up, typically for PLC commands using TimerDelayOff tags"
+    },
+    {
+      "Name": "DeviceControl",
+      "WriteEventEnabled": true,
+      "WriteEvent": "OnChange",
+      "IsDeviceControl": true,
+      "Category": "MCP; ",
+      "Description": "MQTT SparkplugB Publisher Device Control"
+    }
+  ]
+}
