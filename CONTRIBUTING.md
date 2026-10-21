@@ -30,9 +30,13 @@ If you send a change:
 
 - **Keep the house voice**: terse, imperative, technical. State what to do and why, in the reader's
   seat.
-- **A skill's frontmatter is a contract.** Keep `name`, `description`, `license: Apache-2.0`, and
-  `metadata.author` intact, per the Agent Skills specification. The `description` is what makes a skill
-  trigger, so changing it changes behavior.
+- **A skill's frontmatter is a contract.** Keep `name`, `description`, `license: Apache-2.0`,
+  `metadata.author` and `metadata.version` intact, per the Agent Skills specification. The `description` is
+  what makes a skill trigger, so changing it changes behavior. Bump the skill's `metadata.version` when you
+  change what it does, and add a line to [`CHANGELOG.md`](CHANGELOG.md).
+- **AI is a tool, not a co-author.** Do not add `Co-Authored-By` trailers that name an AI model to commit
+  messages. When the model matters, end the message with a plain line instead, for example
+  `Recommended model to use: Claude Opus 5.5`.
 - **Ground FrameworX claims in observed behavior on a real build**, and say which build you saw it on. A
   claim that cannot be reproduced against the live product does not belong in `KnowledgeBase/`.
 - **Do not add a customer site.** `Sites/` in this public repository holds exactly one worked example.

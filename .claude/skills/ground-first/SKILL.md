@@ -12,6 +12,7 @@ description: >-
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.0.0"
 ---
 
 # Ground First: Read Before You Write

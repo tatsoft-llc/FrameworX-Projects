@@ -40,8 +40,51 @@ Then `Script.KpiHelpers.<Method>()` resolves from tasks and expressions as expec
 |---|---|
 | `CS0103` | bare class name, missing the `@Script.Class.` prefix |
 | `CS0234` | the `@` sigil was omitted, **or** the target class is `Methods`-shape and never landed in `namespace Script` (see the shared-classes rule above; re-author it in `Namespace` mode) |
-| `CS1061` | the `.Class.` segment was omitted |
+| `CS1061` | the `.Class.` segment was omitted, **or** you called `.Rows`/`.Columns` on a DataTable *tag*, which is a `TDataTable` wrapper (see `../Patterns/Script-Runtime-Gotchas.md` #11) |
 | `CS0246` | canonical form called from a Server Task, see above; use `TK.Run.ExecuteClassMethodOnServer` |
 
 *Check your build: if `@Script.Class.X.Y()` compiles cleanly from a Server Task on your installed build, use
 it directly; otherwise use one of the forms above.*
+
+## Re-entrancy: one shared instance, and the lock does NOT guard your method body
+
+**Confirmed by Tatsoft engineering.** `@Script.Class.<Name>` resolves to a single pre-allocated shared
+instance. There **is** a lock, but it guards only **construction** of that instance, not execution of its
+methods. Two Script Tasks that call the same method therefore get the same object, and both run straight
+through the body concurrently.
+
+**The failure mode is silent and looks like a maths bug.** In one build, two Script Tasks both ticked at 1 s
+and both called `EnsureInit()`. They raced past the `if (Initialized) return;` guard and loaded a machine
+roster twice (14 machines instead of 7), which halved a performance KPI. Nothing errored; the build was clean.
+
+**Rule: any Script Class method reachable from more than one Task needs its own re-entrancy guard.**
+A plain `if (done) return;` is not enough: two threads clear it before either sets it. Use a busy flag
+set before the work and cleared in `finally`:
+
+```csharp
+public bool Initialized = false;
+public bool InitBusy   = false;
+
+public void EnsureInit()
+{
+    if (Initialized) return;
+    if (InitBusy)    return;      // <- the guard that actually matters
+    InitBusy = true;
+    try   { /* work; set Initialized only on CONFIRMED success */ }
+    catch (Exception ex) { /* record, leave Initialized false so it retries */ }
+    finally { InitBusy = false; }
+}
+```
+
+Two companion rules:
+- **Latch success, not attempt.** Setting `Initialized = true` before confirming the work succeeded means
+  it never retries. Set it only after the result is verified (for example, the roster actually loaded).
+- **Don't call the initialiser from every task.** Only the owning task should call `EnsureInit()`; the
+  others assume it. That removes the race rather than guarding it.
+
+## See also
+
+- `Script-Environments.md`: the three script environments, the `@`-namespace, and which one allows methods
+- `../Patterns/Script-Runtime-Gotchas.md`: the runtime traps (`CS7036` on optional params, `TDataTable`,
+  Dataset async, InvariantCulture)
+- `../Patterns/Script-Tag-Path-Escapes.md`: UNS paths that contain `/`

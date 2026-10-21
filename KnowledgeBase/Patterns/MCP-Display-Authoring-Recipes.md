@@ -108,6 +108,38 @@ The teaching, in one line: **"the flow appeared to succeed but nothing changed" 
 | A grid-toolbar New/Add button click has no effect | Grid Create/Add buttons are command-routed: a headless `ui_action` click cannot drive them | Create the rows via `write_objects` instead |
 | Envelope timeout on a very large Display | Big payloads can exceed the call timeout | Wait for the solution file mtime to stabilize, then re-read `detail='count'` to confirm it landed: the write usually completed |
 
+## Probe the importer when `list_elements` won't give you a property contract
+
+`list_elements` returns a *catalog of type names*, so it may not tell you which properties a given element
+actually accepts. The schema's `ExtendedInfo.ElementProperties` on `get_table_schema('DisplaysList')` covers
+the common cases (`Left/Top/Width/Height`, `Fill/Stroke/StrokeThickness`, `Text/FontSize/Foreground`,
+`LinkedValue`) but not per-type geometry.
+
+**Cheap, decisive alternative: write a throwaway display with one of each element, then read it back full.**
+
+```
+write_objects(table_type='DisplaysList', data=[{ Name:'ZZ_Probe', PanelType:'Canvas', Size:'800,600',
+  Elements:[ /* one of each type, with your best-guess properties */ ] }])
+get_objects(table_type='DisplaysList', names=['ZZ_Probe'], detail='full')
+```
+
+The read-back tells you, in one round trip, what the importer **accepted, renamed, normalized, defaulted, or
+silently dropped**. What one such probe surfaced (FrameworX 10.1.5):
+
+- `Text` on a `TextBlock` is **promoted to `LinkedValue`** on write, so static captions travel the
+  value-binding path (hence `Display-Value-Binding-Literals.md`; on 10.1.6 that doc's `Text` rule applies).
+- A tag reference in `LinkedValue` is **auto-wrapped in braces**: `@Tag.X` becomes `{@Tag.X}`.
+- `Label` is not bare text: it ships with a default `BorderBrush`/`BorderThickness`/`Background`
+  (`theme:` brushes) and centered content. Use `TextBlock` when you want an unboxed readout.
+- `Rectangle` honours `RadiusX`/`RadiusY`: a capsule (`RadiusX = width/2`) is a serviceable vessel or drum
+  symbol without a library symbol.
+- A `Foreground` set to the theme default may not round-trip (it came back absent). Set a distinctly
+  non-default colour if you need to *prove* it landed.
+- Every element is assigned a `Uid` in write order (`"0"`, `"1"`, ...). That `Uid`, not `Name`, is what
+  code-behind's `GetControl()` takes.
+
+Delete the probe display when you're done.
+
 ## Why this beats the dialog
 
 The dialog UI (Drawing Properties / Dynamics Properties) is for a human author. For building and verifying a

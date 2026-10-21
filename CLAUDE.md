@@ -38,7 +38,7 @@ When the user is on voice, dictating in (speech-to-text) and/or listening via TT
 - **When a name is ambiguous, resolve it against the live solution; don't guess.** If a spoken tag / Display / channel name could be two siblings, `search_uns` (or browse the model) and confirm which one before acting, this is *Verify each path* (below) by ear. Read a garbled name back in one short line **only** before a destructive or hard-to-reverse act (writing or deleting solution objects, a deploy, signing the commissioning record). Never for routine reads.
 - **Read for the ear (output).** Lead with the verified result in one plain spoken sentence; drop tables, markdown link syntax, and code-style references that become noise aloud. Spell the readback in prose ("the pump-run tag reads true, good quality, timestamped just now"), and never omit the tag / Display name or the read-back value; convert them to spoken form, don't drop them. The structured close still applies; it just gets voiced, not rendered.
 - **Numbers, addresses, setpoints: group and label them.** Device addresses, IPs, registers, and setpoints garble both ways. Speak them grouped: "Modbus register four-zero-zero-zero-one", "IP one-ninety-two dot one-sixty-eight dot one dot ten", and before a write, read the value back grouped so a wrong digit is catchable by ear.
-- **Long results: count, don't recite.** Don't read twenty tags or rows aloud. Give the count and the few that matter, then offer the rest as text ("forty-two tags under that asset; the three unhealthy ones are …; want the full list in text?"). Pace to one decision or question per turn. The user can't skim spoken text (see `one-topic-at-a-time`, in the [companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills)).
+- **Long results: count, don't recite.** Don't read twenty tags or rows aloud. Give the count and the few that matter, then offer the rest as text ("forty-two tags under that asset; the three unhealthy ones are …; want the full list in text?"). Pace to one decision or question per turn. The user can't skim spoken text.
 - **Spoken confirmation.** Take "yes / yeah / go / do it / confirm" as approval and "no / stop / wait / cancel" as refusal; treat anything ambiguous, or silence, as **not** confirmed.
 
 ## This is a MULTI-PROJECT workspace
@@ -76,8 +76,9 @@ says **how it was built and why**. (Mirrors the Tatsoft product team's per-autho
    hardware/IO + requirements, creates the solution.
 3. **Author**: turn the IO register into UNS tags (`uns-from-io-register`) and device channels
    (`first-device-channel`); build Displays, scripts, alarms, in the 5-layer order (`KnowledgeBase/Method/`).
-   Review with `review-the-ai-build`, validate with `run-tests`; on a large solution, pace with
-   `work-in-verified-batches` (in the [companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills)). When something misbehaves, start at `KnowledgeBase/Troubleshooting.md`.
+   Review with `review-the-ai-build`, validate with `run-tests`; on a large solution, build in batches by
+   area and verify each batch before the next (plan mode and the task list keep the thread). When something
+   misbehaves, start at `KnowledgeBase/Troubleshooting.md`.
 4. **Commission**: drive each point and read it back with quality + timestamp; record it in `Documentation/Commissioning-Record.md` (the `commission-the-points` skill mechanizes this).
 5. **Log**: note what changed in your `ChangeLogs/ChangeLog-<user>.md`; capture non-obvious decisions in `Decisions/`.
 6. **Hand over**: the running solution + the signed commissioning record is the deliverable; the
@@ -111,6 +112,16 @@ commissioning judgment deserve the most-capable tier. (Tiers, not model names: m
 - Confirm a write took effect. Read it back before calling anything "done."
 - A working result, verified, is the deliverable, not a description of one.
 - If a needed action isn't available through the MCP, say so plainly rather than guessing around it.
+- **Read the convention before authoring the thing it governs: `KnowledgeBase/Conventions/` is not optional
+  reference material.** These files exist because the default behaviour is wrong in a way that still *builds
+  clean*, so nothing downstream catches it. Two that get skipped most often, and their one-line rule:
+  - **Displays: theme brushes are the default; hex is the exception.** Every element is already themed:
+    writing a hex `Fill`/`Foreground` *overrides and disables* theming on that element. Use `FillTheme` /
+    `ForegroundTheme` / `theme:` tokens (catalog: `list_elements('ThemeColors')`), and reserve hex for colour
+    that carries process meaning. Painting a whole screen in hex silently forfeits re-skinning, which is the
+    answer to every white-label question a customer asks. See `Conventions/Display-Authoring.md`.
+  - **Solutions live in `Sites/<Name>/Solutions/`**: pass `output_folder` to `create_solution`; do not let it
+    default into `Documents\FrameworX\Solutions`. See `Conventions/Solution-File-Placement.md`.
 
 ## Report MCP findings: workarounds AND limits
 

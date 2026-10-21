@@ -12,7 +12,7 @@ given task touches first.
 | `KnowledgeBase/` | shared conventions, patterns, and reference: `Conventions/`, `Patterns/`, `References/`, `Method/` (the 5-layer build method + quickstart), and `Troubleshooting.md` (symptom → the right doc) | grounding before design; capturing a reusable lesson; starting point when something misbehaves |
 | `AISessions/` | per-session scratch, cold-start resumes (git-ignored) | mid-work notes; never the deliverable |
 | `.claude/` | skills, hooks, permissions, and `tools/` (the harness) | configuring how Claude behaves here |
-| `.claude/tools/invariant-linter/` | read-only structural drift check (reserved-object integrity, project layout, solution naming) + its ratchet allow-list and info-doc | checking the repo's prose-guarded invariants haven't drifted |
+| `.claude/tools/invariant-linter/` | read-only structural drift check (reserved-object integrity, project layout, solution naming, in-tree markdown link integrity, folder-index inventory) + its ratchet allow-list and info-doc | checking the repo's prose-guarded invariants haven't drifted |
 
 ## Per-project folders
 

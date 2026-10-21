@@ -3,6 +3,60 @@
 House rules for authoring FrameworX Displays. Pairs with the `display-authoring-loop` skill (which enforces a
 correctness + composition self-review) and the `svg-to-fx-display` recognition map.
 
+## The fidelity contract: settle it BEFORE authoring
+
+When the customer supplies a drawing of the screen (a PFS, a P&ID, an integrator's SVG, a screenshot of an
+existing screen), decide one thing first: **is that drawing the spec, or the source material?**
+
+| | **Replica** | **Derived** |
+|---|---|---|
+| The drawing is | the spec; its geometry *is* the requirement | authoritative for the *process*, not the layout |
+| Acceptance test | positional identity: "the FC is upper-left, 101 directly below it" | readability |
+| Elements are | **extracted** from the source: measured, not chosen | **composed** zone-first |
+
+**Default to Replica, and say so in one line.** Ask only when the request explicitly signals adaptation
+("modernise this", "make it operator-friendly"). The failure modes are not symmetric: a faithful replica is
+never *rejected*. At worst you're asked to improve it, and the customer still recognises their plant. A
+re-composition gets *"that's not my diagram"*, and the customer concludes the tool can't do the job. Default
+to the recoverable failure, not the prettier one.
+
+**Replica means measure, not eyeball.** Placing elements where they *look* right yields a plausible,
+well-composed, **wrong** drawing, and because it looks fine, no review step catches it. The
+`display-authoring-loop` will converge on a polished wrong answer, because every individual fix succeeds.
+The method:
+
+1. Render the source at a known scale with a **labelled coordinate grid** overlaid; read positions off it.
+2. Record one row per object (equipment, bubble, valve, stream label, off-site connector) in the source's own
+   coordinate space.
+3. **Verify the table by drawing it back.** Render the measured boxes, bubble centres and diamond positions
+   as an overlay on the original image, with the same grid, and compare it cell by cell. Reading positions
+   *off* a drawing and drawing them *back* are different operations, and only the round-trip exposes what a
+   single forward pass cannot: a misread coordinate, geometry that needs clipping, labels colliding with the
+   symbol they annotate, an object overlapping a panel edge. On one P&ID replica this caught four such
+   defects, including an unclipped hatch that drew a giant X across the sheet. Keep the overlay next to the
+   table in `Specifications/`: it is the evidence that the table matches the drawing.
+4. Map with **one transform**, `X = (x-x0)*s + margin`, so every relative position and proportion survives.
+5. **Generate** the Elements array from that table; never hand-place.
+6. **Keep the table.** It is the asset: it drives the preview mockup *and* the FX Canvas without the two
+   drifting, and a re-scale or re-target is then a one-line change.
+
+*Scanned source with no text layer:* pull the **embedded raster at its native resolution**
+(PyMuPDF: `page.get_images()`, then `doc.extract_image(xref)`) rather than rasterizing the page at a guessed
+DPI. You get the scan's true pixel grid to measure against, and no resampling blur on small instrument text.
+Then read it in **native-resolution tiles** with a labelled grid; a whole A1 sheet downscaled to fit a vision
+window loses exactly the loop numbers and stream digits you need.
+
+Fidelity is about **position**, not austerity: a Replica still gets live bindings, colour by pipe service,
+level fills and inline readouts. What it must not get is re-arrangement: don't move equipment to balance the
+composition, don't swap in your own symbol vocabulary, don't stub a pipe run because routing it is
+inconvenient. List the departures you genuinely need explicitly on hand-back; silent ones are what turn a
+good display into "that's not my diagram".
+
+*Canvas element mechanics for the generate step (transparent Label backgrounds, quoting generated literals,
+primitive recipes, importing a large Elements array as a workspace JSON file):
+`../Patterns/Canvas-Drawing-Replica-Mechanics.md`. Literal quoting in depth:
+`../Patterns/Display-Value-Binding-Literals.md`.*
+
 ## OnResize by display type
 
 Pick `OnResize` by what the Display *is*, the responsive-design rule governs, not a blanket "stretch":
@@ -181,11 +235,117 @@ the *rendered* result. To suppress: set `LabelPosition: None`, or bind the label
 confirm the rendered / resolved state: a clean write and a clean config read-back are not sufficient for
 Displays** (this is why `display-authoring-loop` reads the resolved tree, not just the write envelope).
 
-## Color discipline
+## Symbol label (mnemonic) in a TextBlock goes inside braces
 
-Use a hex color only when it carries **process meaning** (red = heat / alarm, etc.). Decorative or arbitrary
-text colors use the theme token (e.g. `theme:TextForeground`), not hardcoded hex, so the Display follows the
-solution theme.
+Inside a Symbol definition, a TextBlock that shows a label value must wrap the mnemonic in braces:
+`"LinkedValue": "{#HoldTemp:0}"`. The bare form `#HoldTemp:0` (correct in a Dynamic's `LinkedValue`, for
+example `BargraphDynamic`) is NOT a value reference in a TextBlock: it renders as the literal text
+("#HoldTe..."), with a clean write and a clean build. Rule: **TextBlock uses `{#Label:Default}`; Dynamics use
+`#Label:Default`.** Don't "fix" the braces away. *(Observed on FrameworX 10.1.6.)*
+
+## Value fields: pick the element by what the field must do
+
+Verified at runtime on FrameworX 10.1.5:
+
+| The field must... | Use | Key properties |
+|---|---|---|
+| Show a **number with a format** (decimals, integer) | `TextBlock` | `LinkedValue`, `FormatLink`, `TextWrapping: "NoWrap"`. **Not** `Label`: Label has no `FormatLink`, and the runtime ignores one if you write it (the write still succeeds) |
+| Show **text or a value that needs content alignment** (centre / right) | `Label` | `LinkedValue`, `HorizontalContentAlignment`, `VerticalContentAlignment`, `BorderThickness: "0"`, `Background: "#00000000"` |
+| **Accept input** | `TextBox` | `LinkedValue`, `FormatLink` (honoured), `LabelLink: ""`, `LabelPosition: "None"`, `BorderBrush: "#00000000"` |
+| Show a date | `TextBlock` | `LinkedValue: "@Server.DateTimeInfo.Now"`, `FormatLink: "MM/dd/yyyy"`, NoWrap (`DateTimeInfo.Date` carries a time part and wraps) |
+| Show a time | `TextBlock` | `LinkedValue: "@Server.DateTimeInfo.Time"` |
+| Show a scaled / derived value | `TextBlock` or `Label` | an expression in `LinkedValue` (`"@Tag.A/B / 1000"`, `"Math.Truncate(@Tag.Max * 0.3)"`); compiles |
+| Show a bitmap | simplified `Image` | `ImageName`, `Stretch: "Fill"` for a replica (the default is `Uniform`, which keeps aspect and leaves gaps) |
+
+Rules that go with the table:
+- **Number formats: use `F<n>`, not `N<n>`, unless you want a thousands separator.** `N0` renders 1750 as
+  `1,750`; `F0` renders `1750`. `F1` = one decimal, rounded.
+- **Always set `TextPreviewMode: "Placeholder"`** on a bound Label/TextBox/TextBlock. Otherwise the Designer
+  canvas shows the raw `{Tag....}` path clipped inside the field, which reads as a broken binding.
+- **Prefix and suffix text are separate elements.** A field shown as `SP: 42` is a static TextBlock `SP:` plus
+  the value element beside it; there is no prefix property.
+- **TextBlock has no text alignment.** To centre a static or variable caption, place it by measured width
+  (a glyph-width table per font) or use a Label.
+- Observation, same build: a `TextBox` with `Foreground: "#FFFFFF00"` and a transparent background **did**
+  render yellow text on a Canvas page. Test before relying on the "platform controls are theme-only" rule
+  below for TextBox foregrounds.
+
+## Color discipline: theme brushes are the default, hex is the exception
+
+**Every FrameworX element is already themed.** `list_elements('Rectangle')` reports `Fill` default
+`"theme:DefaultFill"` with the note *"Themed by default, OMIT to use theme. Only specify to override."* Writing
+a hex `Fill` does not add colour to an unstyled element: it **overrides and disables** that element's theming.
+Do it on every element of a screen and the solution's theme controls nothing.
+
+### The decision, in one line
+
+Use a hex colour only when it carries **process meaning** that must not move when the theme changes
+(red = alarm / heat). Everything else (grounds, panels, cards, borders, text, accents, KPI figures) takes a
+**theme brush**.
+
+### How to set one
+
+Two spellings, both valid; prefer the `*Theme` property when the schema exposes one:
+
+```jsonc
+{ "Type": "Rectangle", "FillTheme": "PanelBackground" }      // preferred: named property
+{ "Type": "TextBlock",  "Foreground": "theme:TextForeground" } // theme: token form
+{ "Type": "Rectangle", "Fill": "#FF3498DB", "FillTheme": "" }  // deliberate override: CLEAR the theme
+```
+
+The `*Theme` family covers `FillTheme`, `StrokeTheme`, `ForegroundTheme`, `BackgroundTheme`,
+`BorderBrushTheme`. **To force a custom hex you must blank the paired `*Theme` string**: setting only the hex
+leaves the theme brush in place and the result is undefined.
+
+### Find the brush before you invent a colour
+
+`list_elements('ThemeColors')` is the catalog, grouped by purpose; it states outright *"PREFER these over
+hardcoded hex colors."* `list_elements('ColorGroups')` gives the same names by group.
+`list_elements('ThemeNames')` lists the 16 themes: light `Light / Platinum / Steel / Pearl / Gold / Sky /
+ContrastLight / CustomLight`, dark `Dark / Onyx / Graphite / Indigo / Coffee / Navy / ContrastDark / CustomDark`.
+
+The mapping most screens need:
+
+| Role on the screen | Brush |
+|---|---|
+| Page ground | `PageBackground` |
+| Card / panel / popup / control ground | `PanelBackground`, `PopupBackground`, `ControlBackground` |
+| Card chrome | `ItemBackground`, `ItemBorder`, `ItemTitle`, `HeaderBrush`, `TitleBrush` |
+| Body / heading / dimmed / link text | `TextForeground`, `TextAccentForeground`, `TextSubtleForeground`, `TextHyperlinkForeground` |
+| The KPI the user is judged on | `AccentBrush`, or `ColorCyan` / `ColorTeal` |
+| "A human owes an action" | `ColorAmber` |
+| Process state | `StateOK`, `StateAlert`, `StateAlarm`, `StateActive`, `StateInactive`, `StateGreen`, `StateRed` |
+| Alarm severity | `AlarmHighPriority`, `AlarmMediumPriority`, `AlarmLowPriority`, `AlarmDiagnostic`, `AlarmNormal` |
+| Equipment on / off | `OnFill` / `OnStroke`, `OffFill` / `OffStroke` |
+| Fluids | `Water`, `Waste` |
+| Buttons / hover / focus / selection | `ButtonBackground`, `HoverBackground`, `FocusBrush`, `SelectBrush` |
+
+### Platform controls are theme-only: colour properties on them are inert
+
+`DataGrid`, `ComboBox`, `TextBox` and `TrendChart` follow the **client theme** and ignore per-element
+`Background` / `Foreground`. The write still reports success, so a dark canvas with white grids looks like a
+binding failure and isn't. Set the theme once instead, in the always-loaded Menu display's `DisplayOpening()`:
+
+```csharp
+@Client.Theme = "Onyx";
+```
+
+Or `designer_action('set_theme', '<name>')` at design time. Do **not** try to fight this per control.
+
+### The one place theming does not reach: `FillColorDynamic` thresholds
+
+`ChangeColorItem` takes `LimitColor` as `#AARRGGBB`, plus an optional numeric `LimitColorResourceId`
+(-1 = custom). There is no exposed name-to-id mapping, so **state colours inside a dynamic cannot be written
+as brush names.** Accept the hex there, and keep it consistent with the `State*` brushes you use statically so
+the two agree. Flag it on hand-back when the customer cares about re-skinning.
+
+### Why this matters commercially
+
+A themed screen re-skins to a customer's brand by switching one theme, or by editing `CustomLight` /
+`CustomDark` once. A hex-painted screen re-skins by editing every element. When the engagement involves
+white-labelling or "can it look like *our* product", theming **is** the answer to that question, so building
+in hex quietly forfeits it. Setting `@Client.Theme` afterwards does not rescue a hex-painted canvas: every
+element has already overridden the theme.
 
 ## Button defaults
 
@@ -196,6 +356,61 @@ Set `HorizontalContentAlignment: Center` + `VerticalContentAlignment: Center` an
 
 Leave at the 1000 ms default unless the Display's CodeBehind does measurable per-frame work. Lower values burn
 CPU on every connected client for no benefit when CodeBehind is empty.
+
+## Geometry primitives: `Path` for runs, `Polygon` only for closed shapes
+
+**`Polygon` / `Polyline` `Points` are rescaled to fill the element's declared `Width`/`Height`; `Path` `Data`
+coordinates are not rewritten.** This is the single most damaging trap in replica work, because the write
+succeeds, the compile is clean, and the drawing simply comes out subtly wrong.
+
+Observed on FrameworX 10.1.5, in one payload:
+
+| Written | Declared box | Read back |
+|---|---|---|
+| `Polyline Points:"0,30 100,30 100,0 200,0"` | 200 x 60 | `"0,60 100,60 100,0 200,0"`: y stretched 30 to 60 |
+| `Polygon Points:"30,0 60,30 30,60 0,30"` | 60 x 60 | unchanged (extents already matched the box) |
+| `Path Data:"M0,10 L120,10 L120,50 L0,50 Z"` | 120 x 60 | coordinates unchanged (y extent 40, box 60) |
+
+The Polygon case is the one that lulls you: it round-trips clean *only because* its extents happened to equal
+its box. The divergent Polyline and Path cases in the same write are what prove the rule.
+
+**Consequences for a measured drawing:**
+
+- A horizontal pipe run has a y extent of **0**: a degenerate box, so undefined scaling. There is no correct
+  `Width`/`Height` to declare for a Polyline.
+- Every elbowed run is multi-extent, so any single box distorts at least one axis.
+
+**The rule:**
+
+- **Pipe runs, elbows, any open polyline: use `Path`**, with `Data` in coordinates *relative to the element's
+  `Left`/`Top`*, and `Left`/`Top` set to the geometry's bounding-box origin. Set `Width`/`Height` to the
+  bounding box, **and treat that as mandatory, not cosmetic**: a Path still *renders* stretched to fill its
+  declared box, exactly like a Polyline. What Path buys you is that its **coordinates** are not rewritten, so
+  a send-vs-readback comparison still tells you the truth. A Path in a wrong box draws wrong while its
+  coordinates read back unchanged; set the box to the bounding box and the fill becomes the identity.
+- **Do NOT byte-compare `Data` for an idempotency check.** The string is renormalized on every round-trip:
+  `M 8,8 H 24 V 12 H 16 V 24 H 12 V 8 Z` comes back as `M8,8L24,8 24,12 16,12 16,24 12,24 12,8z` (`H`/`V`
+  collapse to `L`, spaces become commas, `Z` lowercases). Compare **parsed coordinates**, never the raw string.
+- **Closed regular shapes (stream-number diamonds, valve bowties, off-site flags, trapezoids): use `Polygon`**,
+  and compute `Width`/`Height` from the exact point extents so the rescale is the identity transform.
+- Never hand-write `Points` against a box you guessed. Generate both from the same coordinate table.
+
+**Read-back is the detector.** The changed coordinates ARE returned by `get_objects detail='full'`: this trap
+is caught for free *if you diff the geometry you sent against the geometry that came back*, and is invisible
+if you only check `created`/`modified` counts.
+
+**The box has two reasonable answers once the stroke is thick.** The fill fits the **stroked** geometry,
+reserving a `StrokeThickness/2` pen margin per side:
+
+| Box you declare | Stored Points | Render |
+|---|---|---|
+| exactly the point extents | unchanged | scale below 1: the shape draws `StrokeThickness` smaller than its own coordinates |
+| extents + `StrokeThickness` (points shifted by T/2) | rewritten | scale 1.0: draws 1:1 |
+
+The Designer's own drawing tools use the second form. At `StrokeThickness` 1 the difference is sub-pixel and
+irrelevant. On a thick pipe run (T=10 on a 32-unit shape) it is about 24% and very visible. For thin strokes,
+use the exact extents. For thick strokes, decide per drawing whether stored coordinates or on-screen scale
+matter more, and *measure the result* rather than trusting either rule.
 
 ## Element types are normalized on write
 

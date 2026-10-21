@@ -76,8 +76,8 @@ have a solution you can hand to an operator, not a demo.
   (`KnowledgeBase/Method/mcp-setup.md`), then build for real.
 - **A write succeeded but the feature is not visible.** That is the staging chain. See
   `KnowledgeBase/Method/verify-your-work.md`. Confirm the runtime, not the file.
-- **The build is large and the model is losing the thread.** Use the
-  `work-in-verified-batches` skill ([companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills)). Build by area, verify each batch.
+- **The build is large and the model is losing the thread.** Build by area and verify each batch before
+  the next. Claude Code's plan mode and task list keep the batches visible across a long session.
 - **Something behaves other than documented, or a tool cannot do what you need.** Capture it in the
   `## MCP findings` block at the end (`KnowledgeBase/Method/Solution-Build-Method.md` §8). That is
   worth more than working around it quietly.

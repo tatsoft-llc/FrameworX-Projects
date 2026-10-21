@@ -126,6 +126,11 @@ like a solution-design defect until you read the point back live:
   runtime start may time out at the read budget (~10 s) while modules come up. Retry the same call once.
   Only a **second consecutive** timeout means a wedged runtime worth investigating. The budget is a
   deliberate design choice; never propose raising it.
+- **Displays have their own recipe.** Driving a Display's dynamics in the running RichClient with only the
+  Designer MCP: repoint the Startup layout's Content region at the Display, `designer_action('build')`,
+  restart the runtime, drive inputs with `set_object_value`, `get_screenshot` to confirm, and list what still
+  needs a human. Full recipe: `Runtime-Display-Verification.md`; for the browser client see
+  `../Patterns/Test-Web-Displays-in-Chrome.md`.
 
 *(The disciplines here, verify-first, probe state not events, file-valid ≠ behavior-valid, are generic; the
 channels and APIs are FrameworX. Every API name above should be confirmed against your installed build before

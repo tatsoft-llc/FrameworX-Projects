@@ -19,6 +19,10 @@ It is NOT set in `RuntimeStartup` (which has no startup-display field, only modu
 NOT in `SolutionSettings` (no preview field). It lives only in `DisplaysLayouts` -> `Startup` -> Content
 region `Page`, inside the layout's `Regions` JSON.
 
+**After changing the Content page: build before `start_runtime`.** On FrameworX 10.1.5, a Content change
+written with `write_objects` and started without a build opened a different display; after
+`designer_action('build')` the new Content opened.
+
 ## Hard rule: `MainPage` is protected, never rename it and never delete it
 `MainPage` is the predefined **ID 0** display and the SolutionCenter preview anchor. Treat both its **name**
 and its **existence** as fixed:

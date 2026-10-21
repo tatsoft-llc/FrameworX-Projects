@@ -1,12 +1,19 @@
 # FrameworX Solution Workspace
 
-**`v1.0.1`** · targets FrameworX **10.1.5+**
+**`v1.1.0`** · targets FrameworX **10.1.5+** · [what changed](CHANGELOG.md)
 
 FrameworX is an industrial automation platform from Tatsoft: SCADA, HMI, historian, alarming and device
 connectivity in one product, with MCP servers that let an AI agent read and write the solution directly.
 This repository is the workspace our own team uses to build FrameworX projects with Claude Code: the working
 agreement, the delivery skills, the templates, and a worked water treatment project. Clone it, point Claude
 Code at a FrameworX installation with the Designer MCP connected, and build.
+
+**See it in action:** [Claude Builds Industrial Solutions in Minutes](https://youtu.be/TwIOFw0r_M4) ·
+[A real HMI application moved to FrameworX, start to finish](https://youtu.be/bZyK041Y4cc) · more on
+[YouTube](https://www.youtube.com/@TATSOFT) and in the [AI Integration docs](https://docs.tatsoft.com/display/FX/AI+Integration).
+
+**Get FrameworX:** [request the free download](https://tatsoft.com/fx-101/#download), then open one of the
+[example solutions](#example-solutions) below or start your own project.
 
 One workspace hosts **many projects**: clone it once, and every customer site, skid or line you build lives
 as its own project inside it.
@@ -40,7 +47,7 @@ can be used in production within those limits. Larger systems take a licensed ed
 [Product Editions](https://docs.tatsoft.com/display/FX/Product+Editions). Get **10.1.5 or newer**: earlier
 builds do not ship the MCP servers this workspace drives.
 
-**https://tatsoft.com/fx-101/#download**
+**[Request the free download](https://tatsoft.com/fx-101/#download)** (a short form on tatsoft.com)
 
 Then: install it, open the Designer, start the MCP bridges, connect Claude Code, clone this repository, and
 run `new-project-bootstrap`. If the bridges do not come up, `verify-mcp-setup` diagnoses them before
@@ -48,6 +55,24 @@ anything else fails.
 
 Product documentation lives at https://docs.tatsoft.com. FrameworX itself ships no language model and no
 weights; it connects to the model you choose, local or on premises included, and you supply your own key.
+
+## Example solutions
+
+Ready-made solutions you can download and open in FrameworX, to see what a finished build looks like before
+you start your own. Each page on docs.tatsoft.com describes the solution and carries its `.dbsln` file.
+
+| Example | What it shows |
+|---|---|
+| [Water Treatment Plant AI Designer Example](https://docs.tatsoft.com/display/FX/Water+Treatment+Plant+AI+Designer+Example) | a water treatment plant built with the AI Designer; the published version of this repository's `Sites/Example-HighlandWTP` |
+| [NovaBio Pharmaceutical AI Designer Example](https://docs.tatsoft.com/display/FX/NovaBio+Pharmaceutical+AI+Designer+Example) | a pharmaceutical bioprocess plant built with the AI Designer |
+| [PID Process Trainer AI Designer Example](https://docs.tatsoft.com/display/FX/PID+Process+Trainer+AI+Designer+Example) | closed-loop PID control, cascade and loop tuning |
+| [Process Diagrams AI Designer Example](https://docs.tatsoft.com/display/FX/Process+Diagrams+AI+Designer+Example) | an existing process drawing turned into a live display with the AI Designer (two solutions) |
+| [BytePizza AI Designer Example](https://docs.tatsoft.com/display/FX/BytePizza+AI+Designer+Example) | a complete restaurant-operations solution generated from two natural-language prompts |
+| [SolarPanels MCP Demo](https://docs.tatsoft.com/display/FX/SolarPanels+MCP+Demo) | a solar power plant monitored through the Runtime MCP, with MQTT data |
+| [LocalAI KnowledgeGraph Demo](https://docs.tatsoft.com/display/FX/LocalAI+KnowledgeGraph+Demo) | an ISA-88 pharmaceutical plant with an interactive knowledge graph and a local AI chat panel |
+| [Brewery Plant Example](https://docs.tatsoft.com/display/FX/Brewery+Plant+Example) | a craft brewery with batch processing and recipe management; the target of this repository's `Templates/Examples/Brewery` reference build |
+
+More, by industry and by architecture: [Solution Examples](https://docs.tatsoft.com/display/FX/Solution+Examples).
 
 ## The build loop
 
@@ -98,15 +123,19 @@ solution itself ships alongside a complete diffable JSON export set under `Desig
 
 ## The other half
 
-The session-discipline skills we use in every repository, FrameworX or not, live in their own tree:
-**https://github.com/tatsoft-llc/Claude-Code-Skills**. How a session closes, how it asks you for a
-decision, how it pauses and resumes. Install both if you want the full loop; this repository does not
-depend on it.
+The skills we use in every repository, FrameworX or not, live in their own tree:
+**https://github.com/tatsoft-llc/Claude-Code-Skills**. Eight skills for working with Claude Code as a
+counterpart: decisions as one recommendation instead of a menu, a mirror look that re-decides from your
+seat, session close, hand-off and resume, a memory check against what actually happened, safe renames, and
+lock release after a crash (`kill-zombies`, which the Troubleshooting index routes to). Install both if you
+want the full loop; this repository does not depend on it.
 
 ## What you need first
 
 - **A Windows machine** (FrameworX and the harness hooks are Windows; PowerShell 5.1+), with
-  **Python 3.x on PATH** for the `run-tests` checker and the invariant linter.
+  **Python 3.x on PATH** for the `run-tests` checker and the invariant linter. A few file names in the worked
+  example's solution export are long: clone into a short folder, or run
+  `git config --global core.longpaths true` first, or the clone fails with "Filename too long".
 - **FrameworX installed** (the product). This workspace drives it; it does not contain it.
 - **Node.js (LTS) on the machine running Claude Code** for the shipped [`.mcp.json`](.mcp.json), which
   connects through the `npx mcp-remote` bridge, so `npx` must be on PATH.

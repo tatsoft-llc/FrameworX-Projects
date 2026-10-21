@@ -7,10 +7,11 @@ here, not buried in one project's folder.
 | Area | Holds | Examples |
 |---|---|---|
 | `Glossary.md` | the workspace's controlled vocabulary | what Project, Solution, Application, Commissioning, Template mean here |
-| `Conventions/` | how you always do it | UNS naming, tag/UDT casing, Display authoring standards, working rules, solution file placement, startup layout and main page |
-| `Patterns/` | reusable solution-authoring discoveries | read-merge-write, schema field gotchas, MCP display-authoring recipes, the registration chain, slash-path tag escapes |
+| `Troubleshooting.md` | symptom → the doc that fixes it | the first stop when something misbehaves |
+| `Conventions/` | how you always do it | UNS naming, tag/UDT casing, Display authoring standards (fidelity contract, theme brushes, value fields, geometry), the three script environments, working rules, solution file placement, startup layout and main page |
+| `Patterns/` | reusable solution-authoring discoveries | read-merge-write, schema field gotchas, MCP display-authoring recipes, Canvas drawing-replica mechanics, script runtime gotchas, the registration chain, slash-path tag paths |
 | `References/` | curated lookup facts | FrameworX vocabulary, names-that-collide disambiguation, the control catalog, the `.dbsln` format, protocol vendor notes |
-| `Method/` | the build-and-verify process | the 5-layer build order, verify-your-work, the verification channels + simulators |
+| `Method/` | the build-and-verify process | the 5-layer build order, verify-your-work, the verification channels + simulators, runtime Display verification |
 
 **What does *not* belong here, point, don't copy.** The product serves its full docs, Object Model, and
 control catalog **live over the MCP** (`search_docs` / `browse_object_model` / `get_table_schema` /

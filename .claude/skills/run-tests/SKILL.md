@@ -11,6 +11,7 @@ description: >-
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.1.0"
 ---
 
 # Run the tests
@@ -80,6 +81,10 @@ asserts invariants with tolerance, because a simulated process value moves.
   points back to (a foundation count mismatch points at Layer 1; a dead live value points at Layer 2).
 - Note determinism: the structural gate result, and whether the live gate's tolerant invariants held.
 - Do not declare success without the checker's exit code. An AI "looks right" is not the test record.
+- **Displays are not covered by the checker.** To test a Display's dynamics in the running client (repoint
+  Startup Content, build, restart, drive with `set_object_value`, screenshot, list what needs a human),
+  follow `KnowledgeBase/Method/Runtime-Display-Verification.md` and record the result under
+  `Sites/<Name>/Tests/`.
 
 ## Determinism note for the validation run
 

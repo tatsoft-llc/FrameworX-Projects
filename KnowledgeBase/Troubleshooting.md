@@ -1,6 +1,6 @@
 # Troubleshooting: symptom → the right doc, fast
 
-The operating knowledge in this workspace is deep but spread across ~15 files. This is the index: find
+The operating knowledge in this workspace is deep but spread across ~20 files. This is the index: find
 your symptom, jump to the file that carries the answer. (Deeper background on any entry:
 `Patterns/MCP-Reliability-Practices.md` consolidates the cross-cutting behaviors and how to check each one on
 your build.)
@@ -44,6 +44,17 @@ your build.)
 | Binding shows literal text compiled as code (or vice versa) | `Patterns/Display-Value-Binding-Literals.md` |
 | Script CS0246 / CS0234 calling another class | `Conventions/Script-Class-Invocation.md` |
 | Script error on a tag path containing `/` | `Patterns/Script-Tag-Path-Escapes.md` |
+| Static caption on a TextBlock shows its quote marks (10.1.6) | use the `Text` property: `Patterns/Display-Value-Binding-Literals.md` |
+| `CS7036` calling a Script Class method from Display code-behind | optional params aren't honored across the wrapper: `Patterns/Script-Runtime-Gotchas.md` #2 |
+| `CS1061` "'TDataTable' does not contain a definition for 'Rows'" | a DataTable tag is a wrapper; use `.Value` / `GetRowsCount()`: `Patterns/Script-Runtime-Gotchas.md` #11 |
+| Method definition rejected in a Script Task; or `await` questions | wrong environment: `Conventions/Script-Environments.md` |
+| Display freezes while a script runs | blocking the single UI thread: `Patterns/Script-Runtime-Gotchas.md` #5 |
+| Dataset tag holds garbage after a query; DDL/INSERT silently did nothing | un-`await`ed `SelectCommandAsync` / discarded rows-affected: `Patterns/Script-Runtime-Gotchas.md` #8 |
+| Number breaks a SQL statement or device command on a non-English machine | locale decimal comma; use `InvariantCulture`: `Patterns/Script-Runtime-Gotchas.md` #3 |
+| Deleting a grid row deletes the wrong DB record | row index is not DB identity: `Patterns/Script-Runtime-Gotchas.md` #9 |
+| Shared socket/device handle resets or interleaves reads | needs a `static` lock: `Patterns/Script-Runtime-Gotchas.md` #1 |
+| Two Script Tasks double-run the same initialisation | one shared class instance, no method lock: `Conventions/Script-Class-Invocation.md` (re-entrancy) |
+| A Display's dynamics need proof at runtime, without an operator | `Method/Runtime-Display-Verification.md` |
 
 ## Still stuck?
 

@@ -99,3 +99,32 @@ exact field name with `get_table_schema` first, then a dry-run write, before aut
 
 *(These were observed against one build; if `get_table_schema` shows a different field name on your installed
 build, the schema wins. Verify, don't assume.)*
+
+## `list_dynamics()` overview vs. the per-dynamic schema: trust the schema
+
+The no-argument `list_dynamics()` response is a *summary*, and on two points it disagrees with the
+authoritative per-dynamic schema you get from `list_dynamics('<Type>')`. Both were observed on FrameworX
+10.1.5; fetch the specific dynamic before writing it.
+
+| Dynamic | Overview says | Actual property |
+|---|---|---|
+| `BargraphDynamic` | `Direction` | **`Orientation`**, enum `VerticalUp / VerticalDown / VerticalCenter / HorizontalLeft / HorizontalRight / HorizontalCenter` |
+
+And the colour dynamics' `ChangeColorItems` appears in the overview's `commonPatterns` as a **bare array**:
+
+```json
+"ChangeColorItems": [ { "Type": "ChangeColorItem", "ChangeLimit": 0, "LimitColor": "#FF808080" } ]
+```
+
+but the authoritative shape (`get_table_schema('DisplaysList')` → `ExtendedInfo.CanvasExample`, and the
+`quickStart` on `list_elements('Canvas')`) is **wrapped in a `ColorChangeList`**:
+
+```json
+"ChangeColorItems": { "Type": "ColorChangeList",
+                      "Children": [ { "Type": "ChangeColorItem", "ChangeLimit": 0, "LimitColor": "#FF808080" } ] }
+```
+
+The wrapped form imports clean. The bare form was not tested, but since the overview is demonstrably the
+looser of the two sources on `Direction`, prefer the wrapped form.
+
+*(Caveat: verified only to a clean write/import on that build; neither shape was exercised at runtime.)*

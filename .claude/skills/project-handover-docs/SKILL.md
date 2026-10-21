@@ -14,6 +14,7 @@ description: >-
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.0.0"
 ---
 
 # Project Handover Docs: concise end-user / integrator documentation

@@ -24,7 +24,7 @@ SolutionCenter preview anchor is detached, with nothing in the build to flag it.
 invariant the build cannot report on, guarded only by a prose hard-rule, is the
 textbook case for turning prose into a deterministic check.
 
-## The three checks
+## The checks
 
 | ID | Invariant | Derived from | Severity | Cost |
 |---|---|---|---|---|
@@ -32,6 +32,8 @@ textbook case for turning prose into a deterministic check.
 | **IL001b** | The `Startup` layout's Content region points at a display that exists and is populated (not empty/placeholder → blank first screen + blank preview). | `Conventions/Startup-Layout-and-MainPage.md` | FAIL (unset / page missing) / WARN (page blank) | low |
 | **IL002** | Every `Sites/<Name>/` carries the core folders {Specifications, Solutions, Documentation, Decisions, ChangeLogs}; `Tests/` recommended. | `CLAUDE.md` project table, `INDEX.md`, `README.md` Layout, `Templates/SiteProject/` | FAIL (core) / WARN (Tests) | trivial |
 | **IL003** | Every `Sites/<Name>/Solutions/` holds a `.dbsln` **or** a `README.md`; every `.dbsln` stem is a clean bare name (letters/digits/underscore). | `Conventions/Solution-File-Placement.md` | FAIL | trivial |
+| **IL004** | *(REF-INT)* Every relative in-tree markdown link in a scanned doc resolves to a path that exists. | `CLAUDE.md` "point, don't copy"; the index tables in `KnowledgeBase/README.md` + `INDEX.md`; the pervasive "see `<path>`" habit | FAIL | low |
+| **IL005** | *(INV-DRIFT)* Every item in a governed folder is named in that folder's governing index. | `INDEX.md` ("read this to know where things live"), `KnowledgeBase/README.md` area table | FAIL (unlisted item) / WARN (index or folder missing) | trivial |
 
 Run `python invariant_lint.py <ROOT> --list` for the full definition + mechanical
 method + cost of each check (kept in the `CHECKS` registry in the script, single
@@ -51,6 +53,15 @@ source of truth).
   (the workspace scales; `README.md` says you don't fill every folder).
 - **IL003**: glob `Sites/*/Solutions/`; check for a `.dbsln`/`README.md`, and
   regex each `.dbsln` stem against `^[A-Za-z0-9_]+$`.
+- **IL004**: walk the root docs, `KnowledgeBase/`, `Templates/`, `Sites/`,
+  `.claude/skills/` and `.claude/tools/`; strip fenced and inline code so
+  non-navigable links are not linted; extract `[label](target)`; resolve each
+  target against the doc's own directory; FAIL if it does not exist. Skipped by
+  design: external URLs, `mailto:`, bare `#anchors`, `~`-relative paths, template
+  placeholders, targets outside the root, and `AISessions/`.
+- **IL005**: list the top-level folders and `Templates/` subfolders and assert each
+  name appears in `INDEX.md`; list `KnowledgeBase/` subfolders and non-README
+  `*.md` files and assert each appears in `KnowledgeBase/README.md`.
 
 ## How to run
 

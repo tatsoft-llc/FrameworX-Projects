@@ -222,7 +222,8 @@ once, and you should not try.
   protocol schemas.
 - **Write findings down.** When a build spans many turns, keep a short running note in the spec
   or a session file so a later turn (or a fresh session) can resume without re-deriving.
-- The `work-in-verified-batches` skill carries the full method ([companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills)).
+- Claude Code's plan mode and task list carry the same discipline for a long build: plan the batches by
+  layer and area, and verify each one before starting the next.
 
 ---
 

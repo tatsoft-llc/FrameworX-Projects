@@ -3,10 +3,8 @@
 How to open your solution's HTML5 Web Client in a real browser and confirm it renders live, the web-client
 half of validation. Pairs with `Validation-and-Readback.md` (which covers the runtime-value / WPF side).
 
-> This is the quick reference. For the full connect-and-diagnose loop, the 8 browser-bind failure modes,
-> the `switch_browser`-vs-`select_browser` foot-gun, auto-pre-flight, and the session cache, the
-> `chrome-connector-setup` skill mechanizes it and fires automatically before the first Chrome call.
-> It ships in the [companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills).
+> This is the quick reference. Claude Code's built-in browser support handles connecting to a browser;
+> when the Chrome connector will not bind, fix that connection first, then come back here.
 
 ## Why a browser, and why it's a real test
 

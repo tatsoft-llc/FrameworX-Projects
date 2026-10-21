@@ -18,6 +18,9 @@ WHY THIS EXISTS
     Working-Rules.md ("Names are identity"). A deterministic check catches
     exactly this class.
 
+    IL004 and IL005 guard the docs themselves: every relative in-tree markdown
+    link resolves, and every item in a governed folder is named in its index.
+
 DESIGN (the 3-part discipline this implements)
     1. Prose -> deterministic check. Every check below is derived from a named
        repo rule/doc, not invented.
@@ -53,6 +56,7 @@ import os
 import re
 import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ALLOW_PATH = os.path.join(HERE, "invariant-lint.allow")
@@ -116,6 +120,34 @@ CHECKS = {
                   "README.md -> FAIL. For each *.dbsln, assert stem matches "
                   "^[A-Za-z0-9_]+$ -> FAIL otherwise.",
         "cost": "trivial (glob + regex).",
+    },
+    "IL004": {
+        "title": "in-tree markdown reference integrity (REF-INT)",
+        "rule": "CLAUDE.md 'point, don't copy' + KnowledgeBase/README.md "
+                "index tables + the pervasive 'see <path>' cross-reference habit",
+        "definition": "Every relative in-tree markdown link in a scanned doc "
+                      "resolves to a path that exists. A dangling link sends "
+                      "the reader to doctrine that moved or was never written.",
+        "method": "Extract [label](target) from each scanned doc with code "
+                  "spans/fences stripped; skip external URLs, anchors, mailto, "
+                  "~-relative and <>/XXXX template placeholders; resolve the "
+                  "rest against the doc's own directory; FAIL if absent. "
+                  "Targets escaping ROOT are skipped, not failed.",
+        "cost": "low (one regex pass over the scanned *.md set).",
+    },
+    "IL005": {
+        "title": "folder-README inventory drift (INV-DRIFT)",
+        "rule": "INDEX.md ('read this to know where things live') + "
+                "KnowledgeBase/README.md area table",
+        "definition": "Every real item in a governed folder is named in that "
+                      "folder's governing index. An item on disk but absent "
+                      "from the index is silent inventory drift: the reader "
+                      "never learns it exists.",
+        "method": "For each (index_doc, governed_dir, kind) target: list the "
+                  "dir's subfolders and/or non-README *.md files and assert "
+                  "each name (or its stem) appears as a substring of the index "
+                  "text. Missing index or dir -> WARN, undocumented item -> FAIL.",
+        "cost": "trivial (a few reads + dir listings).",
     },
 }
 
@@ -333,7 +365,138 @@ def check_IL003(root):
     return out
 
 
-CHECK_FNS = [check_IL001, check_IL001b, check_IL002, check_IL003]
+# ---- IL004 / IL005 shared config -------------------------------------------
+# Docs we SCAN for links. Governing + workspace-authored surfaces.
+SCAN_GLOBS = [
+    "CLAUDE.md", "README.md", "INDEX.md", "CHANGELOG.md", "CONTRIBUTING.md",
+    "SECURITY.md",
+    "KnowledgeBase/**/*.md",
+    "Templates/**/*.md",
+    "Sites/**/*.md",
+    ".claude/skills/**/*.md",
+    ".claude/tools/**/*.md",
+]
+
+# Source docs we do NOT scan, and link targets we do NOT resolve.
+#   AISessions/        git-ignored per-session scratch (CLAUDE.md: "never the
+#                      deliverable"); it can appear at the root AND nested under
+#                      a site, so it is matched as a path SEGMENT, not a prefix.
+#   __pycache__/ .pytest_cache/   build/test detritus, not documentation.
+#   .claude/projects/  the memory store lives at ~/.claude, not in-repo; repo
+#                      docs may cite memory slugs by a path that never resolves
+#                      in-tree.
+SKIP_SEGMENTS = ("AISessions", "__pycache__", ".pytest_cache")
+SKIP_PREFIXES = (".claude/projects/",)
+
+MD_LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+FENCED_CODE = re.compile(r"```.*?```", re.DOTALL)
+INLINE_CODE = re.compile(r"`[^`]*`")
+
+
+def _excluded(rel):
+    """True if a repo-relative posix path is out of scope for IL004."""
+    if any(rel.startswith(pfx) for pfx in SKIP_PREFIXES):
+        return True
+    return any(seg in SKIP_SEGMENTS for seg in rel.split("/"))
+
+
+def _strip_code(text):
+    """Links inside code spans/fences are not navigable; renderers do not
+    linkify them, so neither do we."""
+    return INLINE_CODE.sub("", FENCED_CODE.sub("", text))
+
+
+def _scan_docs(root):
+    rootp = Path(root).resolve()
+    seen = set()
+    for g in SCAN_GLOBS:
+        for f in sorted(rootp.glob(g)):
+            if not f.is_file() or f in seen:
+                continue
+            rel = f.relative_to(rootp).as_posix()
+            if _excluded(rel):
+                continue
+            seen.add(f)
+            yield rootp, f, rel
+
+
+def check_IL004(root):
+    out = []
+    for rootp, doc, doc_rel in _scan_docs(root):
+        try:
+            text = _strip_code(doc.read_text(encoding="utf-8", errors="replace"))
+        except OSError as e:
+            out.append(Finding("IL004", WARN, "IL004:%s:unreadable" % doc_rel,
+                               "could not read %s (%s)" % (doc_rel, e)))
+            continue
+        for m in MD_LINK.finditer(text):
+            target = m.group(1).strip()
+            if target.startswith(("http://", "https://", "mailto:", "#", "~")):
+                continue
+            if "://" in target:
+                continue
+            if "<" in target or ">" in target or "XXXX" in target:
+                continue          # template placeholder, not a real link
+            clean = re.sub(r":\d+$", "", target.split("#", 1)[0])
+            if not clean or clean.startswith("{"):
+                continue
+            try:
+                resolved = (doc.parent / clean).resolve()
+                rel = resolved.relative_to(rootp).as_posix()
+            except (ValueError, OSError):
+                continue          # escapes ROOT -> not this linter's business
+            if _excluded(rel):
+                continue
+            if not resolved.exists():
+                out.append(Finding("IL004", FAIL, "IL004:%s->%s" % (doc_rel, rel),
+                                   "%s links to '%s' -> %s (does not exist)"
+                                   % (doc_rel, target, rel)))
+    return out
+
+
+# (index_doc, governed_dir, kind) -- kind in {"dir", "file", "both"}
+INVENTORY_TARGETS = [
+    ("INDEX.md", "", "dir"),                        # top-level folders
+    ("INDEX.md", "Templates", "dir"),
+    ("KnowledgeBase/README.md", "KnowledgeBase", "both"),
+]
+# Build/test detritus and VCS metadata are not inventory.
+DIR_IGNORE = {".pytest_cache", "__pycache__", ".git", ".vs", "$tf", ".idea"}
+
+
+def check_IL005(root):
+    out = []
+    rootp = Path(root).resolve()
+    for index_rel, dir_rel, kind in INVENTORY_TARGETS:
+        index_path = rootp / index_rel
+        dir_path = rootp / dir_rel if dir_rel else rootp
+        label = dir_rel or "."
+        if not index_path.exists() or not dir_path.is_dir():
+            out.append(Finding("IL005", WARN, "IL005:%s:missing-target" % label,
+                               "governed index or dir not found: %s / %s"
+                               % (index_rel, label)))
+            continue
+        text = index_path.read_text(encoding="utf-8", errors="replace")
+        items = []
+        if kind in ("dir", "both"):
+            items += sorted(c.name for c in dir_path.iterdir()
+                            if c.is_dir() and c.name not in DIR_IGNORE)
+        if kind in ("file", "both"):
+            items += sorted(c.name for c in dir_path.iterdir()
+                            if c.is_file() and c.suffix == ".md"
+                            and c.name.lower() != "readme.md")
+        for item in items:
+            stem = item[:-3] if item.endswith(".md") else item
+            if item in text or stem in text:
+                continue
+            out.append(Finding("IL005", FAIL, "IL005:%s/%s" % (label, item),
+                               "%s/%s present on disk but not named in %s"
+                               % (label, item, index_rel)))
+    return out
+
+
+CHECK_FNS = [check_IL001, check_IL001b, check_IL002, check_IL003,
+             check_IL004, check_IL005]
 
 
 # ---------------------------------------------------------------- allow-list

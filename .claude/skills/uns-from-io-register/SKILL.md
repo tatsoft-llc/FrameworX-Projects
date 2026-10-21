@@ -10,6 +10,7 @@ description: >-
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.1.0"
 ---
 
 # UNS from the IO Register: the foundation layer, traceable
@@ -62,8 +63,8 @@ later, and retrofitting them costs a full second pass.
 - `get_objects` / `search_uns` to confirm the created counts match the plan (UserTypes, instances, tags).
 - Spot-read full paths, including at least one member per UserType (`Tag.Area1/Pump1.Run`). Instance
   member access is the thing that breaks when a member name drifted.
-- On a large register, batch by area and verify each batch before the next
-  (`work-in-verified-batches`, in the [companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills)).
+- On a large register, batch by area and verify each batch before the next. Track the batches in Claude
+  Code's task list, so a long build stays legible and resumable.
 
 ### 4. Reconcile the register
 

@@ -7,11 +7,11 @@ description: >-
   "can you see my Designer") AND as a pre-flight when the FIRST FrameworX tool call of a session fails with a
   server-not-available / connection error. Probes each bridge the session needs → identifies the failure mode
   from the inventory → surfaces the specific remediation → re-probes → confirms with a real bootstrap call
-  (list_solutions / list_workspaces / runtime_connect). The core-bridge counterpart to chrome-connector-setup,
-  which ships in the companion Claude-Code-Skills repository, not here.
+  (list_solutions / list_workspaces / runtime_connect).
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.1.0"
 ---
 
 # Verify MCP Setup: the connection pre-flight
@@ -103,8 +103,8 @@ proceed "offline" as a workaround; connect for real first.
 
 - **kill-zombies**: mode 2 (held port) and any `.dbsln` lock found on the way route there.
   Ships in the [companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills).
-- **chrome-connector-setup**: the same probe→diagnose→fix shape for the browser connector.
-  Ships in the same companion repo.
+- **The browser side**: Claude Code's built-in browser support handles the browser connection; the
+  web-client test recipe is `KnowledgeBase/Patterns/Test-Web-Displays-in-Chrome.md`.
 - **new-project-bootstrap / ground-first**: both assume a bootstrapped session; this skill is what runs
   when that assumption fails.
 - **`KnowledgeBase/Method/mcp-setup.md`**, the full reference this skill fronts, including the auth model

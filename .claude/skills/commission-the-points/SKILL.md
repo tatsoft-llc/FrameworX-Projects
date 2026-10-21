@@ -13,6 +13,7 @@ description: >-
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.1.0"
 ---
 
 # Commission the Points: evidence-first IO commissioning
@@ -69,7 +70,8 @@ Work the register in area batches (`Area/Unit/Signal` order) so a long pass stay
    (read-only, runtime-managed, type-coercion) hides under a success envelope.
 3. **Read back.** `runtime_get_value` on the same tag: value + quality + timestamp. PASS requires: value
    matches the driven value (within the register's stated tolerance, if any), quality **Good (192)**, and a
-   fresh timestamp.
+   fresh timestamp. If only the Designer MCP is available, read value, quality and timestamp with
+   `browse_object_model('Tag.<path>')`; never take the timestamp from the `set_object_value` echo.
 4. **Record.** Append one row to `Documentation/Commissioning-Record.md`:
    `point · expected (driven) · observed (read back) · quality · timestamp · PASS/FAIL · notes`.
    FAIL/BLOCKED rows carry the defect line (what was attempted, what came back).
@@ -104,8 +106,8 @@ Log the run in the project's `ChangeLogs/ChangeLog-<user>.md` (date, areas cover
 
 ## Composition
 
-- **`one-topic-at-a-time`** ([companion repo](https://github.com/tatsoft-llc/Claude-Code-Skills)): on a long register, pace the pass one area per turn so the user can follow
-  and interleave field actions (forcing a contact, opening a valve) where hardware needs a hand.
+- **Pace a long register**: work one area per turn so the user can follow and interleave field actions
+  (forcing a contact, opening a valve) where hardware needs a hand.
 - **`run-tests`**: run the test gates before commissioning; a solution that fails its structural gate is
   not ready to commission.
 - **`KnowledgeBase/Method/Runtime-Operations.md`**: ports, profiles, cold-boot retry, and the runtime

@@ -11,6 +11,7 @@ description: >-
 license: Apache-2.0
 metadata:
   author: Marc Taccolini
+  version: "1.1.0"
 ---
 
 # Premise Check: test the question before you answer it
@@ -31,7 +32,8 @@ feature/protocol?", "is the premise right?", "check the premise first", "are you
 that?", "did you verify that against the product, or is that from memory?", "that assumes X, does it hold?".
 
 Every one of these is capability-grounding shaped. Reframing utterances, "the big question is …" and "wrong
-question, the real question is …", belong to `mirror-look` and its Inversion mode, not here.
+question, the real question is …", are not premise checks: treat the user's new question as the question and
+answer that instead.
 
 It also fires unprompted: if you are about to claim the platform supports something and you have not
 confirmed it this session, run the check before the claim leaves.
