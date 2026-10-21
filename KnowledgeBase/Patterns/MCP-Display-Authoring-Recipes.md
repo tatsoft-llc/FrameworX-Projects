@@ -94,6 +94,33 @@ The teaching, in one line: **"the flow appeared to succeed but nothing changed" 
 `refusedModals[]`**: then make the change through the data path (`write_objects`) instead of the dialog.
 *(This is the shipped contract, not a workaround, permanent.)*
 
+## Large displays: write through `from_workspace`, not an inline payload
+
+A display generated from a drawing can run to hundreds of elements: a 336-element Canvas serializes to about
+62 KB of JSON. Inlining that into a `write_objects` call is slow, costs tokens and risks truncation. The
+Designer MCP's own `write_objects` guidance draws the line at about 50 KB of content.
+
+`open_solution` takes a `from_workspace` folder and imports the JSON files in it. Write the row to a file in
+the **export envelope shape**, one file per table, named `<TableType>.json`:
+
+```json
+{ "ObjectIdentification": { "TableType": "DisplaysList", "SolutionName": "<SolutionName>" },
+  "ExportMetadata":       { "ExportProduct": "FrameworX", "ExportFormat": "1.1" },
+  "Data": [ { "Name": "MyDisplay", "PanelType": "Canvas", "Elements": [ ... ] } ] }
+```
+
+then call `open_solution(name='<Solution>', from_workspace='<folder>')`. The reply carries a
+`workspaceImport` block with created, modified, skipped and error counts per file: read it exactly as you
+would a `write_objects` reply.
+
+Know this before you use it:
+- **It replaces rows by name (upsert on the key) and is not transactional**: a partial failure leaves a mixed
+  state.
+- Every `open_solution` first writes a timestamped `.backup` beside the `.dbsln` (the last 3 are kept). That
+  backup is the rollback.
+- Under heavy Designer load the open and import can exceed the client's call timeout while the server still
+  finishes the work. Recover by reopening and reading the resulting state, not by importing again blind.
+
 ## Failure cheat sheet
 
 | Symptom | Likely cause | Fix |

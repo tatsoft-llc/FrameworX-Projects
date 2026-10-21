@@ -16,8 +16,9 @@ FrameworX-aware before the first tool fires, and is the on-ramp to the AI Tutor 
 reach the first FrameworX task and that skill clearly hasn't loaded (the user is new to the platform, or asks
 what FrameworX is), point them to it once, then carry on. The bundle ships with the product at
 `Documents\FrameworX\AISetup\frameworx.skill` (docs.tatsoft.com → *MCP and Claude Setup*, step 2); for Claude
-Code it unpacks to `~/.claude/skills/frameworx/`. It's optional, not a blocker: never gate work on it, and
-don't nag past the first mention.
+Code, extract it into `~/.claude/skills/` (the bundle already holds the `frameworx/` folder), so it lands at
+`~/.claude/skills/frameworx/SKILL.md`. It's optional, not a blocker: never gate work on it, and don't nag past
+the first mention.
 
 ## Output Discipline
 
@@ -76,8 +77,8 @@ says **how it was built and why**. (Mirrors the Tatsoft product team's per-autho
    hardware/IO + requirements, creates the solution.
 3. **Author**: turn the IO register into UNS tags (`uns-from-io-register`) and device channels
    (`first-device-channel`); build Displays, scripts, alarms, in the 5-layer order (`KnowledgeBase/Method/`).
-   Review with `review-the-ai-build`, validate with `run-tests`; on a large solution, build in batches by
-   area and verify each batch before the next (plan mode and the task list keep the thread). When something
+   Review with `review-the-ai-build`, validate with `run-tests`; on a large solution, pace the build with
+   `manage-context-on-large-solutions` (batches by layer and area, each verified before the next). When something
    misbehaves, start at `KnowledgeBase/Troubleshooting.md`.
 4. **Commission**: drive each point and read it back with quality + timestamp; record it in `Documentation/Commissioning-Record.md` (the `commission-the-points` skill mechanizes this).
 5. **Log**: note what changed in your `ChangeLogs/ChangeLog-<user>.md`; capture non-obvious decisions in `Decisions/`.

@@ -3,6 +3,26 @@
 What changed in each release of the FrameworX Solution Workspace. Newest first. Each skill also carries its
 own `metadata.version`, so you can tell which skills changed.
 
+## v1.1.1 (2026-10-21)
+
+**Fixed**
+- `README.md`, `CLAUDE.md`: the `frameworx.skill` install step for Claude Code. The bundle already contains
+  the `frameworx/` folder, so extract it into `~/.claude/skills/`. Extracting it into
+  `~/.claude/skills/frameworx/`, as the old text said, nested it one level too deep and the skill did not
+  load. The README now carries the PowerShell command.
+
+**New**
+- `.claude/skills/manage-context-on-large-solutions` (1.0.0): keep a large build coherent. Scope by layer
+  and area, browse instead of dumping, verify each batch, and leave a resumable trail. Listed in the build
+  loop, the task routing and the working agreement.
+
+**Expanded**
+- `Patterns/MCP-Display-Authoring-Recipes.md`: write a very large display through
+  `open_solution(from_workspace=...)` instead of an inline `write_objects` payload, with the envelope shape
+  and the caveats.
+- `References/Protocol-Vendor-Notes.md`: the EtherNet/IP station is `IP;Port;Slot` only; multi-hop CIP
+  routes are not supported, and what to do instead.
+
 ## v1.1.0 (2026-10-20)
 
 **New in the KnowledgeBase**

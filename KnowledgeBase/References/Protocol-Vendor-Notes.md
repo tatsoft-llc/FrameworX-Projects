@@ -133,6 +133,13 @@ Multiplatform: pick `SiemensPlus` for Linux/.NET-portable runtimes.)
 
 - **Station:** IP; Port (44818 = EtherNet/IP standard); Slot = chassis slot of the CPU module (0 = leftmost).
   Wrong slot on a multi-module chassis = no connection. **(general EtherNet/IP knowledge)**.
+- **The station is `IP;Port;Slot` and nothing more: no multi-hop CIP routing.** The connector reaches the CPU
+  one backplane hop from the Ethernet module at that IP. A controller reachable only through a bridge (a
+  second Ethernet module, ControlNet or DH+ behind the first chassis) cannot be addressed, and a route typed
+  into the Station or Slot field is not a supported way around it. Give each controller an Ethernet module
+  with its own IP in its own chassis (one Device Node each), or put a gateway that speaks a supported
+  protocol in front of that segment. **(checked against the FrameworX 10.1.5 connector; re-verify on your
+  build)**.
 - **Address is the symbolic tag name, colon-composed: `Type:DeviceTagName:ForceCIPLittleEndian`.** The tag
   name is **case-sensitive and must match the controller program exactly.** Dot for structure members
   (`Motor1.Speed`), brackets for arrays (`Temps[0]`). **(general Logix knowledge)** for case-sensitivity.

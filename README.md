@@ -1,6 +1,6 @@
 # FrameworX Solution Workspace
 
-**`v1.1.0`** · targets FrameworX **10.1.5+** · [what changed](CHANGELOG.md)
+**`v1.1.1`** · targets FrameworX **10.1.5+** · [what changed](CHANGELOG.md)
 
 FrameworX is an industrial automation platform from Tatsoft: SCADA, HMI, historian, alarming and device
 connectivity in one product, with MCP servers that let an AI agent read and write the solution directly.
@@ -76,14 +76,14 @@ More, by industry and by architecture: [Solution Examples](https://docs.tatsoft.
 
 ## The build loop
 
-Twelve skills, each a named step in how a solution gets built and verified:
+Thirteen skills, each a named step in how a solution gets built and verified:
 
 | Stage | Skills |
 |---|---|
 | Start | `new-project-bootstrap`, `ground-first` |
 | Connect | `verify-mcp-setup`, `first-device-channel` |
 | Model | `uns-from-io-register` |
-| Build | `display-authoring-loop`, `svg-to-fx-display` |
+| Build | `display-authoring-loop`, `svg-to-fx-display`, `manage-context-on-large-solutions` |
 | Question the ask | `premise-check` |
 | Prove | `commission-the-points`, `review-the-ai-build`, `run-tests` |
 | Hand over | `project-handover-docs` |
@@ -154,11 +154,13 @@ want the full loop; this repository does not depend on it.
   not from a download page: after installing FrameworX, find `frameworx.skill` in
   `Documents\FrameworX\AISetup`
   ([docs.tatsoft.com → MCP and Claude Setup](https://docs.tatsoft.com/display/FX/MCP+and+Claude+Setup),
-  step 2). The install path documented there is Claude Desktop; for **Claude Code**, unpack the bundle into
-  `~/.claude/skills/frameworx/` so the file lands at `~/.claude/skills/frameworx/SKILL.md`, which is where
-  Claude Code looks for it
+  step 2). The install path documented there is Claude Desktop; for **Claude Code**, extract the bundle into
+  `~/.claude/skills/` (it is a zip that already contains the `frameworx/` folder), so the file lands at
+  `~/.claude/skills/frameworx/SKILL.md`, which is where Claude Code looks for it
   ([docs.tatsoft.com → Claude Code MCP Setup](https://docs.tatsoft.com/display/FX/Claude+Code+MCP+Setup),
-  Quick Reference: Config Files).
+  Quick Reference: Config Files). In PowerShell:
+  `New-Item -ItemType Directory -Force "$HOME\.claude\skills"; tar -xf "$HOME\Documents\FrameworX\AISetup\frameworx.skill" -C "$HOME\.claude\skills"`.
+  Extracting into `~/.claude/skills/frameworx/` instead nests it one level too deep, and the skill does not load.
 - **Your own Claude API key.** You control your AI spend; the workspace defaults to an economical model
   tier and tells you when a task is worth a more capable one.
 

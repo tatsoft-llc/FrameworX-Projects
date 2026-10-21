@@ -34,6 +34,7 @@ given task touches first.
 | Verify the MCP connection | `verify-mcp-setup` (probes the bridges, smoke-tests `list_solutions`) | a confirmed, bootstrapped session |
 | New project | `new-project-bootstrap` (reads `Templates/SiteProject/`) | `Sites/<Name>/` |
 | Author UNS / Displays | the project's `Specifications/` (`uns-from-io-register` for the tag layer; `first-device-channel` for device comms) | the solution in `Solutions/` |
+| Large build (hundreds of tags, many displays) | `manage-context-on-large-solutions` (batches by layer and area, a resumable trail) | the solution, built and verified one batch at a time |
 | Commission | the project's `Specifications/IO-Register.md` (the `commission-the-points` skill drives it) | `Documentation/Commissioning-Record.md` + `ChangeLogs/` |
 | Hand over | the live solution + `Documentation/` (the `project-handover-docs` skill generates the set) | `Documentation/` |
 | Reuse a convention/pattern | `KnowledgeBase/` | a new `KnowledgeBase/` entry when a lesson recurs |
