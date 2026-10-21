@@ -2,13 +2,13 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "mcp__FrameworX-Designer__create_solution|mcp__FrameworX-Console__create_workspace|mcp__FrameworX-Console__create_solution_file",
+        "matcher": "^mcp__.+__(create_solution|create_solution_file|create_workspace)$",
         "hooks": [
           {
             "type": "command",
-            "command": "& '.claude/hooks/check-cpu-before-sandbox.ps1'",
+            "command": "& \"$env:CLAUDE_PROJECT_DIR/.claude/hooks/check-cpu-before-sandbox.ps1\"",
             "shell": "powershell",
-            "timeout": 10,
+            "timeout": 30,
             "statusMessage": "Checking CPU before creating a solution..."
           }
         ]
@@ -19,7 +19,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "& '.claude/hooks/session-start-baseline.ps1'",
+            "command": "& \"$env:CLAUDE_PROJECT_DIR/.claude/hooks/session-start-baseline.ps1\"",
             "shell": "powershell",
             "timeout": 10
           }
@@ -31,9 +31,21 @@
         "hooks": [
           {
             "type": "command",
-            "command": "& '.claude/hooks/session-stop-reap.ps1'",
+            "command": "& \"$env:CLAUDE_PROJECT_DIR/.claude/hooks/session-stop-reap.ps1\" -Mode Record",
             "shell": "powershell",
             "timeout": 20
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& \"$env:CLAUDE_PROJECT_DIR/.claude/hooks/session-stop-reap.ps1\" -Mode Reap",
+            "shell": "powershell",
+            "timeout": 30
           }
         ]
       }

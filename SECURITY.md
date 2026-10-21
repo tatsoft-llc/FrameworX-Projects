@@ -29,7 +29,8 @@ Anything shipped here that runs on your machine, is executed by the product, or 
 
 - `.claude/settings.json`, the shipped permission file. An entry granting more than the README's warning
   describes, or a destructive verb added without updating that warning.
-- `.claude/hooks/*.ps1`. The stop hook force-terminates processes against a baseline file under `%TEMP%`.
+- `.claude/hooks/*.ps1`. At session end, the reap hook force-terminates processes recorded against a
+  baseline file under `%TEMP%`.
   A way to make it kill something outside that baseline, or to steer it by tampering with the baseline
   from another local account, is in scope.
 - `.claude/tools/invariant-linter/invariant_lint.py`, which is read only except for `--reseed` writing its
@@ -51,22 +52,25 @@ Anything shipped here that runs on your machine, is executed by the product, or 
   issue here.
 - **Third party software**: Claude Code, Node.js and `npx`, the `mcp-remote` package, Python. Report those
   to their own maintainers.
-- **Your own clone.** Once you commit real customer sites into it, keeping that repository private is your
+- **Your own clone.** `.gitignore` keeps customer sites and received source material out of commits by
+  default. If you remove that default to version your sites, keeping that repository private is your
   responsibility, as `.gitignore` says in place.
 
 ## Documented by design, please do not re-report
 
 These are written down here on purpose. They are posture and deliberate defaults, not defects:
 
-1. **The MCP bridges listen unauthenticated on their port, and the network is the security boundary**
-   (`KnowledgeBase/Method/mcp-setup.md`). The documented answer is to control reach: localhost only, or a
-   trusted LAN or VPN, and never a public port forward. An error inside that guidance is in scope; the
-   posture itself is not a finding.
+1. **The network is the security boundary for the MCP bridges** (`KnowledgeBase/Method/mcp-setup.md`). On
+   FrameworX 10.1.5 and earlier they listen unauthenticated on their port. From 10.1.6 a bridge with no key
+   accepts only local connections, and a network client sends a key that travels over plain HTTP. The
+   documented answer is to control reach: localhost only, or a trusted LAN or VPN, and never a public port
+   forward. An error inside that guidance is in scope; the posture itself is not a finding.
 2. **The shipped permission file auto-approves the write verbs** (README, "Safety"). Deliberate, because
    prompting on every write makes a build session unusable, and the README gives the opt-out.
 3. **This workspace writes to a control system, and a tag write can move a physical output.** That is what
    the harness is for.
-4. **The stop hook terminates processes**, scoped so pre-existing Designer and TServer processes are never
+4. **The session-end hook terminates processes**, scoped to the ones this session started: pre-existing Designer
+   and TServer processes, and processes started by another session, a shared bridge or by hand, are never
    touched. A demonstrated failure of that scoping is in scope.
 
 ## Research safely

@@ -1,8 +1,9 @@
 #requires -Version 5.1
 # Capture a baseline of FrameworX process families at session start.
-# Paired with session-stop-reap.ps1: at session end, only processes that are NOT in
-# this baseline AND started after it are treated as session-spawned orphans.
-# The operator's pre-existing Designer / TServer processes are never touched.
+# Paired with session-stop-reap.ps1: after each reply it records the processes that are NOT in
+# this baseline, started after it, and were spawned by this session; at session end it stops
+# the recorded ones still running. The operator's pre-existing Designer / TServer processes
+# are never touched.
 
 $ErrorActionPreference = 'SilentlyContinue'
 

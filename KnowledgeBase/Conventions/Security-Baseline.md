@@ -2,8 +2,8 @@
 
 Minimum security posture for a delivered solution. The Security module's exact tables and fields come
 from `get_table_schema('Security')` on your build: this file carries the decisions and the verification
-bar, not the schema. (The *bridge* security model, unauthenticated HTTP, network as the boundary, is
-separate: `Method/mcp-setup.md` § auth model.)
+bar, not the schema. (The *bridge* security model, plain HTTP with an API key for network clients from
+10.1.6, network as the boundary, is separate: `Method/mcp-setup.md` § auth model.)
 
 ## Decide the roles first
 

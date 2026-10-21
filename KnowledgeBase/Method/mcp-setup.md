@@ -55,13 +55,30 @@ the test harness's live-value checks need the bridge or Claude Desktop extension
 This is the common case for a Mac user with FrameworX in a Windows VM, or a workstation talking
 to a server.
 
-1. On the **Windows** machine, start the bridges as above.
-2. Open the bridge ports in **Windows Firewall**: 10150, 10151, 10120 (only the ones you use).
-3. On the **Claude Code** machine, copy [`.mcp.remote.example.json`](../../.mcp.remote.example.json)
+1. **FrameworX 10.1.6 or later: set an API key on each bridge you use.** From 10.1.6, a bridge with
+   no key accepts connections only from its own machine. Connections from another computer, or from
+   the host of a VM through port forwarding, are refused. The steps are STEP 0 of
+   `AISetup\Http\README.txt` in the FrameworX install: copy `<Server>.json` (for example
+   `DesignerMCPHttp.json`) into the `MachineSettings` folder if it is not there yet, set
+   `appSettings` → `X_API_KEY` to a random value of 32 or more letters and digits (A-Z, a-z, 0-9
+   only: other characters are altered on the way and the key is then refused), keep
+   `ListenLoopbackOnly` false for `RuntimeMCPHttp`, and restart the bridge. Each bridge reads its own
+   key; the example config below sends one variable to all three, so set the same value on each
+   bridge you use. On 10.1.5 and earlier, skip this step.
+2. On the **Windows** machine, start the bridges as above.
+3. Open the bridge ports in **Windows Firewall**: 10150, 10151, 10120 (only the ones you use).
+4. On the **Claude Code** machine, copy [`.mcp.remote.example.json`](../../.mcp.remote.example.json)
    over `.mcp.json` and replace `YOUR-WINDOWS-IP` with the Windows machine's LAN address.
-4. If FrameworX is in a same-host VM (Parallels, VMware) rather than across the network, keep
-   `127.0.0.1` and set up VM port forwarding for the three ports instead of using the LAN IP.
-5. **Every path in an MCP call resolves on the FrameworX host, not on the machine running Claude
+5. **Give Claude Code the key without writing it into a file.** The example sends the header
+   `X-API-KEY:${FX_MCP_API_KEY}`, and Claude Code fills `${FX_MCP_API_KEY}` from the environment it
+   starts in. Set that environment variable to the bridge key on the Claude Code machine, then start
+   Claude Code. If the variable is missing, `claude mcp list` shows a missing-variable warning and the
+   literal text `${FX_MCP_API_KEY}` is sent, which the bridge refuses. Against a 10.1.5 bridge, delete
+   the two `--header` entries from each server instead.
+6. If FrameworX is in a same-host VM (Parallels, VMware) rather than across the network, keep
+   `127.0.0.1` and set up VM port forwarding for the three ports instead of using the LAN IP. On
+   10.1.6 or later this still counts as a remote connection: the key from step 1 is required.
+7. **Every path in an MCP call resolves on the FrameworX host, not on the machine running Claude
    Code.** A `create_solution` folder, an `import_tags` file, a sandbox path: the bridge opens each
    one on the Windows machine, so write it as that machine sees it (`C:\...`), never as a client-side
    path. A client-side path here fails file-not-found, which is easy to misread as a connection problem.
@@ -72,16 +89,24 @@ to a server.
 
 This matters for any deployment beyond a single trusted machine.
 
-- **The bridges listen unauthenticated on their port, and the network is the security boundary.**
-  A client that can reach `http://<host>:10150/mcp` can drive the Designer: there is no credential
-  at the bridge, so control who can reach the port. Terminating TLS in front of it changes the
+- **Bridge access depends on the release, and the network is the security boundary in both.**
+  - **FrameworX 10.1.6 and later:** a bridge with no API key accepts only connections from its own
+    machine. With a key set, it accepts network clients that send it in the `X-API-KEY` header. The
+    key grants full access to that bridge and travels over plain HTTP, so anyone who can watch the
+    network can read it. Keep it private, and treat it as a guard against accidental reach, not as
+    protection on an untrusted network.
+  - **FrameworX 10.1.5 and earlier:** the bridges listen unauthenticated on their port. A client that
+    can reach `http://<host>:10150/mcp` can drive the Designer, with no credential at the bridge.
+
+  Either way, control who can reach the port. Terminating TLS in front of a bridge changes the
   transport, not that fact. Two safe postures:
   - **Localhost only.** Keep the bridges on `127.0.0.1` and do not open the firewall ports. The
     AI client runs on the same machine. This is the default and the recommendation for a single
     workstation.
   - **Trusted LAN or VPN.** If the client is on another machine, expose the ports only on a
     trusted, segmented network or over a VPN. Never port-forward a bridge to the public internet:
-    reachability is the only thing gating it.
+    on 10.1.5 reachability is the only thing gating it, and on 10.1.6 a key sent in clear text is not
+    enough.
 - **The Runtime bridge holds the TServer credentials, not the AI client.** `RuntimeMCPHttp.json`
   (next to `StartRuntimeMCPHttp.bat`) carries the TServer Host, Port, and the runtime user
   credentials the bridge uses to connect. The AI client never sends those; it asks the bridge,

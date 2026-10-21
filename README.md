@@ -1,8 +1,6 @@
 # FrameworX Solution Workspace
 
-**FrameworX. AI builds and runs the industrial solution.**
-
-**`v1.0.0`** · targets FrameworX **10.1.5+**
+**`v1.0.1`** · targets FrameworX **10.1.5+**
 
 FrameworX is an industrial automation platform from Tatsoft: SCADA, HMI, historian, alarming and device
 connectivity in one product, with MCP servers that let an AI agent read and write the solution directly.
@@ -34,8 +32,13 @@ Everything still works; you approve each verb once per session instead.
 
 ## Get FrameworX first
 
-FrameworX is a free download with a 4 hour runtime, no license needed to work through everything in this
-repository. Get **10.1.5 or newer**: earlier builds do not ship the MCP servers this workspace drives.
+FrameworX is a free download, and no license is needed to work through everything in this repository.
+Without a license, each runtime session and each Designer session stops after 4 hours; start it again to
+continue. Register the free **Community Edition** on the License page of Solution Center to remove that limit
+for solutions up to 1,000 tags and 100 communication points. Community Edition is free and perpetual, and it
+can be used in production within those limits. Larger systems take a licensed edition: see
+[Product Editions](https://docs.tatsoft.com/display/FX/Product+Editions). Get **10.1.5 or newer**: earlier
+builds do not ship the MCP servers this workspace drives.
 
 **https://tatsoft.com/fx-101/#download**
 
@@ -85,7 +88,7 @@ The example also ships without its runtime databases (`.dbAlarm`, `.dbHistorian`
 design and FrameworX regenerates them on first run, so their absence in a fresh clone is expected. The
 solution itself ships alongside a complete diffable JSON export set under `DesignerData/…/Git/`.
 
-> **v1.0.0.** The build method, conventions and reliability notes are distilled from real FrameworX
+> The build method, conventions and reliability notes are distilled from real FrameworX
 > engineering practice and validated end to end against worked
 > examples: the **Brewery Plant** build under [`Templates/Examples/Brewery/`](Templates/Examples/Brewery/)
 > (golden plus re-take test runs) and the **Highland WTP** project under
@@ -111,7 +114,8 @@ depend on it.
   documentation search ships inside Designer/Console as the `search_docs` tool, no separate server.)
   The workspace ships [`.mcp.json`](.mcp.json) preconfigured for a same-machine install (bridge ports
   10150 / 10151 / 10120 on `127.0.0.1`); for a remote FrameworX machine, copy
-  [`.mcp.remote.example.json`](.mcp.remote.example.json) over it and set the host. Full connect steps,
+  [`.mcp.remote.example.json`](.mcp.remote.example.json) over it, set the host and, on FrameworX 10.1.6 or
+  later, the bridge API key. Full connect steps,
   including starting the bridges and the security model: [`KnowledgeBase/Method/mcp-setup.md`](KnowledgeBase/Method/mcp-setup.md).
 - **The FrameworX skill (`frameworx.skill`), strongly recommended.** A lightweight `SKILL.md` bundle that
   loads at the start of every session and conditions Claude *before the first tool fires*, so the session
@@ -192,8 +196,9 @@ plant fills more. The workspace scales with the deployment.
 
 > **Hooks:** three ship here. `check-cpu-before-sandbox.ps1` guards solution creation on a busy machine;
 > the `session-start-baseline.ps1` + `session-stop-reap.ps1` pair snapshots the FrameworX processes at
-> session start and, at session end, reaps only the ones the session itself spawned, so your pre-existing
-> Designer/TServer are never touched. For the mid-session case, a `.dbsln` still held (`READ_ONLY_MODE`)
+> session start, records after each reply the ones the session itself spawned, and stops those when the
+> session closes, so your pre-existing Designer/TServer are never touched. `/clear` and `/resume` stop
+> nothing, because the same Claude Code process keeps running. For the mid-session case, a `.dbsln` still held (`READ_ONLY_MODE`)
 > or a bridge port still bound by a process from an earlier session, the `kill-zombies` skill in the
 > [companion skills repository](https://github.com/tatsoft-llc/Claude-Code-Skills) releases it on
 > demand.

@@ -1,17 +1,17 @@
 {
-  "_comment": "Use this when Claude Code runs on a DIFFERENT machine than FrameworX (Mac, VM, or a separate PC). Copy it over .mcp.json and replace YOUR-WINDOWS-IP with the LAN address of the Windows machine running FrameworX. Open ports 10150, 10151, 10120 in Windows Firewall on that machine. See KnowledgeBase/Method/mcp-setup.md for the full explanation and the auth model.",
+  "_comment": "Use this when Claude Code runs on a DIFFERENT machine than FrameworX (Mac, VM, or a separate PC). Copy it over .mcp.json and replace YOUR-WINDOWS-IP with the LAN address of the Windows machine running FrameworX. Open ports 10150, 10151, 10120 in Windows Firewall on that machine. FrameworX 10.1.6 or later: set an X_API_KEY on each bridge and set the FX_MCP_API_KEY environment variable to it on this machine before starting Claude Code. FrameworX 10.1.5: delete the two --header entries from each server. See KnowledgeBase/Method/mcp-setup.md for the full explanation and the auth model.",
   "mcpServers": {
     "FrameworX-Designer": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "http://YOUR-WINDOWS-IP:10150/mcp"]
+      "args": ["-y", "mcp-remote", "http://YOUR-WINDOWS-IP:10150/mcp", "--allow-http", "--header", "X-API-KEY:${FX_MCP_API_KEY}"]
     },
     "FrameworX-Console": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "http://YOUR-WINDOWS-IP:10151/mcp"]
+      "args": ["-y", "mcp-remote", "http://YOUR-WINDOWS-IP:10151/mcp", "--allow-http", "--header", "X-API-KEY:${FX_MCP_API_KEY}"]
     },
     "FrameworX-Runtime": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "http://YOUR-WINDOWS-IP:10120/mcp"]
+      "args": ["-y", "mcp-remote", "http://YOUR-WINDOWS-IP:10120/mcp", "--allow-http", "--header", "X-API-KEY:${FX_MCP_API_KEY}"]
     }
   }
 }

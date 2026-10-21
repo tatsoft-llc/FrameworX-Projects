@@ -20,9 +20,19 @@ Thumbs.db
 *.tmp
 *~
 
-# Per-customer project content (Sites/) IS tracked: the actual project work is what gets versioned.
-# This PUBLIC template ships one example site (Sites/Example-HighlandWTP). Once you start committing
-# YOUR real customer sites into your clone/fork, keep that repository PRIVATE / access-controlled.
+# Customer project content is NOT tracked by default. This public template ships one worked
+# example (Sites/Example-HighlandWTP). A fork of a public repository is public, so a real site
+# committed here would be published. To version your own sites, make your copy PRIVATE first,
+# then delete the two Sites lines below on purpose.
+Sites/*
+!Sites/Example-HighlandWTP/
+
+# Material received from a customer or from the system being replaced (archives as received,
+# unpacked projects, exports) and certificates: local only, at any depth, in every copy.
+**/Origin/
+*.pfx
+*.p12
+*.der
 
 # FrameworX per-solution LOCAL / TRANSIENT state: version the solution + its diffable Git/ export,
 # NOT machine/session working state (this is the "position saving / profile" data):

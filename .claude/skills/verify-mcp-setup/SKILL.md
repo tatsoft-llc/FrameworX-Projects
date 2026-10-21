@@ -59,10 +59,14 @@ Match the error to the mode; apply the one remediation; re-probe.
    still holds the port → run the `kill-zombies` skill (companion repo), then start the bridge again.
 3. **Timeout to a remote host.** Firewall or wrong IP. On the FrameworX machine open inbound
    10150/10151/10120 (only the ones used); confirm the host IP in `.mcp.json` matches. For a same-host VM
-   (Parallels/VMware), keep `127.0.0.1` and port-forward instead of using the LAN IP.
+   (Parallels/VMware), keep `127.0.0.1` and port-forward instead of using the LAN IP. On FrameworX 10.1.6
+   or later, also confirm each bridge has an `X_API_KEY` set and that `FX_MCP_API_KEY` holds the same
+   value on the Claude Code machine: a bridge with no key refuses every connection that is not from its
+   own machine, VM port forwarding included (`mcp-setup.md` § Separate machine).
 4. **`.mcp.json` still carries the `YOUR-WINDOWS-IP` placeholder** (or points at localhost when FrameworX
-   is remote). Copy `.mcp.remote.example.json` over `.mcp.json`, set the real host, restart Claude Code
-   (MCP config loads at startup).
+   is remote). Copy `.mcp.remote.example.json` over `.mcp.json`, set the real host and, on 10.1.6 or
+   later, the `FX_MCP_API_KEY` environment variable, then restart Claude Code (MCP config loads at
+   startup).
 5. **Designer/Console probes pass but the Runtime probe fails.** The runtime isn't running, or the bridge's
    `RuntimeMCPHttp.json` (next to its .bat) points at the wrong TServer host/port/credentials. Start the
    solution's runtime first (Development profile: TServer port auto-increments from 3201: never hardcode;
@@ -104,4 +108,5 @@ proceed "offline" as a workaround; connect for real first.
 - **new-project-bootstrap / ground-first**: both assume a bootstrapped session; this skill is what runs
   when that assumption fails.
 - **`KnowledgeBase/Method/mcp-setup.md`**, the full reference this skill fronts, including the auth model
-  (bridges are unauthenticated HTTP, the security boundary is the network; localhost or trusted LAN/VPN only).
+  (plain HTTP, with an API key for network clients from 10.1.6; the security boundary is the network;
+  localhost or trusted LAN/VPN only).
