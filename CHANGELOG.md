@@ -3,6 +3,11 @@
 What changed in each release of the FrameworX Solution Workspace. Newest first. Each skill also carries its
 own `metadata.version`, so you can tell which skills changed.
 
+## v1.1.3 (2026-10-21)
+
+**Fixed**
+- `Conventions/Startup-Layout-and-MainPage.md`: the shared header note is trimmed to its general rule.
+
 ## v1.1.2 (2026-10-21)
 
 **Expanded**

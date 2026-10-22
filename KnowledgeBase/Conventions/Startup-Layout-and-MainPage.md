@@ -74,9 +74,7 @@ the same strip onto every page:
   and the header and footer stay where they are.
 
 The result is one place to fix the header, fewer elements per page, and navigation that works the way the
-platform does. It matters most when you convert an application whose screens each carry their own copy of
-the header and nav bar: keep one copy in the layout and drop the rest. Source: docs.tatsoft.com *Displays
-Layouts* (regions and content navigation).
+platform does. Source: docs.tatsoft.com *Displays Layouts* (regions and content navigation).
 
 ## What this prevents
 The anti-pattern is to author a new "first page" and never wire it into the Startup layout's Content region,
