@@ -63,6 +63,21 @@ first `IL001b` cut: corrected to count `Elements` **or** `Cells` **or** `Xaml` c
 `DisplaysLayouts` is a document object: read the `Startup` row's `Regions` JSON first, change the Content
 region's `Page`, then write the whole document back.
 
+## Shared header and navigation: put them in the layout once
+The Header, Menu and Footer regions stay in place while pages open into Content. Use that instead of copying
+the same strip onto every page:
+- Put the shared header (title, alarm button, status texts, date and time) in one display assigned to the
+  `Startup` layout's Header region, and a shared navigation or status bar in one display in the Footer (or
+  Menu) region.
+- Keep each page display to its own content.
+- Navigate with `@Display.PageName.Open()` or `@Client.OpenDisplay("PageName")`: the page opens in Content
+  and the header and footer stay where they are.
+
+The result is one place to fix the header, fewer elements per page, and navigation that works the way the
+platform does. It matters most when you convert an application whose screens each carry their own copy of
+the header and nav bar: keep one copy in the layout and drop the rest. Source: docs.tatsoft.com *Displays
+Layouts* (regions and content navigation).
+
 ## What this prevents
 The anti-pattern is to author a new "first page" and never wire it into the Startup layout's Content region,
 leaving the slot on an empty or placeholder page. Two failures follow from that one omission:

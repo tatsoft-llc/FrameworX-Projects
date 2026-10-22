@@ -140,6 +140,14 @@ Multiplatform: pick `SiemensPlus` for Linux/.NET-portable runtimes.)
   with its own IP in its own chassis (one Device Node each), or put a gateway that speaks a supported
   protocol in front of that segment. **(checked against the FrameworX 10.1.5 connector; re-verify on your
   build)**.
+- **Tag import from a file reads `.L5K` only: export L5K, not L5X.** The ControlLogix Tag Importer
+  (*Import Rockwell ControlLogix L5K configuration*) parses the L5K text export, and its file dialog lists
+  only `*.L5K`. Given an `.L5X` file (the XML export Studio 5000 also offers), it returns an empty tag list
+  with no error message, which looks exactly like a controller with no tags. Renaming `.L5X` to `.L5K` does
+  not convert the format and can import partial garbage; save the project as L5K from Studio 5000 instead.
+  If a file import comes back empty, check the file format before you doubt the controller. The importer's
+  other source, *From a device*, reads the tags from a live PLC. **(checked against the FrameworX 10.1.5
+  importer; re-verify on your build)**.
 - **Address is the symbolic tag name, colon-composed: `Type:DeviceTagName:ForceCIPLittleEndian`.** The tag
   name is **case-sensitive and must match the controller program exactly.** Dot for structure members
   (`Motor1.Speed`), brackets for arrays (`Temps[0]`). **(general Logix knowledge)** for case-sensitivity.

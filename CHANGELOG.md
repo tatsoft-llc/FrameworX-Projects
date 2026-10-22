@@ -3,6 +3,14 @@
 What changed in each release of the FrameworX Solution Workspace. Newest first. Each skill also carries its
 own `metadata.version`, so you can tell which skills changed.
 
+## v1.1.2 (2026-10-21)
+
+**Expanded**
+- `References/Protocol-Vendor-Notes.md`: the ControlLogix Tag Importer reads `.L5K` files only. An `.L5X`
+  file imports an empty tag list with no error, and renaming it does not help; export L5K instead.
+- `Conventions/Startup-Layout-and-MainPage.md`: put a shared header and nav bar once in the layout's Header
+  and Footer (or Menu) regions, keep each page to its own content, and navigate into Content.
+
 ## v1.1.1 (2026-10-21)
 
 **Fixed**
